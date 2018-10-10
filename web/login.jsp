@@ -12,12 +12,27 @@
         <title>Login</title>
     </head>
     <body>
+    <center>
         <h1>Login de Usuario</h1>
         <form method="GET" action="procesoAcceso">
-            <input type="text" name="txtNombreUsuario">
-            <input type="password" name="txtPassword">
-            <input type="submit" name="btnAccion" value="Ingresar">
+
+            <table border="1">
+                <tbody>
+                    <tr>
+                        <td>Nombre Usuario: </td>
+                        <td><input type="text" name="txtNombreUsuario" placeholder="Nombre Usuario"></td>
+                    </tr>
+                    <tr>
+                        <td>Contraseña: </td>
+                        <td><input type="password" name="txtPassword" placeholder="Contraseña"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name="btnAccion" value="Ingresar"></td>
+                    </tr>
+                </tbody>
+            </table>
         </form>
         ${mensaje}
-    </body>
+    </center>
+</body>
 </html>
