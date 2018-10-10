@@ -83,6 +83,13 @@ public class SuperUsuario implements Serializable {
         this.pass = pass;
     }
 
+    public SuperUsuario(String user, String pass) {
+        this.user = user;
+        this.pass = pass;
+    }
+    
+    
+
     public Integer getId() {
         return id;
     }
