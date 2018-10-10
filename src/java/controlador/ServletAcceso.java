@@ -7,16 +7,22 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.SuperUsuarioFacade;
+import modelo.dto.SuperUsuario;
 
 /**
  *
  * @author Berni
  */
 public class ServletAcceso extends HttpServlet {
+
+    @EJB
+    private SuperUsuarioFacade superUsuarioFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,18 +35,10 @@ public class ServletAcceso extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletAcceso</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletAcceso at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String opcion = request.getParameter("btnAccion");
+
+        if (opcion.equals("Ingresar")) {
+            ingresar(request, response);
         }
     }
 
@@ -82,5 +80,26 @@ public class ServletAcceso extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void ingresar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        try {
+            String user = request.getParameter("txtNombreUsuario");
+            String pass = request.getParameter("txtPassword");
+
+            if (superUsuarioFacade.ingresar(user, pass)) {
+                SuperUsuario superusuario = new SuperUsuario(user, pass);
+                response.sendRedirect("Vistas/agregar_administrador.jsp");
+                
+
+            } else {
+                request.getSession().setAttribute("mensaje", "Credenciales incorrectas");
+                response.sendRedirect("login.jsp");
+            }
+        } catch (Exception e) {
+            response.sendRedirect("login.jsp");
+        }
+
+    }
 
 }
