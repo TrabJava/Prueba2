@@ -13,7 +13,7 @@ import modelo.dto.Jugador;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Stateless
 public class JugadorFacade extends AbstractFacade<Jugador> {
@@ -29,6 +29,7 @@ public class JugadorFacade extends AbstractFacade<Jugador> {
     public JugadorFacade() {
         super(Jugador.class);
     }
+    
     public boolean existeUsuario(String user,String rut){
         Query query = em.createQuery("SELECT j FROM jugador j WHERE j.user = :user AND j.rut=:rut");
         query.setParameter("user", user);
@@ -40,5 +41,4 @@ public class JugadorFacade extends AbstractFacade<Jugador> {
         query.setParameter("id", id);
         return query.getResultList().size() > 0;
     }
-    
 }

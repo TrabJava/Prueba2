@@ -13,7 +13,7 @@ import modelo.dto.SuperUsuario;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Stateless
 public class SuperUsuarioFacade extends AbstractFacade<SuperUsuario> {
@@ -29,7 +29,6 @@ public class SuperUsuarioFacade extends AbstractFacade<SuperUsuario> {
     public SuperUsuarioFacade() {
         super(SuperUsuario.class);
     }
-    
     public boolean existeUsuario(String user){
         Query query = em.createQuery("SELECT u FROM super_usuario u WHERE u.user = :user");
         query.setParameter("user", user);
@@ -47,5 +46,7 @@ public class SuperUsuarioFacade extends AbstractFacade<SuperUsuario> {
         query.setParameter("pass", pass);
         return query.getResultList().size() > 0;
     }
+
+
     
 }

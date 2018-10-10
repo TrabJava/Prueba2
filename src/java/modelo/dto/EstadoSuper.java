@@ -25,15 +25,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "estado_super")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "EstadoSuper.findAll", query = "SELECT e FROM EstadoSuper e")
-    , @NamedQuery(name = "EstadoSuper.findById", query = "SELECT e FROM EstadoSuper e WHERE e.id = :id")
-    , @NamedQuery(name = "EstadoSuper.findByDescripcion", query = "SELECT e FROM EstadoSuper e WHERE e.descripcion = :descripcion")})
+    @NamedQuery(name = "EstadoSuper.findAll", query = "SELECT e FROM EstadoSuper e"),
+    @NamedQuery(name = "EstadoSuper.findById", query = "SELECT e FROM EstadoSuper e WHERE e.id = :id"),
+    @NamedQuery(name = "EstadoSuper.findByDescripcionSuper", query = "SELECT e FROM EstadoSuper e WHERE e.descripcionSuper = :descripcionSuper")})
 public class EstadoSuper implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +44,9 @@ public class EstadoSuper implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Size(min = 1, max = 100)
+    @Column(name = "descripcion_super")
+    private String descripcionSuper;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "estado")
     private List<SuperUsuario> superUsuarioList;
 
@@ -57,9 +57,9 @@ public class EstadoSuper implements Serializable {
         this.id = id;
     }
 
-    public EstadoSuper(Integer id, String descripcion) {
+    public EstadoSuper(Integer id, String descripcionSuper) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.descripcionSuper = descripcionSuper;
     }
 
     public Integer getId() {
@@ -70,12 +70,12 @@ public class EstadoSuper implements Serializable {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionSuper() {
+        return descripcionSuper;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionSuper(String descripcionSuper) {
+        this.descripcionSuper = descripcionSuper;
     }
 
     @XmlTransient

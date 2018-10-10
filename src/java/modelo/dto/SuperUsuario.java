@@ -23,16 +23,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "super_usuario")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "SuperUsuario.findAll", query = "SELECT s FROM SuperUsuario s")
-    , @NamedQuery(name = "SuperUsuario.findById", query = "SELECT s FROM SuperUsuario s WHERE s.id = :id")
-    , @NamedQuery(name = "SuperUsuario.findByUser", query = "SELECT s FROM SuperUsuario s WHERE s.user = :user")
-    , @NamedQuery(name = "SuperUsuario.findByPass", query = "SELECT s FROM SuperUsuario s WHERE s.pass = :pass")})
+    @NamedQuery(name = "SuperUsuario.findAll", query = "SELECT s FROM SuperUsuario s"),
+    @NamedQuery(name = "SuperUsuario.findById", query = "SELECT s FROM SuperUsuario s WHERE s.id = :id"),
+    @NamedQuery(name = "SuperUsuario.findByUser", query = "SELECT s FROM SuperUsuario s WHERE s.user = :user"),
+    @NamedQuery(name = "SuperUsuario.findByPass", query = "SELECT s FROM SuperUsuario s WHERE s.pass = :pass")})
 public class SuperUsuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -43,12 +43,12 @@ public class SuperUsuario implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     @Column(name = "user")
     private String user;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     @Column(name = "pass")
     private String pass;
     @JoinColumn(name = "tipo", referencedColumnName = "id")
@@ -57,9 +57,6 @@ public class SuperUsuario implements Serializable {
     @JoinColumn(name = "estado", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private EstadoSuper estado;
-    @JoinColumn(name = "detalle", referencedColumnName = "id")
-    @ManyToOne
-    private Detalle detalle;
 
     public SuperUsuario() {
     }
@@ -68,27 +65,11 @@ public class SuperUsuario implements Serializable {
         this.id = id;
     }
 
-    public SuperUsuario(Integer id, String user, String pass, TipoSuper tipo, EstadoSuper estado) {
-        this.id = id;
-        this.user = user;
-        this.pass = pass;
-        this.tipo = tipo;
-        this.estado = estado;
-    }
-    
-
     public SuperUsuario(Integer id, String user, String pass) {
         this.id = id;
         this.user = user;
         this.pass = pass;
     }
-
-    public SuperUsuario(String user, String pass) {
-        this.user = user;
-        this.pass = pass;
-    }
-    
-    
 
     public Integer getId() {
         return id;
@@ -128,14 +109,6 @@ public class SuperUsuario implements Serializable {
 
     public void setEstado(EstadoSuper estado) {
         this.estado = estado;
-    }
-
-    public Detalle getDetalle() {
-        return detalle;
-    }
-
-    public void setDetalle(Detalle detalle) {
-        this.detalle = detalle;
     }
 
     @Override

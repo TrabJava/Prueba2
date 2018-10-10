@@ -25,15 +25,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "tipo_clasificatoria")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TipoClasificatoria.findAll", query = "SELECT t FROM TipoClasificatoria t")
-    , @NamedQuery(name = "TipoClasificatoria.findById", query = "SELECT t FROM TipoClasificatoria t WHERE t.id = :id")
-    , @NamedQuery(name = "TipoClasificatoria.findByDescripcion", query = "SELECT t FROM TipoClasificatoria t WHERE t.descripcion = :descripcion")})
+    @NamedQuery(name = "TipoClasificatoria.findAll", query = "SELECT t FROM TipoClasificatoria t"),
+    @NamedQuery(name = "TipoClasificatoria.findById", query = "SELECT t FROM TipoClasificatoria t WHERE t.id = :id"),
+    @NamedQuery(name = "TipoClasificatoria.findByDescripcionTipoclas", query = "SELECT t FROM TipoClasificatoria t WHERE t.descripcionTipoclas = :descripcionTipoclas")})
 public class TipoClasificatoria implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +44,9 @@ public class TipoClasificatoria implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Size(min = 1, max = 100)
+    @Column(name = "descripcion_tipoclas")
+    private String descripcionTipoclas;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clasificatoria")
     private List<Detalle> detalleList;
 
@@ -57,9 +57,9 @@ public class TipoClasificatoria implements Serializable {
         this.id = id;
     }
 
-    public TipoClasificatoria(Integer id, String descripcion) {
+    public TipoClasificatoria(Integer id, String descripcionTipoclas) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.descripcionTipoclas = descripcionTipoclas;
     }
 
     public Integer getId() {
@@ -70,12 +70,12 @@ public class TipoClasificatoria implements Serializable {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionTipoclas() {
+        return descripcionTipoclas;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionTipoclas(String descripcionTipoclas) {
+        this.descripcionTipoclas = descripcionTipoclas;
     }
 
     @XmlTransient

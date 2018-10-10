@@ -23,19 +23,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "jugador")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Jugador.findAll", query = "SELECT j FROM Jugador j")
-    , @NamedQuery(name = "Jugador.findById", query = "SELECT j FROM Jugador j WHERE j.id = :id")
-    , @NamedQuery(name = "Jugador.findByNombre", query = "SELECT j FROM Jugador j WHERE j.nombre = :nombre")
-    , @NamedQuery(name = "Jugador.findByApPaterno", query = "SELECT j FROM Jugador j WHERE j.apPaterno = :apPaterno")
-    , @NamedQuery(name = "Jugador.findByRut", query = "SELECT j FROM Jugador j WHERE j.rut = :rut")
-    , @NamedQuery(name = "Jugador.findByUser", query = "SELECT j FROM Jugador j WHERE j.user = :user")
-    , @NamedQuery(name = "Jugador.findByPass", query = "SELECT j FROM Jugador j WHERE j.pass = :pass")})
+    @NamedQuery(name = "Jugador.findAll", query = "SELECT j FROM Jugador j"),
+    @NamedQuery(name = "Jugador.findById", query = "SELECT j FROM Jugador j WHERE j.id = :id"),
+    @NamedQuery(name = "Jugador.findByNombre", query = "SELECT j FROM Jugador j WHERE j.nombre = :nombre"),
+    @NamedQuery(name = "Jugador.findByApPaterno", query = "SELECT j FROM Jugador j WHERE j.apPaterno = :apPaterno"),
+    @NamedQuery(name = "Jugador.findByRut", query = "SELECT j FROM Jugador j WHERE j.rut = :rut"),
+    @NamedQuery(name = "Jugador.findByUser", query = "SELECT j FROM Jugador j WHERE j.user = :user"),
+    @NamedQuery(name = "Jugador.findByPass", query = "SELECT j FROM Jugador j WHERE j.pass = :pass")})
 public class Jugador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,27 +46,27 @@ public class Jugador implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     @Column(name = "nombre")
     private String nombre;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     @Column(name = "ap_paterno")
     private String apPaterno;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     @Column(name = "rut")
     private String rut;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     @Column(name = "user")
     private String user;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 100)
     @Column(name = "pass")
     private String pass;
     @JoinColumn(name = "tipo", referencedColumnName = "id")
@@ -88,19 +88,6 @@ public class Jugador implements Serializable {
     public Jugador(Integer id) {
         this.id = id;
     }
-
-    public Jugador(String nombre, String apPaterno, String rut, String user, String pass, TipoJugador tipo, EstadoJugador estado, SeleccionJugador seleccion, Equipo equipo) {
-        this.nombre = nombre;
-        this.apPaterno = apPaterno;
-        this.rut = rut;
-        this.user = user;
-        this.pass = pass;
-        this.tipo = tipo;
-        this.estado = estado;
-        this.seleccion = seleccion;
-        this.equipo = equipo;
-    }
-    
 
     public Jugador(Integer id, String nombre, String apPaterno, String rut, String user, String pass) {
         this.id = id;

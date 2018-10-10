@@ -27,15 +27,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "equipo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Equipo.findAll", query = "SELECT e FROM Equipo e")
-    , @NamedQuery(name = "Equipo.findById", query = "SELECT e FROM Equipo e WHERE e.id = :id")
-    , @NamedQuery(name = "Equipo.findByNombre", query = "SELECT e FROM Equipo e WHERE e.nombre = :nombre")})
+    @NamedQuery(name = "Equipo.findAll", query = "SELECT e FROM Equipo e"),
+    @NamedQuery(name = "Equipo.findById", query = "SELECT e FROM Equipo e WHERE e.id = :id"),
+    @NamedQuery(name = "Equipo.findByNombreEquipo", query = "SELECT e FROM Equipo e WHERE e.nombreEquipo = :nombreEquipo")})
 public class Equipo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,9 +46,9 @@ public class Equipo implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "nombre")
-    private String nombre;
+    @Size(min = 1, max = 100)
+    @Column(name = "nombre_equipo")
+    private String nombreEquipo;
     @OneToMany(mappedBy = "equipo")
     private List<Jugador> jugadorList;
     @JoinColumn(name = "liga", referencedColumnName = "id")
@@ -67,9 +67,9 @@ public class Equipo implements Serializable {
         this.id = id;
     }
 
-    public Equipo(Integer id, String nombre) {
+    public Equipo(Integer id, String nombreEquipo) {
         this.id = id;
-        this.nombre = nombre;
+        this.nombreEquipo = nombreEquipo;
     }
 
     public Integer getId() {
@@ -80,12 +80,12 @@ public class Equipo implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreEquipo() {
+        return nombreEquipo;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreEquipo(String nombreEquipo) {
+        this.nombreEquipo = nombreEquipo;
     }
 
     @XmlTransient

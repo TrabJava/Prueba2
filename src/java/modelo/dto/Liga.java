@@ -25,15 +25,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "liga")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Liga.findAll", query = "SELECT l FROM Liga l")
-    , @NamedQuery(name = "Liga.findById", query = "SELECT l FROM Liga l WHERE l.id = :id")
-    , @NamedQuery(name = "Liga.findByDescripcion", query = "SELECT l FROM Liga l WHERE l.descripcion = :descripcion")})
+    @NamedQuery(name = "Liga.findAll", query = "SELECT l FROM Liga l"),
+    @NamedQuery(name = "Liga.findById", query = "SELECT l FROM Liga l WHERE l.id = :id"),
+    @NamedQuery(name = "Liga.findByDescripcionLiga", query = "SELECT l FROM Liga l WHERE l.descripcionLiga = :descripcionLiga")})
 public class Liga implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +44,9 @@ public class Liga implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Size(min = 1, max = 100)
+    @Column(name = "descripcion_liga")
+    private String descripcionLiga;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "liga")
     private List<Equipo> equipoList;
 
@@ -57,9 +57,9 @@ public class Liga implements Serializable {
         this.id = id;
     }
 
-    public Liga(Integer id, String descripcion) {
+    public Liga(Integer id, String descripcionLiga) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.descripcionLiga = descripcionLiga;
     }
 
     public Integer getId() {
@@ -70,12 +70,12 @@ public class Liga implements Serializable {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionLiga() {
+        return descripcionLiga;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionLiga(String descripcionLiga) {
+        this.descripcionLiga = descripcionLiga;
     }
 
     @XmlTransient

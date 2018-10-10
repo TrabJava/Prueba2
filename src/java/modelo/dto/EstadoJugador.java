@@ -25,15 +25,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "estado_jugador")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "EstadoJugador.findAll", query = "SELECT e FROM EstadoJugador e")
-    , @NamedQuery(name = "EstadoJugador.findById", query = "SELECT e FROM EstadoJugador e WHERE e.id = :id")
-    , @NamedQuery(name = "EstadoJugador.findByDescripcion", query = "SELECT e FROM EstadoJugador e WHERE e.descripcion = :descripcion")})
+    @NamedQuery(name = "EstadoJugador.findAll", query = "SELECT e FROM EstadoJugador e"),
+    @NamedQuery(name = "EstadoJugador.findById", query = "SELECT e FROM EstadoJugador e WHERE e.id = :id"),
+    @NamedQuery(name = "EstadoJugador.findByDescripcionEstadoj", query = "SELECT e FROM EstadoJugador e WHERE e.descripcionEstadoj = :descripcionEstadoj")})
 public class EstadoJugador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +44,9 @@ public class EstadoJugador implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Size(min = 1, max = 100)
+    @Column(name = "descripcion_estadoj")
+    private String descripcionEstadoj;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "estado")
     private List<Jugador> jugadorList;
 
@@ -57,9 +57,9 @@ public class EstadoJugador implements Serializable {
         this.id = id;
     }
 
-    public EstadoJugador(Integer id, String descripcion) {
+    public EstadoJugador(Integer id, String descripcionEstadoj) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.descripcionEstadoj = descripcionEstadoj;
     }
 
     public Integer getId() {
@@ -70,12 +70,12 @@ public class EstadoJugador implements Serializable {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionEstadoj() {
+        return descripcionEstadoj;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionEstadoj(String descripcionEstadoj) {
+        this.descripcionEstadoj = descripcionEstadoj;
     }
 
     @XmlTransient

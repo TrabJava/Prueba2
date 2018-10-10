@@ -12,7 +12,7 @@ import modelo.dto.SeleccionJugador;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Stateless
 public class SeleccionJugadorFacade extends AbstractFacade<SeleccionJugador> {

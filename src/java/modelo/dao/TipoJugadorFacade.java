@@ -12,7 +12,7 @@ import modelo.dto.TipoJugador;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Stateless
 public class TipoJugadorFacade extends AbstractFacade<TipoJugador> {

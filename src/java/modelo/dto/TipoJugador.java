@@ -25,15 +25,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "tipo_jugador")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TipoJugador.findAll", query = "SELECT t FROM TipoJugador t")
-    , @NamedQuery(name = "TipoJugador.findById", query = "SELECT t FROM TipoJugador t WHERE t.id = :id")
-    , @NamedQuery(name = "TipoJugador.findByDescripcion", query = "SELECT t FROM TipoJugador t WHERE t.descripcion = :descripcion")})
+    @NamedQuery(name = "TipoJugador.findAll", query = "SELECT t FROM TipoJugador t"),
+    @NamedQuery(name = "TipoJugador.findById", query = "SELECT t FROM TipoJugador t WHERE t.id = :id"),
+    @NamedQuery(name = "TipoJugador.findByDescripcionTipoj", query = "SELECT t FROM TipoJugador t WHERE t.descripcionTipoj = :descripcionTipoj")})
 public class TipoJugador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +44,9 @@ public class TipoJugador implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Size(min = 1, max = 100)
+    @Column(name = "descripcion_tipoj")
+    private String descripcionTipoj;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipo")
     private List<Jugador> jugadorList;
 
@@ -57,9 +57,9 @@ public class TipoJugador implements Serializable {
         this.id = id;
     }
 
-    public TipoJugador(Integer id, String descripcion) {
+    public TipoJugador(Integer id, String descripcionTipoj) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.descripcionTipoj = descripcionTipoj;
     }
 
     public Integer getId() {
@@ -70,12 +70,12 @@ public class TipoJugador implements Serializable {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionTipoj() {
+        return descripcionTipoj;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionTipoj(String descripcionTipoj) {
+        this.descripcionTipoj = descripcionTipoj;
     }
 
     @XmlTransient

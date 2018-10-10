@@ -6,7 +6,6 @@
 package modelo.dto;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,21 +16,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "detalle")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Detalle.findAll", query = "SELECT d FROM Detalle d")
-    , @NamedQuery(name = "Detalle.findById", query = "SELECT d FROM Detalle d WHERE d.id = :id")})
+    @NamedQuery(name = "Detalle.findAll", query = "SELECT d FROM Detalle d"),
+    @NamedQuery(name = "Detalle.findById", query = "SELECT d FROM Detalle d WHERE d.id = :id")})
 public class Detalle implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,8 +37,6 @@ public class Detalle implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @OneToMany(mappedBy = "detalle")
-    private List<SuperUsuario> superUsuarioList;
     @JoinColumn(name = "equipo", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Equipo equipo;
@@ -62,15 +57,6 @@ public class Detalle implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    @XmlTransient
-    public List<SuperUsuario> getSuperUsuarioList() {
-        return superUsuarioList;
-    }
-
-    public void setSuperUsuarioList(List<SuperUsuario> superUsuarioList) {
-        this.superUsuarioList = superUsuarioList;
     }
 
     public Equipo getEquipo() {

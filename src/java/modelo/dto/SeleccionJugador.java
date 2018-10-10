@@ -25,15 +25,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "seleccion_jugador")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "SeleccionJugador.findAll", query = "SELECT s FROM SeleccionJugador s")
-    , @NamedQuery(name = "SeleccionJugador.findById", query = "SELECT s FROM SeleccionJugador s WHERE s.id = :id")
-    , @NamedQuery(name = "SeleccionJugador.findByDescripcion", query = "SELECT s FROM SeleccionJugador s WHERE s.descripcion = :descripcion")})
+    @NamedQuery(name = "SeleccionJugador.findAll", query = "SELECT s FROM SeleccionJugador s"),
+    @NamedQuery(name = "SeleccionJugador.findById", query = "SELECT s FROM SeleccionJugador s WHERE s.id = :id"),
+    @NamedQuery(name = "SeleccionJugador.findByDescripcionSeleccion", query = "SELECT s FROM SeleccionJugador s WHERE s.descripcionSeleccion = :descripcionSeleccion")})
 public class SeleccionJugador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +44,9 @@ public class SeleccionJugador implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Size(min = 1, max = 100)
+    @Column(name = "descripcion_seleccion")
+    private String descripcionSeleccion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "seleccion")
     private List<Jugador> jugadorList;
 
@@ -57,9 +57,9 @@ public class SeleccionJugador implements Serializable {
         this.id = id;
     }
 
-    public SeleccionJugador(Integer id, String descripcion) {
+    public SeleccionJugador(Integer id, String descripcionSeleccion) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.descripcionSeleccion = descripcionSeleccion;
     }
 
     public Integer getId() {
@@ -70,12 +70,12 @@ public class SeleccionJugador implements Serializable {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcionSeleccion() {
+        return descripcionSeleccion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcionSeleccion(String descripcionSeleccion) {
+        this.descripcionSeleccion = descripcionSeleccion;
     }
 
     @XmlTransient

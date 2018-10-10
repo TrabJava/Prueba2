@@ -12,7 +12,7 @@ import modelo.dto.TipoSuper;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Stateless
 public class TipoSuperFacade extends AbstractFacade<TipoSuper> {

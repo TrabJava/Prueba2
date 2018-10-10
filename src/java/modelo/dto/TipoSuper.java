@@ -25,15 +25,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Berni
+ * @author duoc
  */
 @Entity
 @Table(name = "tipo_super")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TipoSuper.findAll", query = "SELECT t FROM TipoSuper t")
-    , @NamedQuery(name = "TipoSuper.findById", query = "SELECT t FROM TipoSuper t WHERE t.id = :id")
-    , @NamedQuery(name = "TipoSuper.findByDescripcionTipo", query = "SELECT t FROM TipoSuper t WHERE t.descripcionTipo = :descripcionTipo")})
+    @NamedQuery(name = "TipoSuper.findAll", query = "SELECT t FROM TipoSuper t"),
+    @NamedQuery(name = "TipoSuper.findById", query = "SELECT t FROM TipoSuper t WHERE t.id = :id"),
+    @NamedQuery(name = "TipoSuper.findByDescripcionTiposu", query = "SELECT t FROM TipoSuper t WHERE t.descripcionTiposu = :descripcionTiposu")})
 public class TipoSuper implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,9 +44,9 @@ public class TipoSuper implements Serializable {
     private Integer id;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
-    @Column(name = "descripcion_tipo")
-    private String descripcionTipo;
+    @Size(min = 1, max = 100)
+    @Column(name = "descripcion_tiposu")
+    private String descripcionTiposu;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipo")
     private List<SuperUsuario> superUsuarioList;
 
@@ -57,9 +57,9 @@ public class TipoSuper implements Serializable {
         this.id = id;
     }
 
-    public TipoSuper(Integer id, String descripcionTipo) {
+    public TipoSuper(Integer id, String descripcionTiposu) {
         this.id = id;
-        this.descripcionTipo = descripcionTipo;
+        this.descripcionTiposu = descripcionTiposu;
     }
 
     public Integer getId() {
@@ -70,12 +70,12 @@ public class TipoSuper implements Serializable {
         this.id = id;
     }
 
-    public String getDescripcionTipo() {
-        return descripcionTipo;
+    public String getDescripcionTiposu() {
+        return descripcionTiposu;
     }
 
-    public void setDescripcionTipo(String descripcionTipo) {
-        this.descripcionTipo = descripcionTipo;
+    public void setDescripcionTiposu(String descripcionTiposu) {
+        this.descripcionTiposu = descripcionTiposu;
     }
 
     @XmlTransient
