@@ -8,6 +8,10 @@
         <servlet-name>ServletSuperUsuario</servlet-name>
         <servlet-class>controlador.ServletSuperUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletJugador</servlet-name>
+        <servlet-class>controlador.ServletJugador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletAcceso</servlet-name>
         <url-pattern>/procesoAcceso</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ServletSuperUsuario</servlet-name>
         <url-pattern>/procesoSuperUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletJugador</servlet-name>
+        <url-pattern>/procesoJugador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
