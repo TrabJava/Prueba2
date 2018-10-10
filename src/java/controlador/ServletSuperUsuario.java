@@ -112,7 +112,7 @@ public class ServletSuperUsuario extends HttpServlet {
         } else {
             TipoSuper tipoSuper = new TipoSuper(tipo);
             EstadoSuper estadoSu = new EstadoSuper(estado);
-            SuperUsuario superU = new SuperUsuario(tipo, user, pass, tipoSuper, estadoSu);
+            SuperUsuario superU = new SuperUsuario(user, pass, tipoSuper, estadoSu);
             superUsuarioFacade.create(superU);
             request.getSession().setAttribute("mensaje", "El usuaro se ha creado");
             response.sendRedirect("Vistas/agregar_administrador.jsp");
