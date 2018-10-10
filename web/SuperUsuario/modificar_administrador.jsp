@@ -13,6 +13,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -22,7 +27,7 @@
         <%
             //CONECTANOD A LA BASE DE DATOS:
             Connection con;
-            String url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull [mojaber_ali en Sistema por omisión]";
+            String url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull";
             String Driver = "com.mysql.jdbc.Driver";
             String user = "mojaber_ali";
             String clave = "12345";
@@ -55,24 +60,30 @@
 
                         <div class="panel-body" style="margin-left: 100%;">
 
-                            <form action="procesoSuperUsuario" method="GET">
+                            <form action="../procesoSuperUsuario" method="GET">
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td>Usuario</td>
-                                            <td><input type="text" name="txtUSer" value=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Contraseña</td>
-                                            <td><input type="text" name="txtPass" value=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tipo de Usuario</td>
-                                            <td>
-                                                <select name="cboTipo" id="cboTipo" class="form-control">
-                                                <c:forEach var="usuario" items="${usuarios.rows}">
-                                                    <option value="${usuario.tipo}">${usuario.descripcion_tipo}</option>
-                                                </c:forEach>
+                                            <td>Id</td>
+                                            <td><input type="text" name="txtId" value="<%= rs.getInt("id")%>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Usuario</td>
+                                        <td><input type="text" name="txtUSer" value="<%= rs.getString("user")%>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contraseña</td>
+                                        <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tipo de Usuario</td>
+                                        <td>
+                                            <select name="cboTipo"  class="form-control">
+                                                <%
+                                                    while (rset.next()) {%>
+                                                <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tipo")%></option>
+                                                <%}
+                                                %>
                                             </select>
 
                                         </td>
@@ -81,9 +92,11 @@
                                         <td>Estado del Usuario</td>
                                         <td>
                                             <select name="cboEstado" id="cboEstado" class="form-control">
-                                                <c:forEach var="usuario" items="${usuarios.rows}">
-                                                    <option value="${usuario.estado}">${usuario.descripcion}</option>
-                                                </c:forEach>
+                                                <%
+                                                    while (rseet.next()) {%>
+                                                <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion")%></option>
+                                                <%}
+                                                %>
                                             </select>
 
                                         </td>
@@ -94,8 +107,10 @@
                                 </tbody>
                             </table>
                         </form>
-                            <%}%>
+                        <%}%>
                     </div>
                 </div>
-                </body>
-                </html>
+            </div>
+        </div>
+    </body>
+</html>
