@@ -89,6 +89,19 @@ public class Jugador implements Serializable {
         this.id = id;
     }
 
+    public Jugador(String nombre, String apPaterno, String rut, String user, String pass, TipoJugador tipo, EstadoJugador estado, SeleccionJugador seleccion, Equipo equipo) {
+        this.nombre = nombre;
+        this.apPaterno = apPaterno;
+        this.rut = rut;
+        this.user = user;
+        this.pass = pass;
+        this.tipo = tipo;
+        this.estado = estado;
+        this.seleccion = seleccion;
+        this.equipo = equipo;
+    }
+    
+
     public Jugador(Integer id, String nombre, String apPaterno, String rut, String user, String pass) {
         this.id = id;
         this.nombre = nombre;
