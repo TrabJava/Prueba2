@@ -26,11 +26,9 @@
                         <td>Contraseña: </td>
                         <td><input type="password" name="txtPassword" placeholder="Contraseña"></td>
                     </tr>
-                    <tr>
-                        <td><input type="submit" name="btnAccion" value="Ingresar"></td>
-                    </tr>
                 </tbody>
             </table>
+            <td><input type="submit" name="btnAccion" value="Ingresar"></td>
         </form>
         ${mensaje}
     </center>
