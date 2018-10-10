@@ -99,17 +99,16 @@ public class ServletJugador extends HttpServlet {
     private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String nombre = request.getParameter("txtNombre");
         String apellido = request.getParameter("txtApellido");
-        String rut = request.getParameter("txtRut") ;
+        String rut = request.getParameter("txtRut");
         String user = request.getParameter("txtUser");
         String pass = request.getParameter("txtPass");
-        int tipo = Integer.parseInt(request.getParameter("cboTipo")) ;
-        int estado = Integer.parseInt(request.getParameter("cboEstado")) ;
-        int seleccion = Integer.parseInt(request.getParameter("cboSeleccion")) ;
-        int equipo = Integer.parseInt(request.getParameter("cboEquipo")) ;
-         
+        int tipo = Integer.parseInt(request.getParameter("cboTipo"));
+        int estado = Integer.parseInt(request.getParameter("cboEstado"));
+        int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
+        int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
 
         if (jugadorFacade.existeUsuario(user, rut)) {
-            request.getSession().setAttribute("mensaje", "El usuario ya existe");
+            request.getSession().setAttribute("mensaje", "El jugador ya existe");
             response.sendRedirect("index.jsp");
         } else {
             TipoJugador tipoJug = new TipoJugador(tipo);
@@ -121,12 +120,34 @@ public class ServletJugador extends HttpServlet {
             request.getSession().setAttribute("mensaje", "El jugador se ha creado");
             response.sendRedirect("index.jsp");
         }
-        
-        
+
     }
 
-    private void eliminar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void eliminar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String nombre = request.getParameter("txtNombre");
+        String apellido = request.getParameter("txtApellido");
+        String rut = request.getParameter("txtRut");
+        String user = request.getParameter("txtUser");
+        String pass = request.getParameter("txtPass");
+        int tipo = Integer.parseInt(request.getParameter("cboTipo"));
+        int estado = Integer.parseInt(request.getParameter("cboEstado"));
+        int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
+        int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
+
+        if (jugadorFacade.existeUsuario(user, rut)) {
+            TipoJugador tipoJug = new TipoJugador(tipo);
+            EstadoJugador estadoJug = new EstadoJugador(estado);
+            SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
+            Equipo equipJug = new Equipo(equipo);
+            Jugador jugador = new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug);
+            jugadorFacade.create(jugador);
+            request.getSession().setAttribute("mensaje", "El jugador se ha creado");
+            response.sendRedirect("index.jsp");
+
+        } else {
+            request.getSession().setAttribute("mensaje", "El jugador ya existe");
+            response.sendRedirect("index.jsp");
+        }
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response) {
