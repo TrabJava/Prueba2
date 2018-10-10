@@ -12,13 +12,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
         <title>JSP Page</title>
     </head>
     <body>
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="jugador">
-            SELECT j.id, j.nombre, j.ap_paterno, j.rut, j.user, j.pass, t.descripcion, es.descripcion, s.descripcion, e.nombre FROM jugador j JOIN tipo_jugador t ON t.id = j.tipo JOIN estado_jugador es ON es.id = j.estado JOIN seleccion_jugador s ON s.id= j.seleccion JOIN equipo e ON e.id = j.equipo
+            SELECT ju.id,ju.nombre,ju.ap_paterno,ju.rut,ju.user,ju.pass,t.descripcion_tipoj,e.descripcion_estadoj, s.descripcion_seleccion,eq.nombre_equipo FROM jugador ju JOIN tipo_jugador t ON ju.tipo = t.id JOIN estado_jugador e ON ju.estado = e.id JOIN seleccion_jugador s ON ju.seleccion = s.id JOIN equipo eq ON ju.equipo = eq.id
         </sql:query> 
             
             <table border="1">
@@ -34,6 +39,7 @@
                         <td>Estado Usuario: </td>
                         <td>Seleccionado: </td>
                         <td>Equipo: </td>
+                        <td>Herramientas</td>
                     </tr>
                     <tr>
                 <c:forEach var = "row" items = "${jugador.rows}">
@@ -43,10 +49,13 @@
                         <td>${row.rut}</td>
                         <td>${row.user}</td>
                         <td>${row.pass}</td>
-                        <td>${row.descripcion}</td>
-                        <td>${row.descripcion}</td>
-                        <td>${row.descripcion}</td>
-                        <td>${row.nombre}</td>
+                        <td>${row.descripcion_tipoj}</td>
+                        <td>${row.descripcion_estadoj}</td>
+                        <td>${row.descripcion_seleccion}</td>
+                        <td>${row.nombre_equipo}</td>
+                        <td><a href="modificar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a>
+                            <input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"/>
+                        </td>
                 </c:forEach>
                     </tr>
                 </tbody>
