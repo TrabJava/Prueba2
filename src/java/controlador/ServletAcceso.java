@@ -89,7 +89,7 @@ public class ServletAcceso extends HttpServlet {
 
             if (superUsuarioFacade.ingresar(user, pass)) {
                 SuperUsuario superusuario = new SuperUsuario(user, pass);
-                response.sendRedirect("Vistas/agregar_administrador.jsp");
+                response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
                 
 
             } else {
