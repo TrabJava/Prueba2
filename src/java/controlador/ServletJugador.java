@@ -83,36 +83,27 @@ public class ServletJugador extends HttpServlet {
                 response.sendRedirect("Jugador/agregar_Jugador.jsp");
             }
         } catch (Exception e) {
-           response.sendRedirect("Jugador/agregar_Jugador.jsp");
+            response.sendRedirect("Jugador/agregar_Jugador.jsp");
         }
 
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String nombre = request.getParameter("txtNombre");
-        String apellido = request.getParameter("txtApellido");
-        String rut = request.getParameter("txtRut");
-        String user = request.getParameter("txtUser");
-        String pass = request.getParameter("txtPass");
-        int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-        int estado = Integer.parseInt(request.getParameter("cboEstado"));
-        int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
-        int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
+            
+            
+            int id = Integer.parseInt(request.getParameter("txtId"));
+            
 
-        if (jugadorFacade.existeUsuario(user)) {
-            TipoJugador tipoJug = new TipoJugador(tipo);
-            EstadoJugador estadoJug = new EstadoJugador(estado);
-            SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
-            Equipo equipJug = new Equipo(equipo);
-            Jugador jugador = new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug);
+        if (jugadorFacade.existeId(id)) {
+            Jugador jugador = new Jugador(id);
             jugadorFacade.remove(jugador);
-            request.getSession().setAttribute("mensaje", "El jugador se ha creado");
-            response.sendRedirect("index.jsp");
-
+            request.getSession().setAttribute("mensaje", "El jugador se elimino");
+            response.sendRedirect("Jugador/listar_Jugador.jsp");
         } else {
-            request.getSession().setAttribute("mensaje", "El jugador ya existe");
-            response.sendRedirect("index.jsp");
+            request.getSession().setAttribute("mensaje", "El jugador no se elimino");
+            response.sendRedirect("Jugador/listar_Jugador.jsp");
         }
+
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
