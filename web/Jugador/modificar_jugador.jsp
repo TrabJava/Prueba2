@@ -64,7 +64,7 @@
         <%--Query para mostrar los datos en la lista--%>
 
         <h1>Modificar Datos del Jugador</h1>
-        <form>
+        <form action="../procesoJugador" method="POST">
             <table border="1">
                 <tbody>
                     <tr>
