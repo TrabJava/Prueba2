@@ -30,18 +30,18 @@ public class SuperUsuarioFacade extends AbstractFacade<SuperUsuario> {
         super(SuperUsuario.class);
     }
     public boolean existeUsuario(String user){
-        Query query = em.createQuery("SELECT u FROM super_usuario u WHERE u.user = :user");
+        Query query = em.createQuery("SELECT u FROM SuperUsuario u WHERE u.user = :user");
         query.setParameter("user", user);
         return query.getResultList().size() > 0;
     }
      public boolean existeId(int id){
-        Query query = em.createQuery("SELECT u FROM super_usuario u WHERE u.id = :id");
+        Query query = em.createQuery("SELECT u FROM SuperUsuario u WHERE u.id = :id");
         query.setParameter("id", id);
         return query.getResultList().size() > 0;
     }
      
      public boolean ingresar(String user, String pass){
-        Query query = em.createQuery("SELECT u FROM super_usuario u WHERE u.user = :user and u.pass = :pass");
+        Query query = em.createQuery("SELECT u FROM SuperUsuario u WHERE u.user = :user and u.pass = :pass");
         query.setParameter("user", user);
         query.setParameter("pass", pass);
         return query.getResultList().size() > 0;
