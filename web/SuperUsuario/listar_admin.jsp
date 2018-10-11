@@ -30,7 +30,7 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "admin">
-            SELECT su.id,su.user,su.pass,t.descripcion_tipo,e.descripcion FROM super_usuario su JOIN estado_super e on su.estado = e.id JOIN tipo_super t on t.id = su.tipo where su.tipo = 2;
+            SELECT su.id,su.user,su.pass,t.descripcion_tiposu,e.descripcion_super FROM super_usuario su JOIN estado_super e on su.estado = e.id JOIN tipo_super t on t.id = su.tipo where su.tipo = 2;
         </sql:query>
             <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
 
@@ -83,15 +83,14 @@
                             <td>${row.id}</td>
                             <td>${row.user}</td>
                             <td>${row.pass}</td>
-                            <td>${row.descripcion_tipo}</td>
-                            <td>${row.descripcion}</td>
+                            <td>${row.descripcion_tiposu}</td>
+                            <td>${row.descripcion_super}</td>
                             <td>
                                 <c:choose>
-                                    <c:when test="${row.descripcion!='activada'}">
-                                        
+                                    <c:when test="${row.descripcion_super!='Activo'}">
                                         <a  style="color: white">Ya desactivado</a>  
                                     </c:when>
-                                    <c:when test="${row.descripcion!='desactivada'}">
+                                    <c:when test="${row.descripcion_super!='Inactivo'}">
                                         <a href="#" style="color: white">Eliminar</a>  
                                     </c:when>
                                 </c:choose>
