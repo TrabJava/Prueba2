@@ -26,8 +26,6 @@ public class ServletSuperUsuario extends HttpServlet {
     @EJB
     private SuperUsuarioFacade superUsuarioFacade;
 
-   
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -56,7 +54,6 @@ public class ServletSuperUsuario extends HttpServlet {
         if (opcion.equals("Buscar")) {
             buscar(request, response);
         }
-        
 
     }
 
@@ -103,8 +100,8 @@ public class ServletSuperUsuario extends HttpServlet {
 
         String user = request.getParameter("txtUser");
         String pass = request.getParameter("txtPass");
-        int tipo = Integer.parseInt(request.getParameter("cboTipo")) ;
-        int estado = Integer.parseInt(request.getParameter("cboEstado")) ;
+        int tipo = Integer.parseInt(request.getParameter("cboTipo"));
+        int estado = Integer.parseInt(request.getParameter("cboEstado"));
 
         if (superUsuarioFacade.existeUsuario(user)) {
             request.getSession().setAttribute("mensaje", "El usuario ya existe");
@@ -115,7 +112,7 @@ public class ServletSuperUsuario extends HttpServlet {
             SuperUsuario superU = new SuperUsuario(user, pass, tipoSuper, estadoSu);
             superUsuarioFacade.create(superU);
             request.getSession().setAttribute("mensaje", "El usuaro se ha creado");
-            response.sendRedirect("Vistas/agregar_administrador.jsp");
+            response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
         }
 
     }
@@ -128,16 +125,15 @@ public class ServletSuperUsuario extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("cboUsuarios"));
 
         if (superUsuarioFacade.existeId(id)) {
+            request.getSession().setAttribute("mensaje", "El usuario no existe");
+            response.sendRedirect("SuperUsuario/listar_admin.jsp");
+        } else {
             TipoSuper tipoSuper = new TipoSuper(tipo);
             EstadoSuper estadoSu = new EstadoSuper(estado);
             SuperUsuario su = new SuperUsuario(id, user, pass, tipoSuper, estadoSu);
             superUsuarioFacade.remove(su);
             request.getSession().setAttribute("mensaje", "El Usuario se Eliminó");
-            response.sendRedirect("Vistas/listar_admin.jsp");
-
-        } else {
-            request.getSession().setAttribute("mensaje", "El usuario no existe");
-            response.sendRedirect("Vistas/index_super.jsp");
+            response.sendRedirect("SuperUsuario/listar_admin.jsp");
         }
 
     }
@@ -147,21 +143,20 @@ public class ServletSuperUsuario extends HttpServlet {
         String user = request.getParameter("txtUser");
         String pass = request.getParameter("txtPass");
         int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-        int estado = Integer.parseInt(request.getParameter("cboTipo"));
-        int id = Integer.parseInt(request.getParameter("txtId"));
+        int estado = Integer.parseInt(request.getParameter("cboEstado"));
 
-        if (superUsuarioFacade.existeId(id)) {
-            TipoSuper tipoSuper = new TipoSuper(tipo);
-            EstadoSuper estadoSu = new EstadoSuper(estado);
-            SuperUsuario su = new SuperUsuario(id, user, pass, tipoSuper, estadoSu);
-            superUsuarioFacade.remove(su);
-            superUsuarioFacade.create(su);
-            request.getSession().setAttribute("mensaje", "El Usuario se Modificó");
-            response.sendRedirect("Vistas/listar_admin.jsp");
+        if (superUsuarioFacade.existeUsuario(user)) {
+            request.getSession().setAttribute("mensaje", "El usuario ya existe");
+            response.sendRedirect("SuperUsuario/listar_admin.jsp");
 
         } else {
-            request.getSession().setAttribute("mensaje", "El usuario no existe");
-            response.sendRedirect("Vistas/index_super.jsp");
+            TipoSuper tipoSuper = new TipoSuper(tipo);
+            EstadoSuper estadoSu = new EstadoSuper(estado);
+            SuperUsuario su = new SuperUsuario(user, pass, tipoSuper, estadoSu);
+            superUsuarioFacade.remove(su);
+            superUsuarioFacade.create(su);
+            request.getSession().setAttribute("mensaje", "El Usuario se Actualizo");
+            response.sendRedirect("SuperUsuario/listar_admin.jsp");
         }
 
     }
@@ -169,13 +164,11 @@ public class ServletSuperUsuario extends HttpServlet {
     private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         request.getSession().setAttribute("lista", superUsuarioFacade.findAll());
-        response.sendRedirect("Vistas/listar_admin.jsp");
+        response.sendRedirect("SuperUsuario/listar_admin.jsp");
     }
 
     private void buscar(HttpServletRequest request, HttpServletResponse response) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-   
 
 }
