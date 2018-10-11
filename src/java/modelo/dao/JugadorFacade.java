@@ -36,7 +36,7 @@ public class JugadorFacade extends AbstractFacade<Jugador> {
         return query.getResultList().size() > 0;
     }
      public boolean existeId(int id){
-        Query query = em.createQuery("SELECT j FROM jugador j WHERE j.id = :id");
+        Query query = em.createQuery("SELECT j FROM Jugador j WHERE j.id = :id");
         query.setParameter("id", id);
         return query.getResultList().size() > 0;
     }
