@@ -65,11 +65,11 @@
                                     <tbody>
                                         <tr>
                                             <td>Id</td>
-                                            <td><input type="text" name="txtId" value="<%= rs.getInt("id")%>"></td>
+                                            <td><input disabled="" type="text" name="" value="<%= rs.getInt("id")%>"></td>
                                     </tr>
                                     <tr>
                                         <td>Usuario</td>
-                                        <td><input type="text" name="txtUSer" value="<%= rs.getString("user")%>"></td>
+                                        <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>"></td>
                                     </tr>
                                     <tr>
                                         <td>Contraseña</td>
@@ -78,7 +78,7 @@
                                     <tr>
                                         <td>Tipo de Usuario</td>
                                         <td>
-                                            <select name="cboTipo"  class="form-control">
+                                            <select name="cboTipo" id="cboTipo" class="form-control">
                                                 <%
                                                     while (rset.next()) {%>
                                                 <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tipo")%></option>
@@ -107,6 +107,7 @@
                                 </tbody>
                             </table>
                         </form>
+                        ${mensaje}
                         <%}%>
                     </div>
                 </div>
