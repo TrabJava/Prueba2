@@ -62,7 +62,8 @@
       <h2>Modifica o Desactiva a los mancos</h2>
       <h5>Recuerda que toda acción trae consecuencias</h5>
       <br>
-      <div class="container">       
+      <div class="container">    
+          <form method="POST" action="../procesoSuperUsuario">
                 <table class="table table-dark" style="width: 800px">
                     <thead>
                         <tr>
@@ -98,9 +99,10 @@
                                 
                             <td><a href="modificar_administrador.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                         </tr>
-                    </form>   
+                     
                 </c:forEach>
             </table>
+              </form>
         </div>
     </div>
   </div>
