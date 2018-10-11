@@ -25,11 +25,11 @@
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="tipo">
-            SELECT id, descripcion_tipo FROM tipo_super
+            SELECT id, descripcion_tiposu FROM tipo_super
         </sql:query> 
 
         <sql:query dataSource="${dataSource}" var="estado">
-            SELECT id, descripcion FROM estado_super
+            SELECT id, descripcion_super FROM estado_super
         </sql:query> 
 
         <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
@@ -52,7 +52,7 @@
                             <td>
                                 <select name="cboTipo" >
                                 <c:forEach var="tipos" items="${tipo.rows}">
-                                    <option value="${tipos.id}">${tipos.descripcion_tipo}</option>
+                                    <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
                                 </c:forEach>
                             </select></td>
                     </tr>
@@ -61,7 +61,7 @@
                         <td>
                             <select name="cboEstado" >
                                 <c:forEach var="estados" items="${estado.rows}">
-                                    <option value="${estados.id}">${estados.descripcion}</option>
+                                    <option value="${estados.id}">${estados.descripcion_super}</option>
                                 </c:forEach>
                             </select></td>
                     </tr>
