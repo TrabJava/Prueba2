@@ -30,10 +30,9 @@ public class JugadorFacade extends AbstractFacade<Jugador> {
         super(Jugador.class);
     }
     
-    public boolean existeUsuario(String user,String rut){
-        Query query = em.createQuery("SELECT j FROM jugador j WHERE j.user = :user AND j.rut=:rut");
+    public boolean existeUsuario(String user){
+        Query query = em.createQuery("SELECT j FROM Jugador j WHERE j.user = :user");
         query.setParameter("user", user);
-        query.setParameter("rut", rut);
         return query.getResultList().size() > 0;
     }
      public boolean existeId(int id){
