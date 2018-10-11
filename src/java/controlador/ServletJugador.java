@@ -48,9 +48,7 @@ public class ServletJugador extends HttpServlet {
         if (opcion.equals("Eliminar")) {
             eliminar(request, response);
         }
-        if (opcion.equals("Listar")) {
-            listar(request, response);
-        }
+        
         if (opcion.equals("Modificar")) {
             modificar(request, response);
         }
@@ -106,10 +104,7 @@ public class ServletJugador extends HttpServlet {
 
     }
 
-    private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        request.getSession().setAttribute("lista", jugadorFacade.findAll());
-        response.sendRedirect("index.php");
-    }
+   
 
     private void modificar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String nombre = request.getParameter("txtNombre");
