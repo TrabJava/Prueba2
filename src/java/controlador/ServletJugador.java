@@ -57,29 +57,25 @@ public class ServletJugador extends HttpServlet {
 
     }
      private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String nombre = request.getParameter("txtNombre");
-        String apellido = request.getParameter("txtApellido");
-        String rut = request.getParameter("txtRut");
+         
+        String nombre = request.getParameter("txtNombreJugador");
+        String apellido = request.getParameter("txtApellidoPaterno");
+        String rut = request.getParameter("txtRutJugador");
         String user = request.getParameter("txtUser");
-        String pass = request.getParameter("txtPass");
+        String pass = request.getParameter("txtContrasenia");
         int tipo = Integer.parseInt(request.getParameter("cboTipo"));
         int estado = Integer.parseInt(request.getParameter("cboEstado"));
         int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
         int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
+        TipoJugador tipoJug = new TipoJugador(tipo);
+        EstadoJugador estadoJug = new EstadoJugador(estado);
+        SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
+        Equipo equipJug = new Equipo(equipo);
 
-        if (jugadorFacade.existeUsuario(user, rut)) {
-            request.getSession().setAttribute("mensaje", "El jugador ya existe");
-            response.sendRedirect("index.jsp");
-        } else {
-            TipoJugador tipoJug = new TipoJugador(tipo);
-            EstadoJugador estadoJug = new EstadoJugador(estado);
-            SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
-            Equipo equipJug = new Equipo(equipo);
-            Jugador jugador = new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug);
-            jugadorFacade.create(jugador);
-            request.getSession().setAttribute("mensaje", "El jugador se ha creado");
-            response.sendRedirect("index.jsp");
-        }
+        jugadorFacade.create(new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+
+        request.getSession().setAttribute("mensaje", "El jugador se ha creado");
+        response.sendRedirect("Jugador/agregar_Jugador.jsp");
 
     }
 
