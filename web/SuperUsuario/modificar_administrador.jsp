@@ -57,12 +57,12 @@
             <div class="row centered-form" >
                 <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
                     <div class="panel panel-default">
-                        <form action="../procesoSuperUsuario" method="GET">
-                            <div class="panel-body" style="margin-left: 100%;">
+
+                        <div class="panel-body" style="margin-left: 100%;">
 
 
-                                <table>
-
+                            <table>
+                                <form action="../procesoSuperUsuario" method="POST">
 
                                     <td><input  hidden="" type="text" name="txtId" value="<%= rs.getInt("id")%>"></td>
                                 <tr>
@@ -78,7 +78,7 @@
                                     <td>
                                         <select name="cboTipo" id="cboTipo" class="form-control">
                                             <%
-                                                    while (rset.next()) {%>
+                                                while (rset.next()) {%>
                                             <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tipo")%></option>
                                             <%}
                                             %>
@@ -91,7 +91,7 @@
                                     <td>
                                         <select name="cboEstado" id="cboEstado" class="form-control">
                                             <%
-                                                    while (rseet.next()) {%>
+                                                while (rseet.next()) {%>
                                             <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion")%></option>
                                             <%}
                                             %>
@@ -103,15 +103,17 @@
                                     <td><input type="submit" name="btnAccion" value="Modificar" class="boton"></td> 
                                 </tr>
                                 </tbody>
-                            </table>
-                  
-                    
-                    <%}%>
+                            </form>
+                            ${mensaje}
+                        </table>
+
+
+                        <%}%>
+                    </div>
+
+
                 </div>
-                  </form>
-                ${mensaje}
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
