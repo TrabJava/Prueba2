@@ -105,7 +105,7 @@ public class ServletSuperUsuario extends HttpServlet {
 
         if (superUsuarioFacade.existeUsuario(user)) {
             request.getSession().setAttribute("mensaje", "El usuario ya existe");
-            response.sendRedirect("Vistas/agregar_administrador.jsp");
+            response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
         } else {
             TipoSuper tipoSuper = new TipoSuper(tipo);
             EstadoSuper estadoSu = new EstadoSuper(estado);
@@ -146,16 +146,15 @@ public class ServletSuperUsuario extends HttpServlet {
         int estado = Integer.parseInt(request.getParameter("cboEstado"));
 
         if (superUsuarioFacade.existeUsuario(user)) {
-            request.getSession().setAttribute("mensaje", "El usuario ya existe");
-            response.sendRedirect("SuperUsuario/listar_admin.jsp");
-
-        } else {
             TipoSuper tipoSuper = new TipoSuper(tipo);
             EstadoSuper estadoSu = new EstadoSuper(estado);
             SuperUsuario su = new SuperUsuario(user, pass, tipoSuper, estadoSu);
             superUsuarioFacade.remove(su);
             superUsuarioFacade.create(su);
             request.getSession().setAttribute("mensaje", "El Usuario se Actualizo");
+            response.sendRedirect("SuperUsuario/modificar_administrador.jsp");
+        } else {
+            request.getSession().setAttribute("mensaje", "El usuario no existe");
             response.sendRedirect("SuperUsuario/listar_admin.jsp");
         }
 
