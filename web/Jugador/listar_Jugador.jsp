@@ -41,25 +41,28 @@
                         <td>Equipo: </td>
                         <td>Herramientas</td>
                     </tr>
-                    <tr>
-                        <c:forEach var = "row" items = "${jugador.rows}">
-                            <td>${row.id}</td>
-                            <td>${row.nombre}</td>
-                            <td>${row.ap_paterno}</td>
-                            <td>${row.rut}</td>
-                            <td>${row.user}</td>
-                            <td>${row.pass}</td>
-                            <td>${row.descripcion_tipoj}</td>
-                            <td>${row.descripcion_estadoj}</td>
-                            <td>${row.descripcion_seleccion}</td>
-                            <td>${row.nombre_equipo}</td>
+
+                    <c:forEach var = "row" items = "${jugador.rows}">
+                        <tr>
+                            <td><input type="text" name="txtId" value="${row.id}"/></td>
+                            <td><input type="text" name="txtNombre" value="${row.nombre}"/></td>
+                            <td><input type="text" name="txtApellido" value="${row.ap_paterno}"/></td>
+                            <td><input type="text" name="txtRut" value="${row.rut}" ></td>
+                            <td><input type="text" name="txtUser" value="${row.user}"/></td>
+                            <td><input type="text" name="txtPass" value="${row.pass}"/></td>
+                            <td><input type="text" name="txtTipo" value="${row.descripcion_tipoj}"/></td>
+                            <td><input type="text" name="txtEstado" value="${row.descripcion_estadoj}"/></td>
+                            <td><input type="text" name="txtSeleccion" value="${row.descripcion_seleccion}"/></td>
+                            <td><input type="text" name="txtEquipo" value="${row.nombre_equipo}"/></td>
                             <td><a href="modificar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a>
                                 <input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"/>
                             </td>
-                        </c:forEach>
-                    </tr>
+                        </tr>
+                    </c:forEach>
+
                 </tbody>
             </table>
         </form>
+        ${mensaje}
     </body>
 </html>
