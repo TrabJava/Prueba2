@@ -56,26 +56,35 @@ public class ServletJugador extends HttpServlet {
         }
 
     }
-     private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-         
-        String nombre = request.getParameter("txtNombreJugador");
-        String apellido = request.getParameter("txtApellidoPaterno");
-        String rut = request.getParameter("txtRutJugador");
-        String user = request.getParameter("txtUser");
-        String pass = request.getParameter("txtContrasenia");
-        int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-        int estado = Integer.parseInt(request.getParameter("cboEstado"));
-        int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
-        int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
-        TipoJugador tipoJug = new TipoJugador(tipo);
-        EstadoJugador estadoJug = new EstadoJugador(estado);
-        SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
-        Equipo equipJug = new Equipo(equipo);
 
-        jugadorFacade.create(new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+    private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        request.getSession().setAttribute("mensaje", "El jugador se ha creado");
-        response.sendRedirect("Jugador/agregar_Jugador.jsp");
+        try {
+            String nombre = request.getParameter("txtNombreJugador");
+            String apellido = request.getParameter("txtApellidoPaterno");
+            String rut = request.getParameter("txtRutJugador");
+            String user = request.getParameter("txtUser");
+            String pass = request.getParameter("txtContrasenia");
+            int tipo = Integer.parseInt(request.getParameter("cboTipo"));
+            int estado = Integer.parseInt(request.getParameter("cboEstado"));
+            int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
+            int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
+            TipoJugador tipoJug = new TipoJugador(tipo);
+            EstadoJugador estadoJug = new EstadoJugador(estado);
+            SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
+            Equipo equipJug = new Equipo(equipo);
+            if (jugadorFacade.existeUsuario(user)) {
+                request.getSession().setAttribute("mensaje", "El jugador ya existe");
+                response.sendRedirect("Jugador/agregar_Jugador.jsp");
+
+            } else {
+                jugadorFacade.create(new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                request.getSession().setAttribute("mensaje", "El jugador se ha creado");
+                response.sendRedirect("Jugador/agregar_Jugador.jsp");
+            }
+        } catch (Exception e) {
+           response.sendRedirect("Jugador/agregar_Jugador.jsp");
+        }
 
     }
 
@@ -90,7 +99,7 @@ public class ServletJugador extends HttpServlet {
         int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
         int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
 
-        if (jugadorFacade.existeUsuario(user, rut)) {
+        if (jugadorFacade.existeUsuario(user)) {
             TipoJugador tipoJug = new TipoJugador(tipo);
             EstadoJugador estadoJug = new EstadoJugador(estado);
             SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
@@ -122,7 +131,7 @@ public class ServletJugador extends HttpServlet {
         int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
         int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
 
-        if (jugadorFacade.existeUsuario(user, rut)) {
+        if (jugadorFacade.existeUsuario(user)) {
             TipoJugador tipoJug = new TipoJugador(tipo);
             EstadoJugador estadoJug = new EstadoJugador(estado);
             SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
@@ -177,7 +186,5 @@ public class ServletJugador extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-   
 
 }
