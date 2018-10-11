@@ -42,18 +42,13 @@ public class ServletSuperUsuario extends HttpServlet {
         if (opcion.equals("Agregar")) {
             agregar(request, response);
         }
-        if (opcion.equals("Eliminar")) {
-            eliminar(request, response);
+        if (opcion.equals("Actualizar")) {
+            actualizarEstado(request, response);
         }
         if (opcion.equals("Modificar")) {
             modificar(request, response);
         }
-        if (opcion.equals("Listar")) {
-            listar(request, response);
-        }
-        if (opcion.equals("Buscar")) {
-            buscar(request, response);
-        }
+        
 
     }
 
@@ -117,26 +112,7 @@ public class ServletSuperUsuario extends HttpServlet {
 
     }
 
-    private void eliminar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String user = request.getParameter("txtUser");
-        String pass = request.getParameter("txtPass");
-        int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-        int estado = Integer.parseInt(request.getParameter("cboTipo"));
-        int id = Integer.parseInt(request.getParameter("cboUsuarios"));
-
-        if (superUsuarioFacade.existeId(id)) {
-            request.getSession().setAttribute("mensaje", "El usuario no existe");
-            response.sendRedirect("SuperUsuario/listar_admin.jsp");
-        } else {
-            TipoSuper tipoSuper = new TipoSuper(tipo);
-            EstadoSuper estadoSu = new EstadoSuper(estado);
-            SuperUsuario su = new SuperUsuario(id, user, pass, tipoSuper, estadoSu);
-            superUsuarioFacade.remove(su);
-            request.getSession().setAttribute("mensaje", "El Usuario se Eliminó");
-            response.sendRedirect("SuperUsuario/listar_admin.jsp");
-        }
-
-    }
+    
 
     private void modificar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -162,14 +138,9 @@ public class ServletSuperUsuario extends HttpServlet {
 
     }
 
-    private void listar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        request.getSession().setAttribute("lista", superUsuarioFacade.findAll());
-        response.sendRedirect("SuperUsuario/listar_admin.jsp");
-    }
-
-    private void buscar(HttpServletRequest request, HttpServletResponse response) {
+    private void actualizarEstado(HttpServletRequest request, HttpServletResponse response) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+   
 }
