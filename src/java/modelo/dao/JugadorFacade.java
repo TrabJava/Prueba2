@@ -41,10 +41,5 @@ public class JugadorFacade extends AbstractFacade<Jugador> {
         return query.getResultList().size() > 0;
     }
      
-    public boolean actualizar(int id, int estado){
-        Query query = em.createQuery("UPDATE Jugador j set j.estado = :estado WHERE j.id = :id");
-        query.setParameter("id", id);
-        query.setParameter("estado", estado);
-        return query.getResultList().size() > 0;
-    }
+   
 }
