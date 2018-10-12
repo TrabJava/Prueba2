@@ -48,7 +48,6 @@ public class ServletSuperUsuario extends HttpServlet {
         if (opcion.equals("Modificar")) {
             modificar(request, response);
         }
-        
 
     }
 
@@ -112,8 +111,6 @@ public class ServletSuperUsuario extends HttpServlet {
 
     }
 
-    
-
     private void modificar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         String user = request.getParameter("txtUser");
@@ -130,7 +127,7 @@ public class ServletSuperUsuario extends HttpServlet {
             superUsuarioFacade.create(su);
             request.getSession().setAttribute("mensaje", "El Usuario se Modificó");
             response.sendRedirect("SuperUsuario/listar_admin.jsp");
-                
+
         } else {
             request.getSession().setAttribute("mensaje", "El usuario no existe");
             response.sendRedirect("SuperUsuario/listar_admin.jsp");
@@ -138,9 +135,25 @@ public class ServletSuperUsuario extends HttpServlet {
 
     }
 
-    private void actualizarEstado(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void actualizarEstado(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            int id = Integer.parseInt(request.getParameter("txtId"));
+            int estado = 2;
+            if (superUsuarioFacade.existeId(id)) {
+                EstadoSuper estadoSu = new EstadoSuper(estado);
+                SuperUsuario su = new SuperUsuario(id, estadoSu);
+                superUsuarioFacade.remove(su);
+                superUsuarioFacade.create(su);
+                request.getSession().setAttribute("mensaje", "El Usuario se desactivo");
+                response.sendRedirect("SuperUsuario/listar_admin.jsp");
+            } else {
+                request.getSession().setAttribute("mensaje", "El usuario no se desactivo");
+                response.sendRedirect("SuperUsuario/listar_admin.jsp");
+            }
+        } catch (Exception e) {
+             response.sendRedirect("SuperUsuario/listar_admin.jsp");
+        }
+
     }
 
-   
 }
