@@ -47,8 +47,9 @@ public class SuperUsuarioFacade extends AbstractFacade<SuperUsuario> {
         return query.getResultList().size() > 0;
     }
     public boolean actualizarEstado(int id,int estado){
-        Query query = em.createQuery("UPDATE s super_usuario set s.estado=:estado  SuperUsuario s WHERE s.id = :id");
+        Query query = em.createQuery("UPDATE s SuperUsuario set s.estado=:estado  SuperUsuario s WHERE s.id = :id");
         query.setParameter("id", id);
+        query.setParameter("estado", estado);
         return query.getResultList().size() > 0;
     }
 
