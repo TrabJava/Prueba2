@@ -48,7 +48,7 @@ public class ServletJugador extends HttpServlet {
         if (opcion.equals("Eliminar")) {
             eliminar(request, response);
         }
-        
+
         if (opcion.equals("Modificar")) {
             modificar(request, response);
         }
@@ -87,24 +87,37 @@ public class ServletJugador extends HttpServlet {
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-            
-            
+        try {
             int id = Integer.parseInt(request.getParameter("txtId"));
-            
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            String rut = request.getParameter("txtRut");
+            String user = request.getParameter("txtUser");
+            String pass = request.getParameter("txtPass");
+            int tipo = Integer.parseInt(request.getParameter("txtTipo"));
+            int estado = 2;
+            int seleccion = Integer.parseInt(request.getParameter("txtSeleccion"));
+            int equipo = Integer.parseInt(request.getParameter("txtEquipo"));
 
-        if (jugadorFacade.existeId(id)) {
-            Jugador jugador = new Jugador(id);
-            jugadorFacade.remove(jugador);
-            request.getSession().setAttribute("mensaje", "El jugador se elimino");
-            response.sendRedirect("Jugador/listar_Jugador.jsp");
-        } else {
-            request.getSession().setAttribute("mensaje", "El jugador no se elimino");
-            response.sendRedirect("Jugador/listar_Jugador.jsp");
+            if (jugadorFacade.existeId(id)) {
+                TipoJugador tipoJug = new TipoJugador(tipo);
+                EstadoJugador estadoJug = new EstadoJugador(estado);
+                SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
+                Equipo equipJug = new Equipo(equipo);
+                jugadorFacade.remove(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                jugadorFacade.create(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                request.getSession().setAttribute("mensaje", "El Usuario se ha deshabilitado");
+                response.sendRedirect("Jugador/listar_admin.jsp");
+
+            } else {
+                request.getSession().setAttribute("mensaje", "El usuario no existe");
+                response.sendRedirect("Jugador/listar_admin.jsp");
+            }
+        } catch (Exception e) {
+            response.sendRedirect("Jugador/listar_admin.jsp");
         }
 
     }
-
-   
 
     private void modificar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String nombre = request.getParameter("txtNombre");
