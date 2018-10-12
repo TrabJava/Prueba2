@@ -69,27 +69,27 @@
                 <tbody>
                     <tr>
                         <td>ID:</td>
-                        <td><input type="text" name="txtId" value="<%= rs.getInt("id")%>"></td>
+                        <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
                     </tr>
                     <tr>
                         <td>Nombre:</td>
-                        <td><input type="text" name="txtId" value="<%= rs.getString("nombre")%>"></td>
+                        <td><input type="text" name="txtNombre" value="<%= rs.getString("nombre")%>"></td>
                     </tr>
                     <tr>
                         <td>Apellido Paterno:</td>
-                        <td><input type="text" name="txtId" value="<%= rs.getString("ap_paterno")%>"></td>
+                        <td><input type="text" name="txtApellido" value="<%= rs.getString("ap_paterno")%>"></td>
                     </tr>
                     <tr>
                         <td>Rut:</td>
-                        <td><input type="text" name="txtId" value="<%= rs.getString("rut")%>"></td>
+                        <td><input type="text" name="txtRut" value="<%= rs.getString("rut")%>"></td>
                     </tr>
                     <tr>
                         <td>Usuario:</td>
-                        <td><input type="text" name="txtId" value="<%= rs.getString("user")%>"></td>
+                        <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>"></td>
                     </tr>
                     <tr>
                         <td>contraseña:</td>
-                        <td><input type="text" name="txtId" value="<%= rs.getString("pass")%>"></td>
+                        <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>"></td>
                     </tr>
                     <tr>
                         <td>Tipo de Usuario:</td>
