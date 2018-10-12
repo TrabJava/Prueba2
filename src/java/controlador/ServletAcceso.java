@@ -88,7 +88,6 @@ public class ServletAcceso extends HttpServlet {
             String pass = request.getParameter("txtPassword");
 
             if (superUsuarioFacade.ingresar(user, pass)) {
-                SuperUsuario superusuario = new SuperUsuario(user, pass);
                 response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
                 
 
