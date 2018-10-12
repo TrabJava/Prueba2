@@ -139,7 +139,7 @@ public class ServletSuperUsuario extends HttpServlet {
         try {
             int id = Integer.parseInt(request.getParameter("txtId"));
             int estado = 2;
-            if (superUsuarioFacade.existeId(id)) {
+            if (superUsuarioFacade.actualizarEstado(id,estado)) {
                 EstadoSuper estadoSu = new EstadoSuper(estado);
                 SuperUsuario su = new SuperUsuario(id, estadoSu);
                 superUsuarioFacade.remove(su);
