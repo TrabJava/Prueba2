@@ -78,7 +78,7 @@
                                     </thead>
                                     <tbody>
                                     <c:forEach var = "row" items = "${admin.rows}">
-                                    <form action="procesoSuperUsuario" method="GET">
+                                    <form action="../procesoSuperUsuario" method="GET">
                                         <tr>
                                             <td>${row.id}</td>
                                             <td>${row.user}</td>
@@ -88,11 +88,11 @@
                                             <td><input type="submit" name="btnAccion" value="Actualizar"></td>
                                             <td><a href="modificar_administrador.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                                         </tr>
-
-                                    </c:forEach>
+                                    </form>
+                                </c:forEach>
                             </table>
 
-                        </form>
+
                     </div>
                 </div>
             </div>
