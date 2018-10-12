@@ -63,7 +63,7 @@
 
                             <table>
                                 <form action="../procesoSuperUsuario" method="POST">
-
+                                    <tbody>
                                     <td><input  hidden="" type="text" name="txtId" value="<%= rs.getInt("id")%>"></td>
                                 <tr>
                                     <td>Usuario</td>
@@ -79,7 +79,7 @@
                                         <select name="cboTipo" id="cboTipo" class="form-control">
                                             <%
                                                 while (rset.next()) {%>
-                                            <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tipo")%></option>
+                                            <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tiposu")%></option>
                                             <%}
                                             %>
                                         </select>
@@ -92,7 +92,7 @@
                                         <select name="cboEstado" id="cboEstado" class="form-control">
                                             <%
                                                 while (rseet.next()) {%>
-                                            <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion")%></option>
+                                            <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion_super")%></option>
                                             <%}
                                             %>
                                         </select>
@@ -104,7 +104,8 @@
                                 </tr>
                                 </tbody>
                             </form>
-                            ${mensaje}
+                                    <h1>${mensaje}</h1>      
+                                    
                         </table>
 
 

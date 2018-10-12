@@ -85,23 +85,13 @@
                                             <td>${row.pass}</td>
                                             <td>${row.descripcion_tiposu}</td>
                                             <td>${row.descripcion_super}</td>
-                                            <td>
-                                                <c:choose>
-                                                    <c:when test="${row.descripcion_super!='Activo'}">
-                                                        <a  style="color: white">Ya desactivado</a>  
-                                                    </c:when>
-                                                    <c:when test="${row.descripcion_super!='Inactivo'}">
-                                                        <a href="#" style="color: white">Eliminar</a>  
-                                                    </c:when>
-                                                </c:choose>
-                                            </td>
-
+                                            <td><input type="submit" name="btnAccion" value="Actualizar"></td>
                                             <td><a href="modificar_administrador.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                                         </tr>
 
                                     </c:forEach>
                             </table>
-                            
+
                         </form>
                     </div>
                 </div>
