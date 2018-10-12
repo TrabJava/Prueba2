@@ -23,7 +23,7 @@
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="jugador">
-            SELECT ju.id,ju.nombre,ju.ap_paterno,ju.rut,ju.user,ju.pass,t.descripcion_tipoj,e.descripcion_estadoj, s.descripcion_seleccion,eq.nombre_equipo FROM jugador ju JOIN tipo_jugador t ON ju.tipo = t.id JOIN estado_jugador e ON ju.estado = e.id JOIN seleccion_jugador s ON ju.seleccion = s.id JOIN equipo eq ON ju.equipo = eq.id
+            SELECT ju.id,ju.nombre,ju.ap_paterno,ju.rut,ju.user,ju.pass, ju.tipo, ju.estado, ju.seleccion, ju.equipo FROM jugador ju JOIN tipo_jugador t ON ju.tipo = t.id JOIN estado_jugador e ON ju.estado = e.id JOIN seleccion_jugador s ON ju.seleccion = s.id JOIN equipo eq ON ju.equipo = eq.id
         </sql:query> 
         <form action="../procesoJugador" method="POST">
             <table border="1">
@@ -50,10 +50,10 @@
                             <td><input type="text" name="txtRut" value="${row.rut}" ></td>
                             <td><input type="text" name="txtUser" value="${row.user}"/></td>
                             <td><input type="text" name="txtPass" value="${row.pass}"/></td>
-                            <td><input type="text" name="txtTipo" value="${row.descripcion_tipoj}"/></td>
-                            <td><input type="text" name="txtEstado" value="${row.descripcion_estadoj}"/></td>
-                            <td><input type="text" name="txtSeleccion" value="${row.descripcion_seleccion}"/></td>
-                            <td><input type="text" name="txtEquipo" value="${row.nombre_equipo}"/></td>
+                            <td><input type="text" name="txtTipo" value="${row.tipo}"/></td>
+                            <td><input type="text" name="txtEstado" value="${row.estado}"/></td>
+                            <td><input type="text" name="txtSeleccion" value="${row.seleccion}"/></td>
+                            <td><input type="text" name="txtEquipo" value="${row.equipo}"/></td>
                             <td><a href="modificar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a>
                                 <input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"/>
                             </td>
