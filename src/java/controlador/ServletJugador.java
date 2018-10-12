@@ -107,11 +107,11 @@ public class ServletJugador extends HttpServlet {
                 jugadorFacade.remove(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
                 jugadorFacade.create(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
                 request.getSession().setAttribute("mensaje", "El Usuario se ha deshabilitado");
-                response.sendRedirect("Jugador/listar_admin.jsp");
+                response.sendRedirect("Jugador/listar_Jugador.jsp");
 
             } else {
                 request.getSession().setAttribute("mensaje", "El usuario no existe");
-                response.sendRedirect("Jugador/listar_admin.jsp");
+                response.sendRedirect("Jugador/listar_Jugador.jsp");
             }
         } catch (Exception e) {
             response.sendRedirect("Jugador/listar_admin.jsp");
@@ -120,31 +120,36 @@ public class ServletJugador extends HttpServlet {
     }
 
     private void modificar(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String nombre = request.getParameter("txtNombre");
-        String apellido = request.getParameter("txtApellido");
-        String rut = request.getParameter("txtRut");
-        String user = request.getParameter("txtUser");
-        String pass = request.getParameter("txtPass");
-        int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-        int estado = Integer.parseInt(request.getParameter("cboEstado"));
-        int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
-        int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
+        try {
+            int id = Integer.parseInt(request.getParameter("txtId"));
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            String rut = request.getParameter("txtRut");
+            String user = request.getParameter("txtUser");
+            String pass = request.getParameter("txtPass");
+            int tipo = Integer.parseInt(request.getParameter("cboTipo"));
+            int estado = Integer.parseInt(request.getParameter("cboEstado"));
+            int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
+            int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
 
-        if (jugadorFacade.existeUsuario(user)) {
-            TipoJugador tipoJug = new TipoJugador(tipo);
-            EstadoJugador estadoJug = new EstadoJugador(estado);
-            SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
-            Equipo equipJug = new Equipo(equipo);
-            Jugador jugador = new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug);
-            jugadorFacade.remove(jugador);
-            jugadorFacade.create(jugador);
-            request.getSession().setAttribute("mensaje", "El jugador se ha creado");
-            response.sendRedirect("index.jsp");
+            if (jugadorFacade.existeId(id)) {
+                TipoJugador tipoJug = new TipoJugador(tipo);
+                EstadoJugador estadoJug = new EstadoJugador(estado);
+                SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
+                Equipo equipJug = new Equipo(equipo);
+                jugadorFacade.remove(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                jugadorFacade.create(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                request.getSession().setAttribute("mensaje", "El jugador se ha Modificado");
+                response.sendRedirect("Jugador/listar_Jugador.jsp");
 
-        } else {
-            request.getSession().setAttribute("mensaje", "El jugador ya existe");
-            response.sendRedirect("index.jsp");
+            } else {
+                request.getSession().setAttribute("mensaje", "El jugador no se ha Modificado");
+                response.sendRedirect("Jugador/listar_Jugador.jsp");
+            }
+        } catch (Exception e) {
+          response.sendRedirect("Jugador/listar_Jugador.jsp");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
