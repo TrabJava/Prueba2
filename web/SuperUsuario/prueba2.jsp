@@ -3,8 +3,13 @@
     Created on : 12-10-2018, 13:24:26
     Author     : Jamesalfred
 --%>
+<!DOCTYPE html>
+<%--Para hacer una Consulta directa a la bbd--%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,62 +21,64 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     </script>
     <style>
-        /* Make the image fully responsive */
-        .carousel-inner img {
-            width: 100%;
-            height: 70%;
+        body{
+            background: url(../img/lolcito.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
-</head>
-<body style="background-color: #0A0A2A">
     <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-    <div id="demo" class="carousel slide" data-ride="carousel" style="width: 1520;height: 800px">
-        <ul class="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" class="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-        </ul>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                
-                <img src="../img/league.png" alt="Los Angeles" width="1100" height="500">
-                <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>We had such a great time in LA!</p>
-                </div>   
-            </div>
-            <div class="carousel-item">
-                <img src="../img/lolcito.jpg" alt="Chicago" width="1100" height="500">
-                <div class="carousel-caption">
-                    <h3>Chicago</h3>
-                    <p>Thank you, Chicago!</p>
-                </div>   
-            </div>
-            <div class="carousel-item">
-                <img src="../img/lolo.jpg" alt="New York" width="1100" height="500">
-                <div class="carousel-caption">
-                    <h3>New York</h3>
-                    <p>We love the Big Apple!</p>
-                </div>   
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
-    </div>
-    <div class="row">
-        <div class="col-8" style="background-color: #ffffff">
-            .col-8
-            <div class="row">
-                <div class="col-6" style="background-color: activecaption">.col-6</div>
-                <div class="col-6" style="background-color: aqua">.col-6</div>
-            </div>
-        </div>
-        <div class="col-4" style="background-color: #ff0000">.col-4</div>
-    </div>
+</head>
+<body>
+     <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
+                           url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
+                           user = "mojaber_ali"  password = "12345"/>
 
+        <%--Query para mostrar los datos en la lista--%>
+        <sql:query dataSource = "${snapshot}" var = "admin">
+            SELECT e.nombre_equipo ,e.foto_link FROM detalle d JOIN equipo e ON e.id = d.equipo where clasificatoria = 2 and e.liga =2
+        </sql:query>
+    <div class="row">
+  <div class="col-4">
+      
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <form method="POST" action="../procesoSuperUsuario">
+                                <table class="table table-dark" style="width: 400px"  height="500">
+                                    <thead>
+                                        <tr><td colspan="2"><h1>Octavos de final</h1></td></tr>
+                                        <tr><td colspan="2"><h4>Primer encuentro</h4></td></tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach var = "row" items = "${admin.rows}">
+                                    <form action="procesoSuperUsuario" method="GET">
+                                        
+                                        <tr height="150">
+                                            
+                                            <td>${row.nombre_equipo}</td>
+                                            <img src="../img/Icono_VS.png" alt="" style="margin-top:  250px;position: absolute;margin-left:  250px" width="50" height="50" />
+                                            <td><img src="../img/${row.foto_link}" alt="" width="70" height="70" /></td>
+                                        </tr>
+                                        
+
+                                    </c:forEach>
+                                        <img src="../img/Icono_VS.png" alt="" style="margin-top:  550px;position: absolute;margin-left:  250px" width="50" height="50" />
+                            </table>
+                                
+                            
+                        </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
+  </div>
+        
+  <div class="col-8">
+      <img src="../img/lol-logo.png" alt="" style="margin-left: 20px"/>
+  </div>
+</div>
+   
 </body>
 </html>
