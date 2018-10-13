@@ -89,6 +89,7 @@
                                             <td><a href="modificar_administrador.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                                         </tr>
                                     </form>
+                                        ${mensaje}
                                 </c:forEach>
                             </table>
 

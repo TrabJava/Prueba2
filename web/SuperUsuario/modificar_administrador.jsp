@@ -104,7 +104,6 @@
                                 </tr>
                                 </tbody>
                             </form>
-                                    <h1>${mensaje}</h1>      
                                     
                         </table>
 

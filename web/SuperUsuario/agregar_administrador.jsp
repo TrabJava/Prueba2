@@ -72,8 +72,10 @@
                     </tr>
                 </tbody>
             </table>
-        </form>
-        ${mensaje}
+        </form> 
+        <button type="button"  data-toggle="collapse" data-target="#demo"> ${mensaje}</button>
+       
+
 
 
     </body>
