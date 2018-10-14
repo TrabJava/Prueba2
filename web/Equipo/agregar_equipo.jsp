@@ -30,7 +30,7 @@
         </sql:query> 
 
 
-        <h1>Agregar Jugador</h1>
+        <h1>Agregar Equipo</h1>
         <form  action="../procesoEquipo" method="POST">
             <table border="1">
                 <tbody>
@@ -52,7 +52,7 @@
                         <td><label>Estado: </label></td>
                         <td>
                             <select name="cboEstado">
-                                <c:forEach var="estado" items="${estado.rows}">
+                                <c:forEach var="estado" items="${estado.rows}" >
                                     <option value="${estado.id}">${estado.descripcion_estadoe}</option>
                                 </c:forEach>
                             </select>
