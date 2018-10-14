@@ -12,7 +12,7 @@ import modelo.dto.Liga;
 
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Stateless
 public class LigaFacade extends AbstractFacade<Liga> {

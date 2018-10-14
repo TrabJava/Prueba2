@@ -27,15 +27,16 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Entity
 @Table(name = "equipo")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Equipo.findAll", query = "SELECT e FROM Equipo e"),
-    @NamedQuery(name = "Equipo.findById", query = "SELECT e FROM Equipo e WHERE e.id = :id"),
-    @NamedQuery(name = "Equipo.findByNombreEquipo", query = "SELECT e FROM Equipo e WHERE e.nombreEquipo = :nombreEquipo")})
+    @NamedQuery(name = "Equipo.findAll", query = "SELECT e FROM Equipo e")
+    , @NamedQuery(name = "Equipo.findById", query = "SELECT e FROM Equipo e WHERE e.id = :id")
+    , @NamedQuery(name = "Equipo.findByNombreEquipo", query = "SELECT e FROM Equipo e WHERE e.nombreEquipo = :nombreEquipo")
+    , @NamedQuery(name = "Equipo.findByFotoLink", query = "SELECT e FROM Equipo e WHERE e.fotoLink = :fotoLink")})
 public class Equipo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,6 +50,9 @@ public class Equipo implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "nombre_equipo")
     private String nombreEquipo;
+    @Size(max = 500)
+    @Column(name = "foto_link")
+    private String fotoLink;
     @OneToMany(mappedBy = "equipo")
     private List<Jugador> jugadorList;
     @JoinColumn(name = "liga", referencedColumnName = "id")
@@ -63,15 +67,25 @@ public class Equipo implements Serializable {
     public Equipo() {
     }
 
+    public Equipo(Integer id) {
+        this.id = id;
+    }
+
+    public Equipo(String nombreEquipo, String fotoLink, Liga liga, EstadoEquipo estado) {
+        this.nombreEquipo = nombreEquipo;
+        this.fotoLink = fotoLink;
+        this.liga = liga;
+        this.estado = estado;
+    }
+
     public Equipo(String nombreEquipo, Liga liga, EstadoEquipo estado) {
         this.nombreEquipo = nombreEquipo;
         this.liga = liga;
         this.estado = estado;
     }
     
-    public Equipo(Integer id) {
-        this.id = id;
-    }
+    
+    
 
     public Equipo(Integer id, String nombreEquipo) {
         this.id = id;
@@ -92,6 +106,14 @@ public class Equipo implements Serializable {
 
     public void setNombreEquipo(String nombreEquipo) {
         this.nombreEquipo = nombreEquipo;
+    }
+
+    public String getFotoLink() {
+        return fotoLink;
+    }
+
+    public void setFotoLink(String fotoLink) {
+        this.fotoLink = fotoLink;
     }
 
     @XmlTransient

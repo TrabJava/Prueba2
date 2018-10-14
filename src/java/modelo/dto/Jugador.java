@@ -23,19 +23,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Entity
 @Table(name = "jugador")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Jugador.findAll", query = "SELECT j FROM Jugador j"),
-    @NamedQuery(name = "Jugador.findById", query = "SELECT j FROM Jugador j WHERE j.id = :id"),
-    @NamedQuery(name = "Jugador.findByNombre", query = "SELECT j FROM Jugador j WHERE j.nombre = :nombre"),
-    @NamedQuery(name = "Jugador.findByApPaterno", query = "SELECT j FROM Jugador j WHERE j.apPaterno = :apPaterno"),
-    @NamedQuery(name = "Jugador.findByRut", query = "SELECT j FROM Jugador j WHERE j.rut = :rut"),
-    @NamedQuery(name = "Jugador.findByUser", query = "SELECT j FROM Jugador j WHERE j.user = :user"),
-    @NamedQuery(name = "Jugador.findByPass", query = "SELECT j FROM Jugador j WHERE j.pass = :pass")})
+    @NamedQuery(name = "Jugador.findAll", query = "SELECT j FROM Jugador j")
+    , @NamedQuery(name = "Jugador.findById", query = "SELECT j FROM Jugador j WHERE j.id = :id")
+    , @NamedQuery(name = "Jugador.findByNombre", query = "SELECT j FROM Jugador j WHERE j.nombre = :nombre")
+    , @NamedQuery(name = "Jugador.findByApPaterno", query = "SELECT j FROM Jugador j WHERE j.apPaterno = :apPaterno")
+    , @NamedQuery(name = "Jugador.findByRut", query = "SELECT j FROM Jugador j WHERE j.rut = :rut")
+    , @NamedQuery(name = "Jugador.findByUser", query = "SELECT j FROM Jugador j WHERE j.user = :user")
+    , @NamedQuery(name = "Jugador.findByPass", query = "SELECT j FROM Jugador j WHERE j.pass = :pass")})
 public class Jugador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -89,6 +89,15 @@ public class Jugador implements Serializable {
         this.id = id;
     }
 
+    public Jugador(Integer id, String nombre, String apPaterno, String rut, String user, String pass) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apPaterno = apPaterno;
+        this.rut = rut;
+        this.user = user;
+        this.pass = pass;
+    }
+
     public Jugador(String nombre, String apPaterno, String rut, String user, String pass, TipoJugador tipo, EstadoJugador estado, SeleccionJugador seleccion, Equipo equipo) {
         this.nombre = nombre;
         this.apPaterno = apPaterno;
@@ -99,16 +108,6 @@ public class Jugador implements Serializable {
         this.estado = estado;
         this.seleccion = seleccion;
         this.equipo = equipo;
-    }
-
-    
-    public Jugador(Integer id, String nombre, String apPaterno, String rut, String user, String pass) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apPaterno = apPaterno;
-        this.rut = rut;
-        this.user = user;
-        this.pass = pass;
     }
 
     public Jugador(Integer id, String nombre, String apPaterno, String rut, String user, String pass, TipoJugador tipo, EstadoJugador estado, SeleccionJugador seleccion, Equipo equipo) {
@@ -123,9 +122,11 @@ public class Jugador implements Serializable {
         this.seleccion = seleccion;
         this.equipo = equipo;
     }
-    
-    
 
+    
+    
+    
+    
     public Integer getId() {
         return id;
     }

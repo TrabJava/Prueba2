@@ -11,9 +11,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import modelo.dto.Equipo;
 
+
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Stateless
 public class EquipoFacade extends AbstractFacade<Equipo> {

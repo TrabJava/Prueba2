@@ -11,9 +11,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import modelo.dto.Jugador;
 
+
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Stateless
 public class JugadorFacade extends AbstractFacade<Jugador> {
@@ -29,17 +30,17 @@ public class JugadorFacade extends AbstractFacade<Jugador> {
     public JugadorFacade() {
         super(Jugador.class);
     }
-    
-    public boolean existeUsuario(String user){
+
+    public boolean existeUsuario(String user) {
         Query query = em.createQuery("SELECT j FROM Jugador j WHERE j.user = :user");
         query.setParameter("user", user);
         return query.getResultList().size() > 0;
     }
-     public boolean existeId(int id){
+
+    public boolean existeId(int id) {
         Query query = em.createQuery("SELECT j FROM Jugador j WHERE j.id = :id");
         query.setParameter("id", id);
         return query.getResultList().size() > 0;
     }
-     
-   
+
 }

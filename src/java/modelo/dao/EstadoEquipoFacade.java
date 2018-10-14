@@ -12,7 +12,7 @@ import modelo.dto.EstadoEquipo;
 
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Stateless
 public class EstadoEquipoFacade extends AbstractFacade<EstadoEquipo> {

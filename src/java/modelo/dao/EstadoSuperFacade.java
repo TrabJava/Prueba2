@@ -12,7 +12,7 @@ import modelo.dto.EstadoSuper;
 
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Stateless
 public class EstadoSuperFacade extends AbstractFacade<EstadoSuper> {

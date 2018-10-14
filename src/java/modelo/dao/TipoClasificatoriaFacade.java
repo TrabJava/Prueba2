@@ -12,7 +12,7 @@ import modelo.dto.TipoClasificatoria;
 
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Stateless
 public class TipoClasificatoriaFacade extends AbstractFacade<TipoClasificatoria> {

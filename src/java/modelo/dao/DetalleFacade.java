@@ -12,7 +12,7 @@ import modelo.dto.Detalle;
 
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Stateless
 public class DetalleFacade extends AbstractFacade<Detalle> {

@@ -23,16 +23,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author duoc
+ * @author Berni
  */
 @Entity
 @Table(name = "super_usuario")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "SuperUsuario.findAll", query = "SELECT s FROM SuperUsuario s"),
-    @NamedQuery(name = "SuperUsuario.findById", query = "SELECT s FROM SuperUsuario s WHERE s.id = :id"),
-    @NamedQuery(name = "SuperUsuario.findByUser", query = "SELECT s FROM SuperUsuario s WHERE s.user = :user"),
-    @NamedQuery(name = "SuperUsuario.findByPass", query = "SELECT s FROM SuperUsuario s WHERE s.pass = :pass")})
+    @NamedQuery(name = "SuperUsuario.findAll", query = "SELECT s FROM SuperUsuario s")
+    , @NamedQuery(name = "SuperUsuario.findById", query = "SELECT s FROM SuperUsuario s WHERE s.id = :id")
+    , @NamedQuery(name = "SuperUsuario.findByUser", query = "SELECT s FROM SuperUsuario s WHERE s.user = :user")
+    , @NamedQuery(name = "SuperUsuario.findByPass", query = "SELECT s FROM SuperUsuario s WHERE s.pass = :pass")})
 public class SuperUsuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,19 +61,10 @@ public class SuperUsuario implements Serializable {
     public SuperUsuario() {
     }
 
-    public SuperUsuario(Integer id, EstadoSuper estado) {
+    public SuperUsuario(Integer id) {
         this.id = id;
-        this.estado = estado;
     }
 
-    public SuperUsuario(String user, EstadoSuper estado) {
-        this.user = user;
-        this.estado = estado;
-    }
-
-    
-    
-    
     public SuperUsuario(String user, String pass, TipoSuper tipo, EstadoSuper estado) {
         this.user = user;
         this.pass = pass;
@@ -88,19 +79,13 @@ public class SuperUsuario implements Serializable {
         this.tipo = tipo;
         this.estado = estado;
     }
-    
-    
 
-    
-    public SuperUsuario(Integer id) {
+    public SuperUsuario(Integer id, EstadoSuper estado) {
         this.id = id;
+        this.estado = estado;
     }
 
-    public SuperUsuario(String user, String pass) {
-        this.user = user;
-        this.pass = pass;
-    }
-
+    
     
     public SuperUsuario(Integer id, String user, String pass) {
         this.id = id;
