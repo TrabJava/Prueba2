@@ -8,6 +8,7 @@ package modelo.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import modelo.dto.Equipo;
 
 /**
@@ -27,6 +28,12 @@ public class EquipoFacade extends AbstractFacade<Equipo> {
 
     public EquipoFacade() {
         super(Equipo.class);
+    }
+    
+    public boolean existeUsuario(String nombreEquipo){
+        Query query = em.createQuery("SELECT e FROM Equipo e WHERE e.nombreEquipo = :nombreEquipo");
+        query.setParameter("nombreEquipo", nombreEquipo);
+        return query.getResultList().size() > 0;
     }
     
 }
