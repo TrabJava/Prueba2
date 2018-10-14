@@ -25,7 +25,7 @@
 
 
         <%
-            //CONECTANOD A LA BASE DE DATOS:
+            //CONECTANDO A LA BASE DE DATOS:
             Connection con;
             String url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull";
             String Driver = "com.mysql.jdbc.Driver";

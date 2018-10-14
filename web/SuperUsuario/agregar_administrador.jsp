@@ -19,6 +19,13 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+
+        <script type='text/javascript'>
+            function cerrarelemento(){
+            div = document.getElementById( & quot; cerrarelemento & quot; );
+            div.style.display = & quot; none & quot; ;
+            }
+        </script>
     </head>
     <body>
 
@@ -35,49 +42,46 @@
         <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
 
 
-
-            <form action="../procesoSuperUsuario" method="POST">
-                <table border="1">
-                    <tbody>
-                        <tr>
-                            <td>USER :</td>
-                            <td><input type="text" name="txtUser" value="" /></td>
+            <div class="panel-body" style="margin-left:40%;">
+                <form action="../procesoSuperUsuario" method="POST">
+                    <table border="1">
+                        <tbody>
+                            <tr>
+                                <td>USER :</td>
+                                <td><input type="text" name="txtUser" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td>PASS :</td>
+                                <td><input type="password" name="txtPass" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td>TIPO :</td>
+                                <td>
+                                    <select name="cboTipo" >
+                                    <c:forEach var="tipos" items="${tipo.rows}">
+                                        <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
+                                    </c:forEach>
+                                </select></td>
                         </tr>
                         <tr>
-                            <td>PASS :</td>
-                            <td><input type="password" name="txtPass" value="" /></td>
-                        </tr>
-                        <tr>
-                            <td>TIPO :</td>
+                            <td>ESTADO :</td>
                             <td>
-                                <select name="cboTipo" >
-                                <c:forEach var="tipos" items="${tipo.rows}">
-                                    <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
-                                </c:forEach>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>ESTADO :</td>
-                        <td>
-                            <select name="cboEstado" >
-                                <c:forEach var="estados" items="${estado.rows}">
-                                    <option value="${estados.id}">${estados.descripcion_super}</option>
-                                </c:forEach>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td colspan="5">
-                            <input type="submit" name="btnAccion" value="Agregar" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </form> 
-        <button type="button"  data-toggle="collapse" data-target="#demo"> ${mensaje}</button>
-       
-
-
-
+                                <select name="cboEstado" >
+                                    <c:forEach var="estados" items="${estado.rows}">
+                                        <option value="${estados.id}">${estados.descripcion_super}</option>
+                                    </c:forEach>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5">
+                                <input type="submit" name="btnAccion" value="Agregar" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form> 
+            <button type="button"   data-target="#demo"> ${mensaje}</button>
+        </div>
     </body>
 </html>
 

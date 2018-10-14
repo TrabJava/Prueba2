@@ -8,8 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%--Para hacer una Consulta directa a la bbd--%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
     <head>
@@ -18,7 +19,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -63,7 +63,7 @@
                         <h5>Recuerda que toda acción trae consecuencias</h5>
                         <br>
                         <div class="container">    
-                            <form method="POST" action="../procesoSuperUsuario">
+                            <form  action="../procesoSuperUsuario" method="GET">
                                 <table class="table table-dark" style="width: 800px">
                                     <thead>
                                         <tr>
@@ -77,22 +77,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var = "row" items = "${admin.rows}">
-                                    <form action="../procesoSuperUsuario" method="GET">
+                                    <c:forEach var = "row" items ="${admin.rows}">
                                         <tr>
-                                            <td>${row.id}</td>
-                                            <td>${row.user}</td>
-                                            <td>${row.pass}</td>
-                                            <td>${row.descripcion_tiposu}</td>
-                                            <td>${row.descripcion_super}</td>
-                                            <td><input type="submit" name="btnAccion" value="Actualizar"></td>
+                                            <td><input type="text" name="txtId" readonly="" value="${row.id}" /></td>
+                                            <td><input type="text" name="txtUser" readonly="" value="${row.user}"/></td>
+                                            <td><input type="text" name="txtPass" readonly="" value="${row.pass}"/></td>
+                                            <td><input type="text" name="txtTipo" readonly="" value="${row.descripcion_tiposu}"/></td>
+                                            <td><input type="text" name="txtId" readonly="" value="${row.descripcion_super}"/></td>
+                                            <td><input type="submit" name="btnAccion" value="Actualizar"  style="background-color: transparent; color:white"></td>
                                             <td><a href="modificar_administrador.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                                         </tr>
-                                    </form>
-                                        ${mensaje}
-                                </c:forEach>
-                            </table>
 
+
+                                    </c:forEach>
+
+                            </table>
+                        </form>
+                        <button type="button"   data-target="#demo"> ${mensaje}</button>
 
                     </div>
                 </div>
