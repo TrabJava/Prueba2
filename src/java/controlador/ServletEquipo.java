@@ -55,6 +55,7 @@ public class ServletEquipo extends HttpServlet {
 
     private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String equipo = request.getParameter("txtNombreEquipo");
+        String archivo = request.getParameter("file");
         int liga =Integer.parseInt(request.getParameter("cboLiga"));
         int estado =1;
         if (equipoFacade.existeUsuario(equipo)) {
@@ -63,7 +64,7 @@ public class ServletEquipo extends HttpServlet {
         } else {
             Liga liguilla = new Liga(liga);
             EstadoEquipo estadoEQ = new EstadoEquipo(estado);
-            Equipo equipillo = new Equipo(equipo, liguilla, estadoEQ);
+            Equipo equipillo = new Equipo(equipo, archivo, liguilla, estadoEQ);
             equipoFacade.create(equipillo);
             request.getSession().setAttribute("mensaje", "El equipo se ha creado");
             response.sendRedirect("Equipo/agregar_equipo.jsp");
