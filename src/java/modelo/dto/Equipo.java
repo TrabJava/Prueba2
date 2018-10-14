@@ -63,6 +63,12 @@ public class Equipo implements Serializable {
     public Equipo() {
     }
 
+    public Equipo(String nombreEquipo, Liga liga, EstadoEquipo estado) {
+        this.nombreEquipo = nombreEquipo;
+        this.liga = liga;
+        this.estado = estado;
+    }
+    
     public Equipo(Integer id) {
         this.id = id;
     }
