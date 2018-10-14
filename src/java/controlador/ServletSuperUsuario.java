@@ -56,7 +56,7 @@ public class ServletSuperUsuario extends HttpServlet {
         String user = request.getParameter("txtUser");
         String pass = request.getParameter("txtPass");
         int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-        int estado = Integer.parseInt(request.getParameter("cboEstado"));
+        int estado =1;
 
         if (superUsuarioFacade.existeUsuario(user)) {
             request.getSession().setAttribute("mensaje", "El usuario ya existe");
