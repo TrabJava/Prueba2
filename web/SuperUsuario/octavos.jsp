@@ -107,9 +107,9 @@
 
 
         <div class="col-8">
-            <img src="../img/lol-logo.png" alt="" style="margin-left: 220px"/>
+            <img src="../img/lol-logo.png" alt="" style="margin-left: 380px"/>
 
-            <div class="container" style="margin-left: 270px">
+            <div class="container" style="margin-left: 440px">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                     ¿De que se trata?
                 </button>
@@ -132,7 +132,7 @@
 
                             <!-- Modal footer -->
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                             </div>
 
                         </div>
@@ -143,7 +143,7 @@
             </div>
             <br><br><br><br>
             <div class="container">
-                <div class="row">
+                <div class="row" style="margin-left: 100px">
                     <div class="col-4">
                         <div class="col-1">
 
@@ -153,7 +153,7 @@
                         </div>
 
                     </div>
-                    <div class="col-4">
+                    <div class="col-4" >
                         <div class="col-1">
 
                         </div>
@@ -172,7 +172,7 @@
                     </div>
                 </div>
                 <br><br>
-                <div class="row">
+                <div class="row" style="margin-left: 100px">
                     <div class="col-4">
                         <div class="col-1">
 
@@ -205,14 +205,14 @@
 
 <br><br>
             <div class="container">
-                <table class="table" style="width: 830px" >
+                <table class="table" style="width: 830px;margin-left: 104px" >
                     <thead class="thead-dark">
                         <tr>
                             <th>Dejanos tu delicioso Comentario, recuerda no flamear mancos</th>
                         </tr>
                     </thead>
                 </table>
-                <table class="table" style="width: 830px">
+                <table class="table" style="width: 830px; margin-left: 104px">
                     <thead class="thead-light">
                         <tr>
                             <th>
