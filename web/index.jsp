@@ -114,23 +114,6 @@
         </div>
         <!-- //banner -->
         </div>
-        <!-- Modal1 -->
-        <div class="modal fade" id="myModal1" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4>Contracts</h4>
-                        <img src="img/imagenes_index/ab.jpg" alt=" " class="img-responsive">
-                        <h5>Donec lobortis pharetra dolor</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, rds which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- //Modal1 -->
-
         <!-- about -->
         <div class="about" id="about">
             <div class="container">
@@ -336,7 +319,7 @@
                 </div>
             </div>
             <div class="w3l_footer_pos">
-                <p>© 2018 Nos vamos League. Todos los derechos reservados | Diseñado por Ariel Bernal/Sebastian Mora</p>
+                <p>© 2018 Real Hasta La Muerte. Todos los derechos reservados | Diseñado por Ariel Bernal/James Johnson/Sebastian Mora</p>
             </div>
         </div>
         <!-- //footer -->
@@ -380,8 +363,8 @@ $(document).ready(function () {
         </script>
 
         <script src="css/js/owl.carousel.js"></script> 
-        <link href="css/js/owl.theme.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/js/owl.carousel.css" type="text/css" media="all">
+        <link href="css/owl.theme.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
         <script>
 $(document).ready(function () {
     $("#owl-demo").owlCarousel({

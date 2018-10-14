@@ -20,12 +20,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
 
-        <script type='text/javascript'>
-            function cerrarelemento(){
-            div = document.getElementById( & quot; cerrarelemento & quot; );
-            div.style.display = & quot; none & quot; ;
-            }
-        </script>
     </head>
     <body>
 
