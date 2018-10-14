@@ -35,6 +35,21 @@
         <a class="dropdown-item" href="listar_admin.jsp">Listar administradores</a>
       </div>
     </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Ligas
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="octavos.jsp">Octavos</a>
+        <a class="dropdown-item" href="Cuartos.jsp">Cuartos</a>
+        <a class="dropdown-item" href="SemiFinal.jsp">Semifinal</a>
+        <a class="dropdown-item" href="Finale.jsp">Final</a>
+        <a class="dropdown-item" href="Ganador.jsp">Ganador</a>
+      </div>
+    </li>
+    
+    
+    
   </ul>
 </nav>
 <br>
