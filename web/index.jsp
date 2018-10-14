@@ -113,6 +113,7 @@
             <!--//Slider-->
         </div>
         <!-- //banner -->
+        </div>
         <!-- Modal1 -->
         <div class="modal fade" id="myModal1" role="dialog">
             <div class="modal-dialog">
