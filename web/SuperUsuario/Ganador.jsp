@@ -45,12 +45,12 @@
         <div>
                                    <c:forEach var = "row" items = "${admin.rows}">
                                 <form action="procesoSuperUsuario" method="GET">
-                                    <table border="0" style="margin-left: 600px;margin-top: 150px">
+                                    <table border="0" style="margin-left: 584px;margin-top: 150px">
                                          <tr height="150">
 
 
                                              <td style="height: 100px"><img src="../img/${row.foto_link}" alt="" width="200" height="200" style="margin-left: 50px;position: static;margin-bottom:  10px"/></td>
-                                   <img src="../img/corona.png" alt="" style="margin-left: 540px;position: absolute" width="400" height="300"/>
+                                   <img src="../img/corona.png" alt="" style="margin-left: 534px;position: absolute" width="400" height="300"/>
                                          </tr>
                                     
 
