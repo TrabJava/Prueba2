@@ -19,9 +19,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+        body{
+            background: url(../img/league.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
     </head>
     <body>
-        
         <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
                            url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
                            user = "mojaber_ali"  password = "12345"/>
@@ -34,29 +42,34 @@
         
         
         <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
+        <br>
+        <img src="../img/laPrieta.png" alt="" width="1350" height="100" style="margin-left: 80px"/>
+        <br>
+        <br>
         <div class="col-sm-6">
 
             <div class="container">    
                 <form  action="../procesoEquipo" method="GET">
-                    <table class="table table-dark" style="width: 800px">
+                    <table class="table table-dark" style="width: 800px;margin-left: 300px">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>NOMBRE EQUIPO</th>
                                 <th>ESTADO</th>
                                 <th>LIGA</th>
-                                <th>LINK FOTO</th>
+                                <th>ICONO INVOCADOR</th>
                                 
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach var = "row" items ="${equipo.rows}">
                                 <tr>
-                                    <td><input type="text" name="txtId" readonly="" value="${row.id}" /></td>
-                                    <td><input type="text" name="txtUser" readonly="" value="${row.nombre_equipo}"/></td>
-                                    <td><input type="text" name="txtEstado" readonly="" value="${row.descripcion_estadoe}"/></td>
-                                    <td><input type="text" name="txtLiga" readonly="" value="${row.descripcion_liga}"/></td>
-                                    <td><input type="text" name="txtLiga" readonly="" value="${row.foto_link}"/></td>
+                                    <td style="width: 30px" ><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" readonly="" value="${row.id}" /></td>
+                                    <td>${row.nombre_equipo}</td>
+                                    <td>${row.descripcion_estadoe}</td>
+                                    <td>${row.descripcion_liga}</td>
+                                    <td><img src="../img/${row.foto_link}" alt="" width="50" height="50"/></td>
+                            
                                     <td><input type="submit" name="btnAccion" value="Actualizar"  style="background-color: transparent; color:white"></td>
                                     <td><a href="modificar_equipo.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                                 </tr>
