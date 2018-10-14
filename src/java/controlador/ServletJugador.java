@@ -104,8 +104,7 @@ public class ServletJugador extends HttpServlet {
                 EstadoJugador estadoJug = new EstadoJugador(estado);
                 SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
                 Equipo equipJug = new Equipo(equipo);
-                jugadorFacade.remove(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
-                jugadorFacade.create(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                jugadorFacade.edit(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
                 request.getSession().setAttribute("mensaje", "El Usuario se ha deshabilitado");
                 response.sendRedirect("Jugador/listar_Jugador.jsp");
 
@@ -137,8 +136,7 @@ public class ServletJugador extends HttpServlet {
                 EstadoJugador estadoJug = new EstadoJugador(estado);
                 SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
                 Equipo equipJug = new Equipo(equipo);
-                jugadorFacade.remove(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
-                jugadorFacade.create(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                jugadorFacade.edit(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
                 request.getSession().setAttribute("mensaje", "El jugador se ha Modificado");
                 response.sendRedirect("Jugador/listar_Jugador.jsp");
 
