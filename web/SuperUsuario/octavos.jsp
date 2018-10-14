@@ -30,6 +30,17 @@
             background-size: cover;
         }
     </style>
+    
+    <style type="text/css">
+ .table-wrapper-scroll-y {
+  display: block;
+  max-height: 1200px;
+  max-width:  370px;
+  overflow-y: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+</style>
+    
     <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
     </head>
     <body>
@@ -42,6 +53,7 @@
         SELECT e.nombre_equipo ,e.foto_link FROM detalle d JOIN equipo e ON e.id = d.equipo where clasificatoria = 2 and e.liga =2
     </sql:query>
     <div class="row">
+        <div class="table-wrapper-scroll-y"> 
         <div class="col-4">
 
             <div class="row">
@@ -50,6 +62,7 @@
                 </div>
                 <div class="col-10">
                     <form method="POST" action="../procesoSuperUsuario">
+                        
                         <table class="table table-dark" style="width: 350px"  height="500">
                             <thead>
                             
@@ -80,14 +93,14 @@
                                 <img src="../img/Jinx.png" alt="" style="position: absolute;width: 80px;margin-left: 230px;margin-top: 80px"/>
                         </table>
 
-
+                            
                     </form>
                 </div>
                 <div class="col-1"></div>
             </div>
         </div>
 
-
+</div> 
 
         <%--   -------------------Comienza nuestro segundo row ------------------------------ --%>
 
