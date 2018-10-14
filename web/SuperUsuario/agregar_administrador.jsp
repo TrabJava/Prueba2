@@ -28,11 +28,7 @@
         <sql:query dataSource="${dataSource}" var="tipo">
             SELECT id, descripcion_tiposu FROM tipo_super
         </sql:query> 
-
-        <sql:query dataSource="${dataSource}" var="estado">
-            SELECT id, descripcion_super FROM estado_super
-        </sql:query> 
-
+            
         <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
 
 
@@ -57,15 +53,7 @@
                                     </c:forEach>
                                 </select></td>
                         </tr>
-                        <tr>
-                            <td>ESTADO :</td>
-                            <td>
-                                <select name="cboEstado" >
-                                    <c:forEach var="estados" items="${estado.rows}">
-                                        <option value="${estados.id}">${estados.descripcion_super}</option>
-                                    </c:forEach>
-                                </select></td>
-                        </tr>
+                        
                         <tr>
                             <td colspan="5">
                                 <input type="submit" name="btnAccion" value="Agregar" />

@@ -30,7 +30,7 @@
                         <tbody>
                             <tr>
                                 <td><label> Nombre Equipo: </label></td>
-                                <td><input type="text" name="txtEquipo" value="" placeholder="ingresar nombre del equipo"/></td>
+                                <td><input type="text" name="txtNombreEquipo" value="" placeholder="ingresar nombre del equipo"/></td>
                             </tr>
                             <tr>
                                 <td><label>Liga: </label></td>
