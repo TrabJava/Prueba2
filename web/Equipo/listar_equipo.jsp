@@ -27,7 +27,7 @@
                            user = "mojaber_ali"  password = "12345"/>
         
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT e.id,e.nombre_equipo,ep.descripcion_estadoe,l.descripcion_liga FROM equipo e JOIN estado_equipo ep ON e.estado = ep.id JOIN liga l ON e.liga=l.id 
+            SELECT e.id,e.nombre_equipo,ep.descripcion_estadoe,l.descripcion_liga,e.foto_link FROM equipo e JOIN estado_equipo ep ON e.estado = ep.id JOIN liga l ON e.liga=l.id  
         </sql:query>
         
         
@@ -45,6 +45,7 @@
                                 <th>NOMBRE EQUIPO</th>
                                 <th>ESTADO</th>
                                 <th>LIGA</th>
+                                <th>LINK FOTO</th>
                                 
                             </tr>
                         </thead>
@@ -55,6 +56,7 @@
                                     <td><input type="text" name="txtUser" readonly="" value="${row.nombre_equipo}"/></td>
                                     <td><input type="text" name="txtEstado" readonly="" value="${row.descripcion_estadoe}"/></td>
                                     <td><input type="text" name="txtLiga" readonly="" value="${row.descripcion_liga}"/></td>
+                                    <td><input type="text" name="txtLiga" readonly="" value="${row.foto_link}"/></td>
                                     <td><input type="submit" name="btnAccion" value="Actualizar"  style="background-color: transparent; color:white"></td>
                                     <td><a href="modificar_equipo.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                                 </tr>
