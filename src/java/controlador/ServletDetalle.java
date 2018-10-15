@@ -57,23 +57,21 @@ public class ServletDetalle extends HttpServlet {
 
     private void agregarOctavos(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-         /*
+        /*
         if (detalleFacade.existeEquipo(equipillo, clasificato)) {
             request.getSession().setAttribute("mensaje", "El Equipo ya existe en esta liga");
             response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
         }
          */
-        int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
         int clasificato = 2;
-       
 
         Equipo team = new Equipo(equipillo);
-        TipoClasificatoria tipoClasif = new TipoClasificatoria(equipillo);
+        TipoClasificatoria tipoClasif = new TipoClasificatoria(clasificato);
         Detalle detall = new Detalle(team, tipoClasif);
         detalleFacade.create(detall);
         request.getSession().setAttribute("mensaje", "El Equipo se agregó");
-        response.sendRedirect("index.jsp");
-
+        response.sendRedirect("SuperUsuario/OctavoDetalle.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -116,37 +114,34 @@ public class ServletDetalle extends HttpServlet {
     }// </editor-fold>
 
     private void agregarCuartos(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
         int clasificato = 3;
-       
 
         Equipo team = new Equipo(equipillo);
-        TipoClasificatoria tipoClasif = new TipoClasificatoria(equipillo);
+        TipoClasificatoria tipoClasif = new TipoClasificatoria(clasificato);
         Detalle detall = new Detalle(team, tipoClasif);
         detalleFacade.create(detall);
         request.getSession().setAttribute("mensaje", "El Equipo se agregó");
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("SuperUsuario/CuartoDetalle.jsp");
 
     }
 
     private void agregarSemi(HttpServletRequest request, HttpServletResponse response) throws IOException {
-       int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
         int clasificato = 4;
-       
 
         Equipo team = new Equipo(equipillo);
-        TipoClasificatoria tipoClasif = new TipoClasificatoria(equipillo);
+        TipoClasificatoria tipoClasif = new TipoClasificatoria(clasificato);
         Detalle detall = new Detalle(team, tipoClasif);
         detalleFacade.create(detall);
         request.getSession().setAttribute("mensaje", "El Equipo se agregó");
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("SuperUsuario/SegundoDetalle.jsp");
 
     }
 
     private void agregarFinal(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
         int clasificato = 6;
-       
 
         Equipo team = new Equipo(equipillo);
         TipoClasificatoria tipoClasif = new TipoClasificatoria(clasificato);
