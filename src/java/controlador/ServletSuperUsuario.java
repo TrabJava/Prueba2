@@ -101,13 +101,13 @@ public class ServletSuperUsuario extends HttpServlet {
             String user = request.getParameter("txtUser");
             String pass = request.getParameter("txtPass");
             int estado = 2;
-            int tipo = 2;
+            int tipo = Integer.parseInt(request.getParameter("cboEstado"));
 
             if (superUsuarioFacade.existeId(id)) {
                 TipoSuper tipoSuper = new TipoSuper(tipo);
                 EstadoSuper estadoSu = new EstadoSuper(estado);
                 SuperUsuario su = new SuperUsuario(id, user, pass, tipoSuper, estadoSu);
-                superUsuarioFacade.edit(new SuperUsuario(id, user, pass, tipoSuper, estadoSu));
+                superUsuarioFacade.edit(su);
                 request.getSession().setAttribute("mensaje", "El Usuario se desactivo");
                 response.sendRedirect("SuperUsuario/listar_admin.jsp");
             } else {
