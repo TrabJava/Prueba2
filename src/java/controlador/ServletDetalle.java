@@ -48,8 +48,8 @@ public class ServletDetalle extends HttpServlet {
 
     private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        int equipillo = Integer.parseInt(request.getParameter("txtEquipillo"));;
-        int clasificato = Integer.parseInt(request.getParameter("txtClasificatoria"));;
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
+        int clasificato = Integer.parseInt(request.getParameter("cboClasificatoria"));
         /*
         if (detalleFacade.existeEquipo(equipillo, clasificato)) {
             request.getSession().setAttribute("mensaje", "El Equipo ya existe en esta liga");
