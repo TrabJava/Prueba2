@@ -41,15 +41,15 @@ public class ServletDetalle extends HttpServlet {
         String opcion = request.getParameter("btnAccion");
 
         if (opcion.equals("Agregar")) {
-            agregar(request, response);
+            agregarOctavos(request, response);
         }
 
     }
 
-    private void agregar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void agregarOctavos(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
-        int clasificato = Integer.parseInt(request.getParameter("cboClasificatoria"));
+        int clasificato = 2;
         /*
         if (detalleFacade.existeEquipo(equipillo, clasificato)) {
             request.getSession().setAttribute("mensaje", "El Equipo ya existe en esta liga");
