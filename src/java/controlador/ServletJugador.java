@@ -94,17 +94,18 @@ public class ServletJugador extends HttpServlet {
             String rut = request.getParameter("txtRut");
             String user = request.getParameter("txtUser");
             String pass = request.getParameter("txtPass");
-            int tipo = Integer.parseInt(request.getParameter("txtTipo"));
+            int tipo = Integer.parseInt(request.getParameter("cboTipo"));
             int estado = 2;
-            int seleccion = Integer.parseInt(request.getParameter("txtSeleccion"));
-            int equipo = Integer.parseInt(request.getParameter("txtEquipo"));
+            int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
+            int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
 
             if (jugadorFacade.existeId(id)) {
                 TipoJugador tipoJug = new TipoJugador(tipo);
                 EstadoJugador estadoJug = new EstadoJugador(estado);
                 SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
                 Equipo equipJug = new Equipo(equipo);
-                jugadorFacade.edit(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                Jugador jug = new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug);
+                jugadorFacade.edit(jug);
                 request.getSession().setAttribute("mensaje", "El Usuario se ha deshabilitado");
                 response.sendRedirect("Jugador/listar_Jugador.jsp");
 
@@ -113,7 +114,7 @@ public class ServletJugador extends HttpServlet {
                 response.sendRedirect("Jugador/listar_Jugador.jsp");
             }
         } catch (Exception e) {
-            response.sendRedirect("Jugador/listar_admin.jsp");
+            response.sendRedirect("Jugador/listar_Jugador.jsp");
         }
 
     }
