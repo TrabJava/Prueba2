@@ -86,14 +86,20 @@ public class ServletAcceso extends HttpServlet {
         try {
             String user = request.getParameter("txtNombreUsuario");
             String pass = request.getParameter("txtPassword");
-
-            if (superUsuarioFacade.ingresar(user, pass)) {
-                response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
+            int tipo = Integer.parseInt(request.getParameter("cboTipo"));
+            if (superUsuarioFacade.ingresar(user, pass) ) {
+                if (tipo==1) {
+                    request.getSession().setAttribute(user, "MENSAJE");
+                    response.sendRedirect("index1.jsp");
+                }
+                if (tipo==2) {
+                    response.sendRedirect("SuperUsuario/octavos.jsp");
+                }
                 
 
             } else {
                 request.getSession().setAttribute("mensaje", "Credenciales incorrectas");
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("index1.jsp");
             }
         } catch (Exception e) {
             response.sendRedirect("login.jsp");
