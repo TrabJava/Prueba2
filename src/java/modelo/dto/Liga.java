@@ -62,6 +62,11 @@ public class Liga implements Serializable {
         this.descripcionLiga = descripcionLiga;
     }
 
+    public Liga(String descripcionLiga) {
+        this.descripcionLiga = descripcionLiga;
+    }
+    
+    
     public Integer getId() {
         return id;
     }
