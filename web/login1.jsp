@@ -146,7 +146,7 @@
 </div>
 <!--sign in form -->	
 <!-- //for register popup -->
-<footer> Diseño y elaboración <a href="#" target="=_blank">Jinx? de Jinx? No seas tonto.</a></footer>
+<footer>  <a href="index1.jsp" >Inicio</a> | <a href="#" target="=_blank">Jinx? de Jinx? No seas tonto.</a></footer>
 
 	
 <script type="text/javascript" src="login/js/jquery-2.1.4.min.js"></script>
