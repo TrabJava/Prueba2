@@ -29,7 +29,34 @@
         <sql:query dataSource="${dataSource}" var="jugador">
             SELECT * FROM jugador;
         </sql:query> 
-
+         
+        <div class="container" style="margin-top:30px">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2>Conocelos!</h2>
+                        <img src="../img/30818.png" alt="" width="360" height="300"/>
+                        <h3>Más Acciones</h3>
+                        <p>Eres libre de navegar en tu sitio</p>
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Jugadores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Ligas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Torneos</a>
+                            </li>
+                        </ul>
+                        <hr class="d-sm-none">
+                    </div>
+                    <div class="col-sm-8">
+                        <h2>Modifica o Desactiva a los mancos</h2>
+                        <h5>Recuerda que toda acción trae consecuencias</h5>
+                        <br>
         <div class="col-sm-8">
             <div class="container" style="margin-top: 30px">    
                 <form action="../procesoJugador" method="GET">
@@ -45,7 +72,8 @@
                             <td>Estado Usuario: </td>
                             <td>Seleccionado: </td>
                             <td>Equipo: </td>
-                            <td>Herramientas</td>
+                            <td>Modificar</td>
+                            <td>Desactivar</td>
                         </tr>
 
 
@@ -61,9 +89,9 @@
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtEstado" value="${row.estado}"/></td>
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtSeleccion" value="${row.seleccion}"/></td>
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtEquipo" value="${row.equipo}"/></td>
-                                <td><a href="modificar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a>
-                                    <a href="desactivar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Desactivar</a>
-                                </td>
+                                <td><a href="modificar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a></td>
+                                <td><a href="desactivar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Desactivar</a></td>
+                                
                             </tr>
                         </c:forEach>
 
@@ -72,6 +100,15 @@
                 ${mensaje}
             </div>
         </div>
+                </div>
+            </div>
+        </div>
+
+        <br><br>
+
+        <jsp:include page="../Menú/footer.jsp"></jsp:include>
+
+    </body>
         
     </body>
 </html>
