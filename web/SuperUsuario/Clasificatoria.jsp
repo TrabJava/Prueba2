@@ -15,7 +15,7 @@
     <head>
         <link rel="shortcut icon" href="../img/LOL_Logo.ico" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Octavos | LoL</title>
+        <title>Clasificatorias | LoL</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -139,7 +139,7 @@
                             
                                 <tr><td colspan="2" heigth="70"><h1><img src="../img/Semifinal.png" alt="" width="270" height="30"/></h1></td></tr>
                             
-                                <tr><td colspan="2" heigth="70"><img src="../img/Segunda.png" alt="" width="200" height="50"/> </td></tr>
+                                <tr><td colspan="2" heigth="70"><img src="../img/aliado.png" alt="" width="200" height="50"/> </td></tr>
                             </thead>
                             <tbody>
                                 <c:forEach var = "row" items = "${admin2.rows}">
@@ -155,7 +155,7 @@
 
                                 </c:forEach>
                                 <img src="../img/Icono_VS.png" alt="" style="margin-top:  570px;position: absolute;margin-left:  132px" width="50" height="50" />
-                                <img src="../img/123.png" alt="" style="position: absolute;width: 80px;margin-left: 230px;margin-top: 80px"/>
+                                <img src="../img/1234.png" alt="" style="position: absolute;width: 80px;margin-left: 230px;margin-top: 80px"/>
                         </table>
             </div>
 
@@ -166,20 +166,20 @@
                             
                                 <tr><td colspan="2" heigth="70"><h1><img src="../img/Final.png" alt="" width="300" height="30"/></h1></td></tr>
                             
-                                <tr><td colspan="2" heigth="70"><img src="../img/Segunda.png" alt="" width="200" height="50"/> </td></tr>
+                                <tr><td colspan="2" heigth="70"><img src="../img/ulti.png" alt="" width="200" height="50"/> </td></tr>
                             </thead>
                             <tbody>
                                 <c:forEach var = "row" items = "${admin3.rows}">
                                 <form action="procesoSuperUsuario" method="GET">
 
                                     <tr height="150">
-                                    <img src="../img/Icono_VS.png" alt="" style="margin-top:  270px;position: absolute;margin-left:  132px" width="50" height="50" />
+                                    <img src="../img/Icono_VS.png" alt="" style="margin-top:  280px;position: absolute;margin-left:  132px" width="50" height="50" />
                                     <td><img src="../img/${row.foto_link}" alt="" width="70" height="70" style="margin-left: 110px"/><p style="margin-left: 100px">${row.nombre_equipo}</p></td>
                                     </tr>
 
 
                                 </c:forEach>
-                                <img src="../img/123.png" alt="" style="position: absolute;width: 80px;margin-left: 230px;margin-top: 80px"/>
+                                <img src="../img/12345.png" alt="" style="position: absolute;width: 80px;margin-left: 230px;margin-top: 80px"/>
                         </table>
                 
             </div>
