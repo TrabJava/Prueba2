@@ -30,7 +30,7 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "admin">
-            SELECT su.id,su.user,su.pass,t.descripcion_tiposu,e.descripcion_super FROM super_usuario su JOIN estado_super e on su.estado = e.id JOIN tipo_super t on t.id = su.tipo where su.tipo = 2;
+            SELECT su.id,su.user,su.pass,t.id,t.descripcion_tiposu,e.id,e.descripcion_super FROM super_usuario su JOIN estado_super e on su.estado = e.id JOIN tipo_super t on su.tipo=t.id  where su.tipo = 2
         </sql:query>
         <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
 
@@ -82,9 +82,9 @@
                                             <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" readonly="" value="${row.id}" /></td>
                                             <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtUser" readonly="" value="${row.user}"/></td>
                                             <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtPass" readonly="" value="${row.pass}"/></td>
-                                            <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtTipo" readonly="" value="${row.descripcion_tiposu}"/></td>
-                                            <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtId" readonly="" value="${row.descripcion_super}"/></td>
-                                            <td><input  style="background-color:rgba(0, 0, 0, 0);color: white;text-align: left;border: 0px" type="submit" name="btnAccion" value="Actualizar"  style="background-color: transparent; color:white"></td>
+                                            <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 0px;text-align: left;border: 0px" type="text" name="txtTipo" readonly="" value="${row.t.id}">${row.descripcion_tiposu}</td>
+                                            <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 0px;text-align: left;border: 0px" type="text" name="txtDescripcion" readonly="" value="${row.e.id}">${row.descripcion_super}</td>
+                                            <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 90px;text-align: left;border: 0px" type="submit" name="btnAccion" value="Actualizar"  style="background-color: transparent; color:white"></td>
                                             <td><a href="modificar_administrador.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                                         </tr>
 
