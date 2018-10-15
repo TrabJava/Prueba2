@@ -78,14 +78,17 @@ public class ServletEquipo extends HttpServlet {
     private void modificar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String equipo = request.getParameter("txtNombreEquipo");
         int liga =Integer.parseInt(request.getParameter("cboLiga"));
+        int id =Integer.parseInt(request.getParameter("txtId"));
         int estado =Integer.parseInt(request.getParameter("cboLiga"));
-        if (equipoFacade.existeUsuario(equipo)) {
+        String archivo = request.getParameter("file");
+        
+        if (equipoFacade.existeId(id)) {
             request.getSession().setAttribute("mensaje", "El nombre del equipo ya existe");
             response.sendRedirect("Equipo/listar_equipo.jsp");
         } else {
             Liga liguilla = new Liga(liga);
             EstadoEquipo estadoEQ = new EstadoEquipo(estado);
-            Equipo equipillo = new Equipo(equipo, liguilla, estadoEQ);
+            Equipo equipillo = new Equipo(id, equipo, archivo, liguilla, estadoEQ);
             equipoFacade.edit(equipillo);
             request.getSession().setAttribute("mensaje", "El equipo se ha modificado");
             response.sendRedirect("Equipo/listar_equipo.jsp");
