@@ -144,16 +144,16 @@ public class ServletDetalle extends HttpServlet {
     }
 
     private void agregarFinal(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
-        int clasificato = 5;
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
+        int clasificato = 6;
        
 
         Equipo team = new Equipo(equipillo);
-        TipoClasificatoria tipoClasif = new TipoClasificatoria(equipillo);
+        TipoClasificatoria tipoClasif = new TipoClasificatoria(clasificato);
         Detalle detall = new Detalle(team, tipoClasif);
         detalleFacade.create(detall);
         request.getSession().setAttribute("mensaje", "El Equipo se agregó");
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("SuperUsuario/Ganador.jsp");
 
     }
 
