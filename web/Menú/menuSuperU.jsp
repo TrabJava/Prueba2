@@ -59,7 +59,25 @@
         <a class="dropdown-item" href="FinalDetalle.jsp">Main Final</a>
       </div>
     </li>
-    
+    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Gestion de Usuarios
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Agregar Coach</a>
+                        <a class="dropdown-item" href="#">Agregar Jugador</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Gestion de Equipos
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Agregar Equipo</a>
+                        <a class="dropdown-item" href="#">Agregar Jugador</a>
+                        <a class="dropdown-item" href="#">Listar Equipos</a>
+                    </div>
+                </li>
     
     
   </ul>
