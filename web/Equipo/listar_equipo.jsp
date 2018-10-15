@@ -53,24 +53,27 @@
                     <table class="table table-dark" style="width: 800px;margin-left: 300px">
                         <thead>
                             <tr>
+                                
                                 <th>ID</th>
                                 <th>NOMBRE EQUIPO</th>
                                 <th>ESTADO</th>
                                 <th>LIGA</th>
                                 <th>ICONO INVOCADOR</th>
+                                <th>ELIMINAR</th>
+                                <th>MODIFICAR</th>
                                 
                             </tr>
                         </thead>
                         <tbody>
                             <c:forEach var = "row" items ="${equipo.rows}">
                                 <tr>
-                                    <td style="width: 30px" ><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" readonly="" value="${row.id}" /></td>
+                                    <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" readonly="" value="${row.id}" /></td>
                                     <td>${row.nombre_equipo}</td>
                                     <td>${row.descripcion_estadoe}</td>
                                     <td>${row.descripcion_liga}</td>
                                     <td><img src="../img/${row.foto_link}" alt="" width="50" height="50"/></td>
                             
-                                    <td><input type="submit" name="btnAccion" value="Actualizar"  style="background-color: transparent; color:white"></td>
+                                    <td><input style="background-color:rgba(0, 0, 0, 0);color: white;text-align: left;border: 0px" type="submit" name="btnAccion" value="Actualizar"  style="background-color: transparent; color:white"></td>
                                     <td><a href="modificar_equipo.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
                                 </tr>
                             </c:forEach>
