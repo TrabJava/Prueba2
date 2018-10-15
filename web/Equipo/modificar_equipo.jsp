@@ -114,6 +114,9 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td><input hidden="" type="text" name="txtEquipo" value="<%= rs.getString("foto_link")%>" ></td>
+                                    </tr>
+                                    <tr>
                                         <td><input type="submit" name="btnAccion" value="Modificar" class="boton"></td> 
                                     </tr>
                                 </tbody>
