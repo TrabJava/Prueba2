@@ -123,6 +123,16 @@ public class Jugador implements Serializable {
         this.equipo = equipo;
     }
 
+    public Jugador(String nombre, String apPaterno, String rut, String user, String pass, TipoJugador tipo, EstadoJugador estado) {
+        this.nombre = nombre;
+        this.apPaterno = apPaterno;
+        this.rut = rut;
+        this.user = user;
+        this.pass = pass;
+        this.tipo = tipo;
+        this.estado = estado;
+    }
+
     
     
     
