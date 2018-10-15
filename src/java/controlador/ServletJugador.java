@@ -51,6 +51,8 @@ public class ServletJugador extends HttpServlet {
 
         if (opcion.equals("Modificar")) {
             modificar(request, response);
+        } if (opcion.equals("Agregar Jugador")) {
+            agregar_jugador(request, response);
         }
 
     }
@@ -150,6 +152,32 @@ public class ServletJugador extends HttpServlet {
         }
 
     }
+    
+    private void agregar_jugador(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            String nombre = request.getParameter("txtNombreJugador");
+            String apellido = request.getParameter("txtApellidoPaterno");
+            String rut = request.getParameter("txtRutJugador");
+            String user = request.getParameter("txtUser");
+            String pass = request.getParameter("txtContrasenia");
+            int tipo = Integer.parseInt(request.getParameter("cboTipo"));
+            int estado = Integer.parseInt(request.getParameter("cboEstado"));
+            TipoJugador tipoJug = new TipoJugador(tipo);
+            EstadoJugador estadoJug = new EstadoJugador(estado);
+            if (jugadorFacade.existeUsuario(user)) {
+                request.getSession().setAttribute("mensaje", "El jugador ya existe");
+                response.sendRedirect("registroJugador.jsp");
+
+            } else {
+                jugadorFacade.create(new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug));
+                request.getSession().setAttribute("mensaje", "El jugador se ha creado");
+                response.sendRedirect("registroJugador.jsp");
+            }
+        } catch (Exception e) {
+            response.sendRedirect("registroJugador.jsp");
+        }
+    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -189,5 +217,7 @@ public class ServletJugador extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
 }
