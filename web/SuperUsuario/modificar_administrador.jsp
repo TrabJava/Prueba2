@@ -20,6 +20,24 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <script>
+            function soloLetras(e) {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "qwertyuiopasdfghjklñzxcvbnm-_123456789/";
+                especiales = "8-37-39-46";
+                tecla_especial = false
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+                if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                    return false;
+                }
+            }
+        </script>
     </head>
     <body>
 
@@ -67,11 +85,11 @@
                                     <td><input  hidden="" type="text" name="txtId" value="<%= rs.getInt("id")%>"></td>
                                 <tr>
                                     <td>Usuario</td>
-                                    <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>"></td>
+                                    <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>"  minlength="3" maxlength="50" required=""  onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                                 </tr>
                                 <tr>
                                     <td>Contraseña</td>
-                                    <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>"></td>
+                                    <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>"  minlength="3" maxlength="50" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                                 </tr>
                                 <tr>
                                     <td>Tipo de Usuario</td>
