@@ -75,7 +75,7 @@
                     <ul class="rslides" id="slider3">
                         <li>
                             <div class="slider-img">
-                                <img src="img/imagenes_index/banner11.jpg" class="img-responsive" alt="Fantasy World" width="1680" height="670">
+                                <img src="img/imagenes_index/bannr11.jpg" class="img-responsive" alt="Fantasy World" width="1680" height="670">
                             </div>
                             <div class="slider-info">
 
@@ -85,7 +85,7 @@
                         </li>
                         <li>
                             <div class="slider-img">
-                                <img src="img/imagenes_index/banner22.png" class="img-responsive" alt="Fantasy World" width="1680" height="670">
+                                <img src="img/imagenes_index/bannr22.png" class="img-responsive" alt="Fantasy World" width="1680" height="670">
                             </div>
                             <div class="slider-info">
 
@@ -95,7 +95,7 @@
                         </li>
                         <li>
                             <div class="slider-img">
-                                <img src="img/imagenes_index/banner33.jpg" class="img-responsive" alt="Fantasy World" width="1680" height="670">
+                                <img src="img/imagenes_index/baner33.jpg" class="img-responsive" alt="Fantasy World" width="1680" height="670">
                             </div>
                             <div class="slider-info">
 
@@ -145,7 +145,7 @@
         <!-- services -->
         <div class="services" id="services">
             <h3 class="w3l_head w3l_head1">Servicios</h3>
-            <p class="w3ls_head_para w3ls_head_para1">Vee nuestros servicios</p>
+            <p class="w3ls_head_para w3ls_head_para1">Ve nuestros servicios</p>
             <div class="services-agile-w3l">
                 <div class="col-md-3 services-gd text-center">
                     <div class="hi-icon-wrap hi-icon-effect-9 hi-icon-effect-9a">
