@@ -47,6 +47,11 @@ public class Detalle implements Serializable {
     public Detalle() {
     }
 
+    public Detalle(Equipo equipo, TipoClasificatoria clasificatoria) {
+        this.equipo = equipo;
+        this.clasificatoria = clasificatoria;
+    }
+    
     public Detalle(Integer id) {
         this.id = id;
     }

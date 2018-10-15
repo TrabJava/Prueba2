@@ -8,6 +8,7 @@ package modelo.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import modelo.dto.Detalle;
 
 /**
@@ -28,5 +29,13 @@ public class DetalleFacade extends AbstractFacade<Detalle> {
     public DetalleFacade() {
         super(Detalle.class);
     }
+    
+    public boolean existeEquipo(int equipo,int clasificatoria){
+        Query query = em.createQuery("SELECT d FROM Detalle d WHERE d.equipo=:equipo AND d.clasificatoria=:clasificatoria");
+        query.setParameter("equipo", equipo);
+        query.setParameter("clasificatoria", clasificatoria);
+        return query.getResultList().size() > 0;
+    }
+    
     
 }
