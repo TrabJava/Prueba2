@@ -8,6 +8,7 @@ package modelo.dao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import modelo.dto.Liga;
 
 /**
@@ -27,6 +28,12 @@ public class LigaFacade extends AbstractFacade<Liga> {
 
     public LigaFacade() {
         super(Liga.class);
+    }
+    
+    public boolean existeLiga(String liga) {
+        Query query = em.createQuery("SELECT l FROM Liga l WHERE l.descripcionLiga = :liga");
+        query.setParameter("liga", liga);
+        return query.getResultList().size() > 0;
     }
     
 }
