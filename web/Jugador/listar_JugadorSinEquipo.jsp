@@ -26,7 +26,7 @@
                            user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="jugador">
-            SELECT * FROM jugador WHERE equipo=NULL;
+            SELECT * FROM jugador WHERE equipo is NULL;
         </sql:query> 
             
         <div class="col-sm-8">
@@ -49,9 +49,9 @@
 
                         <c:forEach var = "row" items = "${jugador.rows}">
                             <tr>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" value="${row.id}"/></td>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtNombre" value="${row.nombre}"/></td>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtApellido" value="${row.ap_paterno}"/></td>
+                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtId" value="${row.id}"/></td>
+                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtNombre" value="${row.nombre}"/></td>
+                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtApellido" value="${row.ap_paterno}"/></td>
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtRut" value="${row.rut}" ></td>
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtUser" value="${row.user}"/></td>
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtPass" value="${row.pass}"/></td>
