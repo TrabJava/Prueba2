@@ -16,6 +16,10 @@
         <servlet-name>ServletEquipo</servlet-name>
         <servlet-class>controlador.ServletEquipo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletDetalle</servlet-name>
+        <servlet-class>controlador.ServletDetalle</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletAcceso</servlet-name>
         <url-pattern>/procesoAcceso</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ServletEquipo</servlet-name>
         <url-pattern>/procesoEquipo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletDetalle</servlet-name>
+        <url-pattern>/procesoDetalle</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
