@@ -36,8 +36,8 @@
                     <table class="table table-dark" style="width: 800px" >
                         <tr>
                             <td>ID: </td>
-                            <td>Nombre: </td>
-                            <td>Herramientas</td>
+                            <td>Nombre de la liga: </td>
+                            <td>Modificar</td>
                         </tr>
 
 
