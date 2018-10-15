@@ -26,7 +26,7 @@
                            user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="jugador">
-            SELECT * FROM jugador;
+            SELECT * FROM jugador WHERE equipo=NULL;
         </sql:query> 
             
         <div class="col-sm-8">
