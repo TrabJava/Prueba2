@@ -81,15 +81,14 @@ public class ServletSuperUsuario extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("txtId"));
 
         if (superUsuarioFacade.existeUsuario(user)) {
-             TipoSuper tipoSuper = new TipoSuper(tipo);
+            request.getSession().setAttribute("mensaje", "El usuario ya existe");
+            response.sendRedirect("SuperUsuario/listar_admin.jsp");
+        } else {
+            TipoSuper tipoSuper = new TipoSuper(tipo);
             EstadoSuper estadoSu = new EstadoSuper(estado);
             SuperUsuario su = new SuperUsuario(id, user, pass, tipoSuper, estadoSu);
             superUsuarioFacade.edit(su);
             request.getSession().setAttribute("mensaje", "El Usuario se Modificó");
-            response.sendRedirect("SuperUsuario/listar_admin.jsp");
-            
-        } else {
-           request.getSession().setAttribute("mensaje", "El usuario ya existe");
             response.sendRedirect("SuperUsuario/listar_admin.jsp");
         }
 
@@ -102,7 +101,7 @@ public class ServletSuperUsuario extends HttpServlet {
             String pass = request.getParameter("txtPass");
             int estado = 2;
             int tipo = 2;
-            
+
             if (superUsuarioFacade.existeId(id)) {
                 TipoSuper tipoSuper = new TipoSuper(tipo);
                 EstadoSuper estadoSu = new EstadoSuper(estado);
