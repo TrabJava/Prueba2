@@ -35,11 +35,11 @@
 
     <%--Query para mostrar los datos en la lista--%>
     <sql:query dataSource = "${snapshot}" var = "equipo">
-        SELECT e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=5
+        SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=5
     </sql:query>
         
         <sql:query dataSource = "${snapshot}" var = "clasificatoria">
-        SELECT descripcion_tipoclas FROM tipo_clasificatoria
+        SELECT id,descripcion_tipoclas FROM tipo_clasificatoria
     </sql:query>
 
 
@@ -74,7 +74,7 @@
     <div class="col-sm-8">
         <img src="../img/FINAS.png" alt="" style="margin-left: 335px"/>
         <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FSantiago" width="100%" height="90" frameborder="0" seamless style="margin-left: 44px"></iframe>
-      <form  action="../procesoEquipo" method="POST">
+      <form  action="../procesoDetalle" method="POST">
           <table border="1" class="table table-dark" style="width: 400px;margin-left: 350px">
                     <tbody>
                         <tr>
@@ -88,15 +88,12 @@
                         <tr>
                             <td><label>CLASIFICATORIA </label></td>
                             <td>
-                                <select name="cboClasificatoria">
-                                <c:forEach var="clasificatoria" items="${clasificatoria.rows}">
-                                    <option value="${clasificatoria.id}">${clasificatoria.descripcion_tipoclas}</option>
-                                </c:forEach>
+                               FINAL
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" ><input type="submit" name="btnAccion" value="Agregar" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                        <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
                     </tr>
 
                 </tbody>
