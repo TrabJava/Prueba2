@@ -26,13 +26,16 @@
                            user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="jugador">
-            SELECT * FROM jugador WHERE equipo is NULL;
+            SELECT * FROM jugador j 
+            JOIN tipo_jugador t ON j.tipo = t.id 
+            JOIN estado_jugador e ON j.estado = e.id   
+            WHERE equipo is NULL AND j.tipo=1 ;
         </sql:query> 
             
         <div class="col-sm-8">
             <div class="container" style="margin-top: 30px">    
                 <form action="../procesoJugador" method="GET">
-                    <table class="table table-dark" style="width: 800px" >
+                    <table class="table table-dark" style="width: 1000px" >
                         <tr>
                             <td>ID </td>
                             <td>Nombre </td>
@@ -42,8 +45,8 @@
                             <td>Contraseña </td>
                             <td>Tipo Usuario </td>
                             <td>Estado Usuario </td>
-                            <td>Seleccionado </td>
-                            <td>Equipo </td>
+                            <td>Agregar a Equipo </td>
+
                         </tr>
 
 
@@ -55,10 +58,9 @@
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtRut" value="${row.rut}" ></td>
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtUser" value="${row.user}"/></td>
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtPass" value="${row.pass}"/></td>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtTipo" value="${row.tipo}"/></td>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtEstado" value="${row.estado}"/></td>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtSeleccion" value="${row.seleccion}"/></td>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtEquipo" value="${row.equipo}"/></td>
+                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtTipo" value="${row.descripcion_tipoj}"/></td>
+                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtEstado" value="${row.descripcion_estadoj}"/></td>
+                                <td><a href="Agregar_a_equipo.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Agregar a Equipo</a></td>
                             </tr>
                         </c:forEach>
 
