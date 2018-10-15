@@ -26,7 +26,7 @@
                            user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="jugador">
-            SELECT * FROM jugador j 
+            SELECT j.id,j.nombre,j.rut,j.user,j.pass,t.descripcion_tipoj,e.descripcion_estadoj FROM jugador j 
             JOIN tipo_jugador t ON j.tipo = t.id 
             JOIN estado_jugador e ON j.estado = e.id   
             WHERE equipo is NULL AND j.tipo=1 ;
