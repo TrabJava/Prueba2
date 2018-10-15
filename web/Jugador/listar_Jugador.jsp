@@ -62,7 +62,7 @@
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtSeleccion" value="${row.seleccion}"/></td>
                                 <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtEquipo" value="${row.equipo}"/></td>
                                 <td><a href="modificar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a>
-                                    <input type="submit" name="btnAccion" value="Eliminar" class="btn btn-danger"/>
+                                    <a href="desactivar_jugador.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Desactivar</a>
                                 </td>
                             </tr>
                         </c:forEach>
