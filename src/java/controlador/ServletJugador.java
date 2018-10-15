@@ -45,13 +45,17 @@ public class ServletJugador extends HttpServlet {
         if (opcion.equals("Agregar")) {
             agregar(request, response);
         }
+        if (opcion.equals("Agregar_a_Equipo")) {
+            agregar_a_equipo(request, response);
+        }
         if (opcion.equals("Eliminar")) {
             eliminar(request, response);
         }
 
         if (opcion.equals("Modificar")) {
             modificar(request, response);
-        } if (opcion.equals("Agregar_Jugador")) {
+        } 
+        if (opcion.equals("Agregar_Jugador")) {
             agregar_jugador(request, response);
         }
 
@@ -178,6 +182,36 @@ public class ServletJugador extends HttpServlet {
         }
     }
     
+    private void agregar_a_equipo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+       try {
+            int id = Integer.parseInt(request.getParameter("txtId"));
+            String nombre = request.getParameter("txtNombre");
+            String apellido = request.getParameter("txtApellido");
+            String rut = request.getParameter("txtRut");
+            String user = request.getParameter("txtUser");
+            String pass = request.getParameter("txtPass");
+            int tipo =1;
+            int estado =1;
+            int seleccion = Integer.parseInt(request.getParameter("cboSeleccion"));
+            int equipo = Integer.parseInt(request.getParameter("cboEquipo"));
+
+            if (jugadorFacade.existeId(id)) {
+                TipoJugador tipoJug = new TipoJugador(tipo);
+                EstadoJugador estadoJug = new EstadoJugador(estado);
+                SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
+                Equipo equipJug = new Equipo(equipo);
+                jugadorFacade.edit(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
+                request.getSession().setAttribute("mensaje", "El jugador se ha Agregado al equipo");
+                response.sendRedirect("Jugador/listar_JugadorSinEquipo.jsp");
+
+            } else {
+                request.getSession().setAttribute("mensaje", "El jugador no se ha Modificado");
+                response.sendRedirect("Jugador/listar_JugadorSinEquipo.jsp");
+            }
+        } catch (Exception e) {
+          response.sendRedirect("Jugador/listar_JugadorSinEquipo.jsp");
+        } 
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -217,6 +251,8 @@ public class ServletJugador extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    
 
     
 
