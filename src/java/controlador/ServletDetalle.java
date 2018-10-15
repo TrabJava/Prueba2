@@ -40,22 +40,32 @@ public class ServletDetalle extends HttpServlet {
 
         String opcion = request.getParameter("btnAccion");
 
-        if (opcion.equals("Agregar")) {
+        if (opcion.equals("AgregarOctavos")) {
             agregarOctavos(request, response);
+        }
+        if (opcion.equals("AgregarCuartos")) {
+            agregarCuartos(request, response);
+        }
+        if (opcion.equals("AgregarSemi")) {
+            agregarSemi(request, response);
+        }
+        if (opcion.equals("AgregarFinal")) {
+            agregarFinal(request, response);
         }
 
     }
 
     private void agregarOctavos(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
-        int clasificato = 2;
-        /*
+         /*
         if (detalleFacade.existeEquipo(equipillo, clasificato)) {
             request.getSession().setAttribute("mensaje", "El Equipo ya existe en esta liga");
             response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
         }
          */
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
+        int clasificato = 2;
+       
 
         Equipo team = new Equipo(equipillo);
         TipoClasificatoria tipoClasif = new TipoClasificatoria(equipillo);
@@ -104,5 +114,47 @@ public class ServletDetalle extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private void agregarCuartos(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
+        int clasificato = 3;
+       
+
+        Equipo team = new Equipo(equipillo);
+        TipoClasificatoria tipoClasif = new TipoClasificatoria(equipillo);
+        Detalle detall = new Detalle(team, tipoClasif);
+        detalleFacade.create(detall);
+        request.getSession().setAttribute("mensaje", "El Equipo se agregó");
+        response.sendRedirect("index.jsp");
+
+    }
+
+    private void agregarSemi(HttpServletRequest request, HttpServletResponse response) throws IOException {
+       int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
+        int clasificato = 4;
+       
+
+        Equipo team = new Equipo(equipillo);
+        TipoClasificatoria tipoClasif = new TipoClasificatoria(equipillo);
+        Detalle detall = new Detalle(team, tipoClasif);
+        detalleFacade.create(detall);
+        request.getSession().setAttribute("mensaje", "El Equipo se agregó");
+        response.sendRedirect("index.jsp");
+
+    }
+
+    private void agregarFinal(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipo"));
+        int clasificato = 5;
+       
+
+        Equipo team = new Equipo(equipillo);
+        TipoClasificatoria tipoClasif = new TipoClasificatoria(equipillo);
+        Detalle detall = new Detalle(team, tipoClasif);
+        detalleFacade.create(detall);
+        request.getSession().setAttribute("mensaje", "El Equipo se agregó");
+        response.sendRedirect("index.jsp");
+
+    }
 
 }
