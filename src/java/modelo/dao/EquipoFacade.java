@@ -37,4 +37,9 @@ public class EquipoFacade extends AbstractFacade<Equipo> {
         return query.getResultList().size() > 0;
     }
     
+    public boolean existeId(int id){
+        Query query = em.createQuery("SELECT e FROM Equipo e WHERE e.id = :id");
+        query.setParameter("id", id);
+        return query.getResultList().size() > 0;
+    }
 }
