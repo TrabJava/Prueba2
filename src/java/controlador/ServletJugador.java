@@ -51,7 +51,7 @@ public class ServletJugador extends HttpServlet {
 
         if (opcion.equals("Modificar")) {
             modificar(request, response);
-        } if (opcion.equals("Agregar Jugador")) {
+        } if (opcion.equals("Agregar_Jugador")) {
             agregar_jugador(request, response);
         }
 
@@ -161,7 +161,7 @@ public class ServletJugador extends HttpServlet {
             String user = request.getParameter("txtUser");
             String pass = request.getParameter("txtContrasenia");
             int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-            int estado = Integer.parseInt(request.getParameter("cboEstado"));
+            int estado = 1;
             TipoJugador tipoJug = new TipoJugador(tipo);
             EstadoJugador estadoJug = new EstadoJugador(estado);
             if (jugadorFacade.existeUsuario(user)) {
