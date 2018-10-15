@@ -137,7 +137,7 @@
 <table class="table table-dark" style="width: 350px"  height="500">
                             <thead>
                             
-                                <tr><td colspan="2" heigth="70"><h1><img src="../img/Cuartos.png" alt="" width="300" height="30"/></h1></td></tr>
+                                <tr><td colspan="2" heigth="70"><h1><img src="../img/Semifinal.png" alt="" width="270" height="30"/></h1></td></tr>
                             
                                 <tr><td colspan="2" heigth="70"><img src="../img/Segunda.png" alt="" width="200" height="50"/> </td></tr>
                             </thead>
@@ -164,7 +164,7 @@
                 <table class="table table-dark" style="width: 350px"  height="500">
                             <thead>
                             
-                                <tr><td colspan="2" heigth="70"><h1><img src="../img/Cuartos.png" alt="" width="300" height="30"/></h1></td></tr>
+                                <tr><td colspan="2" heigth="70"><h1><img src="../img/Final.png" alt="" width="300" height="30"/></h1></td></tr>
                             
                                 <tr><td colspan="2" heigth="70"><img src="../img/Segunda.png" alt="" width="200" height="50"/> </td></tr>
                             </thead>
@@ -173,8 +173,6 @@
                                 <form action="procesoSuperUsuario" method="GET">
 
                                     <tr height="150">
-
-
                                     <img src="../img/Icono_VS.png" alt="" style="margin-top:  270px;position: absolute;margin-left:  132px" width="50" height="50" />
                                     <td><img src="../img/${row.foto_link}" alt="" width="70" height="70" style="margin-left: 110px"/><p style="margin-left: 100px">${row.nombre_equipo}</p></td>
                                     </tr>
