@@ -79,7 +79,7 @@
                     </tbody>
                 </table>
             </form> 
-            <button type="button"   data-target="#demo"> ${mensaje}</button>
+            <button type="button"> ${mensaje}</button>
         </div>
     </body>
 </html>
