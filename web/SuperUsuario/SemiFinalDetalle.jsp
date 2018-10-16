@@ -34,14 +34,8 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=4
+            SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=3
         </sql:query>
-
-        <sql:query dataSource = "${snapshot}" var = "clasificatoria">
-            SELECT descripcion_tipoclas FROM tipo_clasificatoria
-        </sql:query>
-
-
 
         <div class="container" style="margin-top:30px">
             <div class="row">
@@ -91,7 +85,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                    <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarSemi" style="margin-left: 150px" class="btn btn-secondary"/></td>
                                 </tr>
 
                             </tbody>
