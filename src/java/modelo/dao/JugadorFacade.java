@@ -43,11 +43,12 @@ public class JugadorFacade extends AbstractFacade<Jugador> {
         return query.getResultList().size() > 0;
     }
     
-     public boolean ingresar(String user, String pass, int tipo){
-        Query query = em.createQuery("SELECT j.user, j.pass, t.id FROM Jugador j JOIN j.tipo t WHERE j.user = :user AND j.pass = :pass AND j.tipo.id=:tipo");
+     public boolean ingresar(String user, String pass, int tipo, int estado){
+        Query query = em.createQuery("SELECT j.user, j.pass, t.id FROM Jugador j JOIN j.tipo t JOIN j.estado e WHERE j.user = :user AND j.pass = :pass AND j.tipo.id=:tipo AND j.estado.id=:estado");
         query.setParameter("user", user);
         query.setParameter("pass", pass);
         query.setParameter("tipo", tipo);
+        query.setParameter("estado", estado);
         return query.getResultList().size() > 0;
     }
 
