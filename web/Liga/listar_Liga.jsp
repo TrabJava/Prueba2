@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -30,30 +30,81 @@
             SELECT * FROM liga;
         </sql:query> 
 
-        <div class="col-sm-8">
-            <div class="container" style="margin-top: 30px">    
-                <form action="../procesoLiga" method="GET">
-                    <table class="table table-dark" style="width: 800px" >
-                        <tr>
-                            <td>ID: </td>
-                            <td>Nombre de la liga: </td>
-                            <td>Modificar</td>
-                        </tr>
+        <c:choose>
+            <c:when test="${usuario == null }">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+            <c:when test="${estado != 1 }">
+
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado==1}">
+                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                    <div class="col-sm-8">
+                        <div class="container" style="margin-top: 30px">    
+                            <form action="../procesoLiga" method="GET">
+                                <table class="table table-dark" style="width: 800px" >
+                                    <tr>
+                                        <td>ID: </td>
+                                        <td>Nombre de la liga: </td>
+                                        <td>Modificar</td>
+                                    </tr>
 
 
-                        <c:forEach var = "row" items = "${jugador.rows}">
-                            <tr>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" value="${row.id}"/></td>
-                                <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtNombre" value="${row.descripcion_liga}"/></td>
-                                <td><a href="modificar_liga.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a></td>
-                            </tr>
-                        </c:forEach>
+                                <c:forEach var = "row" items = "${jugador.rows}">
+                                    <tr>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" value="${row.id}"/></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtNombre" value="${row.descripcion_liga}"/></td>
+                                        <td><a href="modificar_liga.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a></td>
+                                    </tr>
+                                </c:forEach>
 
-                    </table>
-                </form>
-                ${mensaje}
-            </div>
-        </div>
-        
+                            </table>
+                        </form>
+                        ${mensaje}
+                    </div>
+                </div>
+            </c:when>
+            <c:when test="${tipo == 1 && estado==1}">
+                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                    <div class="col-sm-8">
+                        <div class="container" style="margin-top: 30px">    
+                            <form action="../procesoLiga" method="GET">
+                                <table class="table table-dark" style="width: 800px" >
+                                    <tr>
+                                        <td>ID: </td>
+                                        <td>Nombre de la liga: </td>
+                                        <td>Modificar</td>
+                                    </tr>
+
+
+                                <c:forEach var = "row" items = "${jugador.rows}">
+                                    <tr>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" value="${row.id}"/></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtNombre" value="${row.descripcion_liga}"/></td>
+                                        <td><a href="modificar_liga.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Modificar</a></td>
+                                    </tr>
+                                </c:forEach>
+
+                            </table>
+                        </form>
+                        ${mensaje}
+                    </div>
+                </div>
+            </c:when>
+        </c:choose>
+
+
+
     </body>
 </html>

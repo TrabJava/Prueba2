@@ -41,26 +41,69 @@
     <body>
 
 
-    
+        <c:choose>
+            <c:when test="${usuario == null }">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+            <c:when test="${estado != 1 }">
+
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado==1}">
+                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                    <div class="panel-body" style="margin-left:40%;">
+                        <form action="../procesoLiga" method="POST">
+                            <table border="1">
+                                <tbody>
+                                    <tr>
+                                        <td>Ingrese el nombre de la liga :</td>
+                                        <td><input type="text" name="txtNombreLiga" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5">
+                                            <input type="submit" name="btnAccion" value="Agregar" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form> 
+                        <button type="button"   data-target="#demo"> ${mensaje}</button>
+                </div>
+            </c:when>
+            <c:when test="${tipo == 1 && estado==1}">
+                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                    <div class="panel-body" style="margin-left:40%;">
+                        <form action="../procesoLiga" method="POST">
+                            <table border="1">
+                                <tbody>
+                                    <tr>
+                                        <td>Ingrese el nombre de la liga :</td>
+                                        <td><input type="text" name="txtNombreLiga" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5">
+                                            <input type="submit" name="btnAccion" value="Agregar" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form> 
+                        <button type="button"   data-target="#demo"> ${mensaje}</button>
+                </div>
+            </c:when>
+        </c:choose>
 
 
-            <div class="panel-body" style="margin-left:40%;">
-                <form action="../procesoLiga" method="POST">
-                    <table border="1">
-                        <tbody>
-                            <tr>
-                                <td>Ingrese el nombre de la liga :</td>
-                                <td><input type="text" name="txtNombreLiga" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
-                            </tr>
-                        <tr>
-                            <td colspan="5">
-                                <input type="submit" name="btnAccion" value="Agregar" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form> 
-            <button type="button"   data-target="#demo"> ${mensaje}</button>
-        </div>
+
     </body>
 </html>

@@ -39,28 +39,70 @@
             ps = con.prepareStatement("select * from liga where id=" + id);
             rs = ps.executeQuery();
 
-
             while (rs.next()) {
         %>
         <%--Query para mostrar los datos en la lista--%>
 
-        <h1>Modificar Datos del Jugador</h1>
-        <form action="../procesoLiga" method="POST">
-            <table border="1">
-                <tbody>
-                    <tr>
-                        <td>ID:</td>
-                        <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
-                    </tr>
-                    <tr>
-                        <td>Nombre De la liga:</td>
-                        <td><input type="text" name="txtNombreLiga" value="<%= rs.getString("descripcion_liga")%>"></td>
-                    </tr>
-                </tbody>
-            </table>
-            <br>
-            <input type="submit" value="Modificar" name="btnAccion" class="btn btn-info"/>    
-        </form>
+
+        <c:choose>
+            <c:when test="${usuario == null }">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+            <c:when test="${estado != 1 }">
+
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado==1}">
+                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                    <h1>Modificar Datos del Jugador</h1>
+                    <form action="../procesoLiga" method="POST">
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
+                            </tr>
+                            <tr>
+                                <td>Nombre De la liga:</td>
+                                <td><input type="text" name="txtNombreLiga" value="<%= rs.getString("descripcion_liga")%>"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <input type="submit" value="Modificar" name="btnAccion" class="btn btn-info"/>    
+                </form>
+            </c:when>
+            <c:when test="${tipo == 1 && estado==1}">
+                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                    <h1>Modificar Datos del Jugador</h1>
+                    <form action="../procesoLiga" method="POST">
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
+                            </tr>
+                            <tr>
+                                <td>Nombre De la liga:</td>
+                                <td><input type="text" name="txtNombreLiga" value="<%= rs.getString("descripcion_liga")%>"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <input type="submit" value="Modificar" name="btnAccion" class="btn btn-info"/>    
+                </form>
+            </c:when>
+        </c:choose>
         <%}%>
     </body>
 </html>
