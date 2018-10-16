@@ -100,7 +100,7 @@
 					<input type="password" name="txtPassword" placeholder="Password" required="">
 				</div>
                                 <div class="clear"></div>
-				<div class="w3-user1">
+				<div class="w3-psw">
 					<span><i class="fa fa-key" aria-hidden="true"></i></span>
 					 <select name="cboTipo" style="width: 340px;height: 44px" >
                                     <c:forEach var="tipos" items="${tipoj.rows}">
@@ -202,3 +202,5 @@
 <!-- //flexSlider -->
 </body>
 </html>
+
+
