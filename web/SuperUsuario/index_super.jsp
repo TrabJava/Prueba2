@@ -28,8 +28,7 @@
     </head>
     <body>
         <c:choose>
-            <c:when test="${user == null }">
-
+            <c:when test="${usuario == null }">
                 <h1>Tiene que iniciar sesión primero</h1>
                 <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
             </c:when>
