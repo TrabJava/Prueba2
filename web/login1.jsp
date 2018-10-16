@@ -4,6 +4,9 @@
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +31,14 @@
 <!--//online_fonts-->
 </head>
 <body>
+     <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
+
+        <sql:query dataSource="${dataSource}" var="tipo">
+            SELECT id, descripcion_tipoj FROM tipo_jugador
+        </sql:query> 
+            <sql:query dataSource="${dataSource}" var="tipo">
+            SELECT id, descripcion_tiposu FROM tipo_super
+        </sql:query> 
 <div class="w3l-head">
     
 	<h1><img src="img/laPrieta.png" alt=""/></h1>
@@ -77,15 +88,24 @@
 			<div class="agileits-2">
 				<h2>Login Persona</h2>
 			</div>
-			<form action="#" method="post">
+			<form action="procesoAcceso" method="post">
 				<div class="w3-user">
 					<span><i class="fa fa-user-o" aria-hidden="true"></i></span>
-					<input type="text" name="Username" placeholder="Username" required="">
+					<input type="text" name="txtNombreUsuario" placeholder="Username" required="">
 				</div>
 				<div class="clear"></div>
 				<div class="w3-psw">
 					<span><i class="fa fa-key" aria-hidden="true"></i></span>
-					<input type="password" name="password" placeholder="Password" required="">
+					<input type="password" name="txtPassword" placeholder="Password" required="">
+				</div>
+                                <div class="clear"></div>
+				<div class="w3-psw">
+					<span><i class="fa fa-key" aria-hidden="true"></i></span>
+					 <select name="cboTipo" >
+                                    <c:forEach var="tipos" items="${tipo.rows}">
+                                        <option value="${tipos.id}">${tipos.descripcion_tipoj}</option>
+                                    </c:forEach>
+                                </select>
 				</div>
 				<div class="clear"></div>
 				<div class="w3l-check">
@@ -94,10 +114,11 @@
 				</div>
 				<div class="clear"></div>
 				<div class="signin">
-					<input type="submit" value="sign in">
+                                    <input type="submit" value="Entrar" name="btnAccion">
 				</div>
 				<div class="clear"></div>
 			</form>
+                    ${mensaje}
 		</div>
 	</div>
 </div>
@@ -111,15 +132,24 @@
 			<div class="agileits-2">
 				<h2>Login Admin</h2>
 			</div>
-			<form action="#" method="post">
+			<form action="procesoAcceso" method="post">
 				<div class="w3-user">
 					<span><i class="fa fa-user-o" aria-hidden="true"></i></span>
-					<input type="text" name="Username" placeholder="Username" required="">
+					<input type="text" name="txtNombreUsuario" placeholder="Username" required="">
 				</div>
 				<div class="clear"></div>
 				<div class="w3-psw">
 					<span><i class="fa fa-key" aria-hidden="true"></i></span>
-					<input type="password" name="password" placeholder="Password" required="">
+					<input type="password" name="txtPassword" placeholder="Password" required="">
+				</div>
+                                <div class="clear"></div>
+				<div class="w3-psw">
+					<span><i class="fa fa-key" aria-hidden="true"></i></span>
+					<select name="cboTipo" >
+                                    <c:forEach var="tipos" items="${tipo.rows}">
+                                        <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
+                                    </c:forEach>
+                                </select>
 				</div>
 				<div class="clear"></div>
 				<div class="w3l-check">
@@ -128,10 +158,11 @@
 				</div>
 				<div class="clear"></div>
 				<div class="signin">
-					<input type="submit" value="sign in">
+					<input type="submit" value="Ingresar" name="btnAccion">
 				</div>
 				<div class="clear"></div>
 			</form>
+                    ${mensaje}
 		</div>
 	</div>
 </div>
