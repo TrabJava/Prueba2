@@ -38,10 +38,6 @@
             SELECT id,nombre_equipo FROM equipo
         </sql:query>
 
-        <sql:query dataSource = "${snapshot}" var = "clasificatoria">
-            SELECT descripcion_tipoclas FROM tipo_clasificatoria
-        </sql:query>
-
 
 
         <div class="container" style="margin-top:30px">
