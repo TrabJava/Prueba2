@@ -93,7 +93,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                        <td colspan="2" ><input type="submit" name="btnAccion" value="Agregar_Ganador" style="margin-left: 150px" class="btn btn-secondary"/></td>
                     </tr>
 
                 </tbody>

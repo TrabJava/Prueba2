@@ -1,9 +1,8 @@
 <%-- 
-    Document   : OctavoDetalle
-    Created on : 15-10-2018, 1:26:01
-    Author     : James Johnson
+    Document   : SemiFinalDetalle
+    Created on : 15-10-2018, 21:21:18
+    Author     : Berni
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
@@ -11,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Asignar | 4°tos</title>
+        <title>Asignar | SemiFinal</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -35,7 +34,7 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=2
+            SELECT e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=4
         </sql:query>
 
         <sql:query dataSource = "${snapshot}" var = "clasificatoria">
@@ -72,7 +71,7 @@
 
 
                 <div class="col-sm-8">
-                    <img src="../img/cto.png" alt="" style="margin-left: 335px"/>
+                    <img src="../img/SEM.png" alt="" style="margin-left: 335px"/>
                     <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FSantiago" width="100%" height="90" frameborder="0" seamless style="margin-left: 44px"></iframe>
                     <form  action="../procesoDetalle" method="POST">
                         <table border="1" class="table table-dark" style="width: 400px;margin-left: 350px">
@@ -88,11 +87,11 @@
                                 <tr>
                                     <td><label>CLASIFICATORIA </label></td>
                                     <td>
-                                        CUARTOS
+                                        FINAL
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2" ><input type="submit" name="btnAccion" value="Agregar" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                    <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
                                 </tr>
 
                             </tbody>
