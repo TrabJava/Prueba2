@@ -77,26 +77,20 @@
                 <h1>Tiene que iniciar sesión primero</h1>
                 <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
             </c:when>
-            <c:when test="${estado != 1 }">
-
+            <c:when test="${tipoSU != 1 || tipo ==1 || tipo ==2}">
                 <h1>Tu usuario es incorrecto</h1>
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
-                <c:when test="${tipo == 2 && estado!=1}">
+                <c:when test="${tipoSU == 2 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
-                <c:when test="${tipo == 1 && estado!=1}">
+                <c:when test="${tipoSU == 2 && estadoSU==1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
-                <c:when test="${tipo == 2 && estado==1}">
-                <h1>Tu usuario esta desactivado</h1>
-                <h3><a href="../login1.jsp"></a></h3>
-
-            </c:when>
-            <c:when test="${tipo == 1 && estado==1}">
-                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                <c:when test="${tipoSU == 1 && estadoSU==1}">
+                    <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
                     <div class="row centered-form" >
                         <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
                             <div class="panel panel-default">
@@ -124,7 +118,7 @@
                                                 <td>
                                                     <select name="cboTipo" id="cboTipo" class="form-control">
                                                         <%
-                                                    while (rset.next()) {%>
+                                                            while (rset.next()) {%>
                                                         <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tiposu")%></option>
                                                         <%}
                                                         %>
@@ -137,7 +131,7 @@
                                                 <td>
                                                     <select name="cboEstado" id="cboEstado" class="form-control">
                                                         <%
-                                                    while (rseet.next()) {%>
+                                                            while (rseet.next()) {%>
                                                         <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion_super")%></option>
                                                         <%}
                                                         %>
@@ -162,7 +156,6 @@
                     </div>
                 </div>
             </c:when>
-        </c:choose>
-
-    </body>
+        </c:choose> 
+</body>
 </html>

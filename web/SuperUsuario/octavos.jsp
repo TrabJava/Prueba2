@@ -52,7 +52,27 @@
     <sql:query dataSource = "${snapshot}" var = "admin">
         SELECT e.nombre_equipo ,e.foto_link FROM detalle d JOIN equipo e ON e.id = d.equipo where clasificatoria = 2 and e.liga =2
     </sql:query>
-    <div class="row">
+        
+        <c:choose>
+        <c:when test="${usuario == null }">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+               <c:when test="${tipoSU != 1 || tipo ==1 || tipo ==2}">
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+                <c:when test="${tipoSU == 2 && estadoSU!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipoSU == 2 && estadoSU==1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipoSU == 1 && estadoSU==1}">
+                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+              <div class="row">
         <div class="table-wrapper-scroll-y"> 
         <div class="col-4">
 
@@ -234,8 +254,7 @@
                 </table>
             </div>
 
-
-
-
+            </c:when>
+   </c:choose>
             </body>
             </html>
