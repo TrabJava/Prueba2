@@ -57,7 +57,7 @@
                         <a class="dropdown-item" href="../menuCoach/Clasificatoria.jsp">Esquema</a>
                     </div>
                 </li>
-v> 
+                <li><a href="../procesoSession">Cerrar Sesion</a></li>
             </ul>
         </nav>
         <br>

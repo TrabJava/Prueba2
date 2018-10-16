@@ -69,7 +69,7 @@
                         <a class="dropdown-item" href="#">Agregar Jugador</a>
                     </div>
                 </li>
-                <li><a href="procesoSession">Cerrar Sesion</a></li>
+                <li><a href="../procesoSession">Cerrar Sesion</a></li>
             </ul>
         </nav>
         <br>
