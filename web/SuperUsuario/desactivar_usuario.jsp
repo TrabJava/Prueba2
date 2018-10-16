@@ -75,6 +75,10 @@
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
             </c:when>
+                <c:when test="${tipoSU == 1 && estadoSU!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
             <c:when test="${tipoSU == 2 && estadoSU==1}">
                  <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>

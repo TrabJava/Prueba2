@@ -37,22 +37,26 @@
             SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=2
         </sql:query>
 
-       <c:choose>
-        <c:when test="${usuario == null }">
+        <c:choose>
+            <c:when test="${usuario == null }">
                 <h1>Tiene que iniciar sesión primero</h1>
                 <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
             </c:when>
-               <c:when test="${tipoSU != 1 || tipo ==1 || tipo ==2}">
+            <c:when test="${tipo ==1 || tipo ==2}">
                 <h1>Tu usuario es incorrecto</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
+                </c:when>
                 <c:when test="${tipoSU == 2 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
-            <c:when test="${tipoSU == 2 && estadoSU==1}">
-                <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
-             <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                </c:when>
+                <c:when test="${tipoSU == 1 && estadoSU!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipoSU == 2 && estadoSU==1}">
+                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
                     <div class="container" style="margin-top:30px">
                         <div class="row">
                             <div class="col-sm-3" >
@@ -117,7 +121,7 @@
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-            <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
                     <div class="container" style="margin-top:30px">
                         <div class="row">
                             <div class="col-sm-3" >
