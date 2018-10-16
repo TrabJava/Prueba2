@@ -73,7 +73,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li><a href="#services" class="scroll"><span data-hover="Services">Services</span></a></li>
                                 <li><a href="#work" class="scroll"><span data-hover="Gallery">Gallery</span></a></li>
                                 <li><a href="#projects" class="scroll"><span data-hover="News">News</span></a></li>
-                                <li><a href="#mail" class="scroll"><span data-hover="Contact">Contact</span></a></li>
+                                <li><a href="registroJugador.jsp" class="scroll"><span data-hover="Contact">Registrarse</span></a></li>
                             </ul>
                         </nav>
                     </div>
