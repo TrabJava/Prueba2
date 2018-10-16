@@ -40,8 +40,7 @@
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 </style>
-    
-    <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+
     </head>
     <body>
     <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
