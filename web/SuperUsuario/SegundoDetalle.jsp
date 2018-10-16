@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Asignar | 4°tos</title>
+        <title>Asignar | Final</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -35,7 +35,7 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=3
+            SELECT e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=4
         </sql:query>
 
         <sql:query dataSource = "${snapshot}" var = "clasificatoria">
@@ -88,11 +88,11 @@
                                 <tr>
                                     <td><label>CLASIFICATORIA </label></td>
                                     <td>
-                                        SEMI FINAL
+                                        FINAL
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarSemi" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                    <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
                                 </tr>
 
                             </tbody>
