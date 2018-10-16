@@ -35,7 +35,7 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=4
+            SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=4
         </sql:query>
 
         <sql:query dataSource = "${snapshot}" var = "clasificatoria">
