@@ -35,7 +35,7 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT id,nombre_equipo FROM equipo 
+            SELECT id,nombre_equipo FROM equipo
         </sql:query>
 
         <sql:query dataSource = "${snapshot}" var = "clasificatoria">
