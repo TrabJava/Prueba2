@@ -68,7 +68,8 @@
                         <a class="dropdown-item" href="#">Agregar coach</a>
                         <a class="dropdown-item" href="#">Agregar Jugador</a>
                     </div>
-                </li>   
+                </li>
+                <li><a href="procesoSession">Cerrar Sesion</a></li>
             </ul>
         </nav>
         <br>
