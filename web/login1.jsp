@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>student portal form a Flat Responsive Widget Template :: w3layouts</title>
+	<title>Ingresar al Match</title>
 <!-- metatags-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -59,10 +59,10 @@
 <div class="w3l-rigt-side">
 	<form action="#" method="post">
 		<div class="w3l-signin">
-			<a class="w3_play_icon1" href="#small-dialog1"> sign in</a>
+			<a class="w3_play_icon1" href="#small-dialog1">Persona</a>
 		</div>
 		<div class="w3l-signup">
-			<a class="w3_play_icon1" href="#small-dialog2"> sign up</a>
+			<a class="w3_play_icon1" href="#small-dialog2">Admin</a>
 		</div>
 		<div class="clear"></div>
 	</form>	
@@ -75,7 +75,7 @@
 	<div class="wthree-container">
 		<div class="wthree-form">
 			<div class="agileits-2">
-				<h2>sign in</h2>
+				<h2>Login Persona</h2>
 			</div>
 			<form action="#" method="post">
 				<div class="w3-user">
@@ -109,7 +109,7 @@
 	<div class="wthree-container">
 		<div class="wthree-form bg">	
 			<div class="agileits-2">
-				<h2>sign up here</h2>
+				<h2>Login Admin</h2>
 			</div>
 			<form action="#" method="post">
 				<div class="w3-user">
@@ -117,27 +117,18 @@
 					<input type="text" name="Username" placeholder="Username" required="">
 				</div>
 				<div class="clear"></div>
-				<div class="w3-email">
-					<span><i class="fa fa-envelope" aria-hidden="true"></i></span>
-					<input type="email" name="email" placeholder="Example@mail" required=""/>
-				</div>
-				<div class="clear"></div>
 				<div class="w3-psw">
 					<span><i class="fa fa-key" aria-hidden="true"></i></span>
 					<input type="password" name="password" placeholder="Password" required="">
 				</div>
-				<div class="w3-cpsw">
-					<span><i class="fa fa-key" aria-hidden="true"></i></span>
-					<input type="password" name="password" placeholder="confirm-Password" required="">
-				</div>
 				<div class="clear"></div>
 				<div class="w3l-check">
 					<input type="checkbox" class="checkbox">
-					<span><a href="#">i agree terms and conditions</a></span>  
+					<span><a href="#">forgot password ?</a></span>  
 				</div>
 				<div class="clear"></div>
 				<div class="signin">
-					<input type="submit" value="sign up">
+					<input type="submit" value="sign in">
 				</div>
 				<div class="clear"></div>
 			</form>
