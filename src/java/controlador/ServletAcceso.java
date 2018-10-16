@@ -14,7 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.JugadorFacade;
 import modelo.dao.SuperUsuarioFacade;
+import modelo.dto.EstadoJugador;
+import modelo.dto.EstadoSuper;
+import modelo.dto.Jugador;
 import modelo.dto.SuperUsuario;
+import modelo.dto.TipoJugador;
+import modelo.dto.TipoSuper;
 
 /**
  *
@@ -98,7 +103,15 @@ public class ServletAcceso extends HttpServlet {
             int tipo = Integer.parseInt(request.getParameter("cboTipo"));
             int estado = 1;
             if (superUsuarioFacade.ingresar1(user, pass, tipo, estado)) {
+                TipoSuper ti = new TipoSuper(tipo);
+                EstadoSuper es = new EstadoSuper(estado);
+                SuperUsuario su = new SuperUsuario(user, pass, ti, es);
+                request.getSession().setAttribute("usuario", su.getUser());
+                request.getSession().setAttribute("contrasenia", su.getPass());
+                request.getSession().setAttribute("tipo", su.getTipo());
+                request.getSession().setAttribute("estado", su.getEstado());
                 if (tipo==1) {
+                    
                     response.sendRedirect("SuperUsuario/index_super.jsp"); 
                 }else if(tipo==2){
                    response.sendRedirect("SuperUsuario/index_admin.jsp"); 
@@ -121,6 +134,13 @@ public class ServletAcceso extends HttpServlet {
             int tipo = Integer.parseInt(request.getParameter("cboTipo"));
             int estado = 1;
             if (jugadorFacade.ingresar(user, pass, tipo, estado)){
+                TipoJugador tj = new TipoJugador(tipo);
+                EstadoJugador ej = new EstadoJugador(estado);
+                Jugador ju = new Jugador(user, pass, tj, ej);
+                request.getSession().setAttribute("usuario", ju.getUser());
+                request.getSession().setAttribute("contrasenia", ju.getPass());
+                request.getSession().setAttribute("tipo", ju.getTipo());
+                request.getSession().setAttribute("estado", ju.getEstado());
                 if (tipo==1) {
                     response.sendRedirect("SuperUsuario/index_super.jsp"); 
                 }else if(tipo==2){
