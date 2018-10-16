@@ -30,9 +30,8 @@
             background-size: cover;
         }
     </style>
-    <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-    </head>
-    <body>
+</head>
+<body>
     <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
                        url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
                        user = "mojaber_ali"  password = "12345"/>
@@ -42,32 +41,65 @@
         SELECT e.nombre_equipo ,e.foto_link FROM detalle d JOIN equipo e ON e.id = d.equipo where clasificatoria = 6 and e.liga =2
     </sql:query>
 
-        <div>
-                                   <c:forEach var = "row" items = "${admin.rows}">
-                                <form action="procesoSuperUsuario" method="GET">
-                                    <table border="0" style="margin-left: 584px;margin-top: 150px">
-                                         <tr height="150">
+    <c:choose>
+        <c:when test="${usuario == null }">
+            <h1>Tiene que iniciar sesión primero</h1>
+            <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+        </c:when>
+        <c:when test="${estado != 1 }">
+
+            <h1>Tu usuario es incorrecto</h1>
+            <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipo == 2 && estado!=1}">
+            <h1>Tu usuario esta desactivado</h1>
+            <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipo == 1 && estado!=1}">
+            <h1>Tu usuario esta desactivado</h1>
+            <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipo == 2 && estado==1}">
+                <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                <div>
+                <c:forEach var = "row" items = "${admin.rows}">
+                    <form action="procesoSuperUsuario" method="GET">
+                        <table border="0" style="margin-left: 584px;margin-top: 150px">
+                            <tr height="150">
+                                <td style="height: 100px"><img src="../img/${row.foto_link}" alt="" width="200" height="200" style="margin-left: 50px;position: static;margin-bottom:  10px"/></td>
+                            <img src="../img/corona.png" alt="" style="margin-left: 534px;position: absolute" width="400" height="300"/>
+                            </tr>
+                        </table>
+                    </c:forEach>
+            </div>
+            <div>
+            </div>
+            <div>
+                <img src="../img/ganadores.png" alt="" style="margin-left: 410px;margin-top: 100px"/>
+            </div>
+        </c:when>
+        <c:when test="${tipo == 1 && estado==1}">
+            <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                <div>
+                <c:forEach var = "row" items = "${admin.rows}">
+                    <form action="procesoSuperUsuario" method="GET">
+                        <table border="0" style="margin-left: 584px;margin-top: 150px">
+                            <tr height="150">
+                                <td style="height: 100px"><img src="../img/${row.foto_link}" alt="" width="200" height="200" style="margin-left: 50px;position: static;margin-bottom:  10px"/></td>
+                            <img src="../img/corona.png" alt="" style="margin-left: 534px;position: absolute" width="400" height="300"/>
+                            </tr>
+                        </table>
+                    </c:forEach>
+            </div>
+            <div>
+            </div>
+            <div>
+                <img src="../img/ganadores.png" alt="" style="margin-left: 410px;margin-top: 100px"/>
+            </div>
+        </c:when>
+    </c:choose>
 
 
-                                             <td style="height: 100px"><img src="../img/${row.foto_link}" alt="" width="200" height="200" style="margin-left: 50px;position: static;margin-bottom:  10px"/></td>
-                                   <img src="../img/corona.png" alt="" style="margin-left: 534px;position: absolute" width="400" height="300"/>
-                                         </tr>
-                                    
 
-                                   </table>
-                                    
-
-
-                                </c:forEach>
-                                    
-        </div>
-        <div>
-            
-        </div>
-        <div>
-            <img src="../img/ganadores.png" alt="" style="margin-left: 410px;margin-top: 100px"/>
-        </div>
-        
-                                    
-            </body>
-            </html>
+</body>
+</html>

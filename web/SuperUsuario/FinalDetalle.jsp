@@ -28,7 +28,6 @@
         </style>
     </head>
     <body>
-        <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
         <sql:setDataSource var = "snapshot" driver = "com.mysql.jdbc.Driver"
                            url = "jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull"
                            user = "mojaber_ali"  password = "12345"/>
@@ -37,78 +36,156 @@
         <sql:query dataSource = "${snapshot}" var = "equipo">
             SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=5
         </sql:query>
-        <div class="container" style="margin-top:30px">
-            <div class="row">
-                <div class="col-sm-3" >
-                    <img src="../img/jinxita.png" alt="" />
-                    <p>Aquí podrás seleccionar a los próximos invocadores</p>
-                    <h3>Jinx? de Jinx? </h3>
-                    <h4>que tonto eres</h4>
-                    <p>Necesitas Links?</p>
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Active</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                        </li>
-                    </ul>
-                    <hr class="d-sm-none">
+
+        <c:choose>
+            <c:when test="${usuario == null }">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+            <c:when test="${estado != 1 }">
+
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado==1}">
+                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                    <div class="container" style="margin-top:30px">
+                        <div class="row">
+                            <div class="col-sm-3" >
+                                <img src="../img/jinxita.png" alt="" />
+                                <p>Aquí podrás seleccionar a los próximos invocadores</p>
+                                <h3>Jinx? de Jinx? </h3>
+                                <h4>que tonto eres</h4>
+                                <p>Necesitas Links?</p>
+                                <ul class="nav nav-pills flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" href="#">Disabled</a>
+                                    </li>
+                                </ul>
+                                <hr class="d-sm-none">
+                            </div>
+
+
+
+                            <div class="col-sm-8">
+                                <img src="../img/FINAS.png" alt="" style="margin-left: 335px"/>
+                                <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FSantiago" width="100%" height="90" frameborder="0" seamless style="margin-left: 44px"></iframe>
+                                <form  action="../procesoDetalle" method="POST">
+                                    <table border="1" class="table table-dark" style="width: 400px;margin-left: 350px">
+                                        <tbody>
+                                            <tr>
+                                                <td><label>EQUIPO </label></td>
+                                                <td><select name="cboEquipoclas">
+                                                    <c:forEach var="equipo" items="${equipo.rows}">
+                                                        <option value="${equipo.id}">${equipo.nombre_equipo}</option>
+                                                    </c:forEach>
+                                                </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>CLASIFICATORIA </label></td>
+                                            <td>
+                                                GANADOR
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" ><input type="submit" name="btnAccion" value="Agregar_Ganador" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </form>
+                            ${mensaje}
+                            <br>
+
+                        </div>
+                    </div>
                 </div>
+            </c:when>
+            <c:when test="${tipo == 1 && estado==1}">
+                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                    <div class="container" style="margin-top:30px">
+                        <div class="row">
+                            <div class="col-sm-3" >
+                                <img src="../img/jinxita.png" alt="" />
+                                <p>Aquí podrás seleccionar a los próximos invocadores</p>
+                                <h3>Jinx? de Jinx? </h3>
+                                <h4>que tonto eres</h4>
+                                <p>Necesitas Links?</p>
+                                <ul class="nav nav-pills flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#">Active</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Link</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link disabled" href="#">Disabled</a>
+                                    </li>
+                                </ul>
+                                <hr class="d-sm-none">
+                            </div>
 
 
 
-                <div class="col-sm-8">
-                    <img src="../img/FINAS.png" alt="" style="margin-left: 335px"/>
-                    <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FSantiago" width="100%" height="90" frameborder="0" seamless style="margin-left: 44px"></iframe>
-                    <form  action="../procesoDetalle" method="POST">
-                        <table border="1" class="table table-dark" style="width: 400px;margin-left: 350px">
-                            <tbody>
-                                <tr>
-                                    <td><label>EQUIPO </label></td>
-                                    <td><select name="cboEquipoclas">
-                                            <c:forEach var="equipo" items="${equipo.rows}">
-                                                <option value="${equipo.id}">${equipo.nombre_equipo}</option>
-                                            </c:forEach>
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><label>CLASIFICATORIA </label></td>
-                                    <td>
-                                        GANADOR
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" ><input type="submit" name="btnAccion" value="Agregar_Ganador" style="margin-left: 150px" class="btn btn-secondary"/></td>
-                                </tr>
+                            <div class="col-sm-8">
+                                <img src="../img/FINAS.png" alt="" style="margin-left: 335px"/>
+                                <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FSantiago" width="100%" height="90" frameborder="0" seamless style="margin-left: 44px"></iframe>
+                                <form  action="../procesoDetalle" method="POST">
+                                    <table border="1" class="table table-dark" style="width: 400px;margin-left: 350px">
+                                        <tbody>
+                                            <tr>
+                                                <td><label>EQUIPO </label></td>
+                                                <td><select name="cboEquipoclas">
+                                                    <c:forEach var="equipo" items="${equipo.rows}">
+                                                        <option value="${equipo.id}">${equipo.nombre_equipo}</option>
+                                                    </c:forEach>
+                                                </select></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>CLASIFICATORIA </label></td>
+                                            <td>
+                                                GANADOR
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" ><input type="submit" name="btnAccion" value="Agregar_Ganador" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                        </tr>
 
-                            </tbody>
+                                    </tbody>
 
-                        </table>
-                    </form>
-                    ${mensaje}
-                    <br>
+                                </table>
+                            </form>
+                            ${mensaje}
+                            <br>
 
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-
+            </c:when>
+        </c:choose>    
     </body>
-
-
-
-
-
-
-
-
 </body>
 </html>
