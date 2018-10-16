@@ -99,8 +99,8 @@
 
 
 
-                        <div class="col-sm">
-                            <table class="table table-dark" style="width: 350px"  height="500">
+                        <div class="col-sm-4">
+                            <table class="table table-dark" style="width: 250px"  height="500">
                                 <thead>
 
                                     <tr><td colspan="2" heigth="70"><h1><img src="../img/octavos.png" alt="" width="300" height="30"/></h1></td></tr>

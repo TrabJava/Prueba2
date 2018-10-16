@@ -272,8 +272,7 @@
                                                     </tr>
 
 
-                                                </c:forEach>
-                                                <img src="../img/Icono_VS.png" alt="" style="margin-top:  570px;position: absolute;margin-left:  132px" width="50" height="50" />
+                                                </c:forEach>    
                                                 <img src="../img/smur.png" alt="" style="position: absolute;width: 80px;margin-left: 230px;margin-top: 80px"/>
                                         </table>
 
