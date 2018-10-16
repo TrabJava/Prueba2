@@ -3,7 +3,9 @@
     Created on : 07-10-2018, 20:22:42
     Author     : Berni
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -31,8 +33,7 @@
                 <h1>Tiene que iniciar sesión primero</h1>
                 <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
             </c:when>
-                <c:when test="${tipo != 2 }">
-
+                <c:when test="${tipo!= 2 }">
                 <h1>Tu usuario es incorrecto</h1>
                 <h3><a href="../login1.jsp"></a></h3>
             </c:when>
@@ -43,6 +44,8 @@
             <c:when test="${tipo == 2 && estado==1}">
                 <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
             </c:when>
+            <c:otherwise>
+            </c:otherwise>
         </c:choose>
         
     </body>

@@ -44,6 +44,8 @@
             <c:when test="${tipo == 1 && estado==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
             </c:when>
+                <c:otherwise>
+            </c:otherwise>
         </c:choose>
     </body>
 </html>
