@@ -100,20 +100,20 @@ public class ServletAcceso extends HttpServlet {
         try {
             String user = request.getParameter("txtNombreUsuario");
             String pass = request.getParameter("txtPassword");
-            int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-            int estado = 1;
-            if (superUsuarioFacade.ingresar1(user, pass, tipo, estado)) {
-                TipoSuper ti = new TipoSuper(tipo);
-                EstadoSuper es = new EstadoSuper(estado);
+            int tipoSU = Integer.parseInt(request.getParameter("cboTipo"));
+            int estadoSU = 1;
+            if (superUsuarioFacade.ingresar1(user, pass, tipoSU, estadoSU)) {
+                TipoSuper ti = new TipoSuper(tipoSU);
+                EstadoSuper es = new EstadoSuper(estadoSU);
                 SuperUsuario su = new SuperUsuario(user, pass, ti, es);
                 request.getSession().setAttribute("usuario", su.getUser());
                 request.getSession().setAttribute("contrasenia", su.getPass());
                 request.getSession().setAttribute("tipo", su.getTipo().getId());
                 request.getSession().setAttribute("estado", su.getEstado().getId());
-                if (tipo==1) {
+                if (tipoSU==1) {
                     
                     response.sendRedirect("SuperUsuario/index_super.jsp"); 
-                }else if(tipo==2){
+                }else if(tipoSU==2){
                    response.sendRedirect("SuperUsuario/index_admin.jsp"); 
                 }
             }  else {
