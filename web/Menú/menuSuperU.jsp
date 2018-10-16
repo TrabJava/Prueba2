@@ -56,7 +56,7 @@
                         <a class="dropdown-item" href="../SuperUsuario/OctavoDetalle.jsp">Main Octavos</a>
                         <a class="dropdown-item" href="../SuperUsuario/CuartoDetalle.jsp">Main Cuartos</a>
                         <a class="dropdown-item" href="../SuperUsuario/SemiFinalDetalle.jsp">Main Semifinal</a>
-                        <a class="dropdown-item" href="../SuperUsuario/SegundoDetalle.jsp">Main Final</a>
+                        <a class="dropdown-item" href="../SuperUsuario/SegundoDetalle.jsp">Main Ginal</a>
                         <a class="dropdown-item" href="../SuperUsuario/FinalDetalle.jsp">Main Ganador</a>
                     </div>
                 </li>
