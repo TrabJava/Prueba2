@@ -42,26 +42,25 @@
 
 
         <c:choose>
-            <c:when test="${usuario == null }">
+        <c:when test="${usuario == null }">
                 <h1>Tiene que iniciar sesión primero</h1>
                 <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
             </c:when>
-            <c:when test="${estado != 1 }">
-
+               <c:when test="${tipo ==1 || tipo ==2}">
                 <h1>Tu usuario es incorrecto</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-                </c:when>
-                <c:when test="${tipo == 2 && estado!=1}">
+            </c:when>
+                <c:when test="${tipoSU == 2 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-                </c:when>
-                <c:when test="${tipo == 1 && estado!=1}">
+            </c:when>
+                <c:when test="${tipoSU == 1 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-                </c:when>
-                <c:when test="${tipo == 2 && estado==1}">
-                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
-                    <div class="panel-body" style="margin-left:40%;">
+            </c:when>
+            <c:when test="${tipoSU == 2 && estadoSU==1}">
+                <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+            <div class="panel-body" style="margin-left:40%;">
                         <form action="../procesoLiga" method="POST">
                             <table border="1">
                                 <tbody>
@@ -80,9 +79,9 @@
                         <button type="button"   data-target="#demo"> ${mensaje}</button>
                 </div>
             </c:when>
-            <c:when test="${tipo == 1 && estado==1}">
+            <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-                    <div class="panel-body" style="margin-left:40%;">
+            <div class="panel-body" style="margin-left:40%;">
                         <form action="../procesoLiga" method="POST">
                             <table border="1">
                                 <tbody>
@@ -101,7 +100,8 @@
                         <button type="button"   data-target="#demo"> ${mensaje}</button>
                 </div>
             </c:when>
-        </c:choose>
+   </c:choose>
+ 
 
 
 
