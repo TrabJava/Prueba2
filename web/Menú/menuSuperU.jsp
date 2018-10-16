@@ -70,7 +70,7 @@
                         <a class="dropdown-item" href="../Equipo/listar_equipo.jsp">Listar Equipos</a>
                     </div>
                 </li>
-
+                 <li><a href="procesoSession">Cerrar Sesion</a></li>
 
             </ul>
         </nav>
