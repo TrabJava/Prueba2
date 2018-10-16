@@ -13,8 +13,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            body{
+                background: url(../img/2.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Modificar Equipo</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -37,7 +46,7 @@
                 }
             }
         </script>
-        
+
     </head>
     <body>
         <%
@@ -69,14 +78,20 @@
         %>
 
         <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
+         
+        <img src="../img/MODIFICAR.png" alt="" style="margin-left: 390px"/>
+        <br>
+          <br>
+          <br>
+          <br>
             <div class="row centered-form" >
                 <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
                     <div class="panel panel-default">
 
-                        <div class="panel-body" style="margin-left: 100%;">
+                        <div class="panel-body" >
 
 
-                            <table>
+                            <table class="table table-dark" style="width: 500px;margin-left: 500px">
                                 <form action="../procesoEquipo" method="POST">
                                     <tbody>
                                         <tr>
@@ -114,7 +129,14 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><input hidden="" type="text" name="txtEquipo" value="<%= rs.getString("foto_link")%>" ></td>
+                                        <td><label>Seleccion: </label></td>
+                                        <td>
+                                            <div class="form-group">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="file" class="form-control-file border" name="file">
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td><input type="submit" name="btnAccion" value="Modificar" class="boton"></td> 
@@ -132,6 +154,9 @@
                 </div>
             </div>
         </div>
-
+</div>
+            <div class="alert alert-dark" style="max-width: 500px;margin-left: 500px" >
+                    <strong>Felicidades!</strong> ${mensaje}
+                </div>
     </body>
 </html>
