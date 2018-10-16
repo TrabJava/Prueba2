@@ -18,8 +18,16 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-        <title>JSP Page</title>
+<style>
+            body{
+                background: url(../img/2.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
+        <title>Modificar Jugador</title>
     </head>
     <body>
 
@@ -63,9 +71,11 @@
         %>
         <%--Query para mostrar los datos en la lista--%>
 
-        <h1>Modificar Datos del Jugador</h1>
+        <br>
+        <img src="../img/MODIFICAR HU.png" alt="" style="margin-left: 250px"/>
+        <br><br><br>
         <form action="../procesoJugador" method="POST">
-            <table border="1">
+            <table border="1" class="table table-dark" style="max-width: 400px;margin-left: 450px">
                 <tbody>
                     <tr>
                         <td>ID:</td>
@@ -147,7 +157,7 @@
                 </tbody>
             </table>
             <br>
-            <input type="submit" value="Modificar" name="btnAccion" class="btn btn-info"/>    
+            <input type="submit" value="Modificar" name="btnAccion" class="btn btn-info" style="margin-left: 650px"/>    
         </form>
         <%}%>
     </body>
