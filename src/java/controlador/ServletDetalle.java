@@ -52,6 +52,9 @@ public class ServletDetalle extends HttpServlet {
         if (opcion.equals("AgregarFinal")) {
             agregarFinal(request, response);
         }
+        if (opcion.equals("Agregar_Ganador")) {
+            agregarGanador(request, response);
+        }
 
     }
 
@@ -138,8 +141,20 @@ public class ServletDetalle extends HttpServlet {
         response.sendRedirect("SuperUsuario/SegundoDetalle.jsp");
 
     }
-
+    
     private void agregarFinal(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
+        int clasificato = 5;
+
+        Equipo team = new Equipo(equipillo);
+        TipoClasificatoria tipoClasif = new TipoClasificatoria(clasificato);
+        Detalle detall = new Detalle(team, tipoClasif);
+        detalleFacade.create(detall);
+        request.getSession().setAttribute("mensaje", "El Equipo se agregó");
+        response.sendRedirect("SuperUsuario/Ganador.jsp");
+    }
+
+     private void agregarGanador(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
         int clasificato = 6;
 
@@ -151,5 +166,4 @@ public class ServletDetalle extends HttpServlet {
         response.sendRedirect("SuperUsuario/Ganador.jsp");
 
     }
-
 }
