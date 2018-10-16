@@ -18,7 +18,24 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+        <script>
+            function soloLetras(e) {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "qwertyuiopasdfghjklñzxcvbnm-_123456789/";
+                especiales = "8-37-39-46";
+                tecla_especial = false
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+                if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                    return false;
+                }
+            }
+        </script>
         <title>JSP Page</title>
     </head>
     <body>
@@ -73,7 +90,7 @@
                             </tr>
                             <tr>
                                 <td>Nombre De la liga:</td>
-                                <td><input type="text" name="txtNombreLiga" value="<%= rs.getString("descripcion_liga")%>"></td>
+                                <td><input type="text" name="txtNombreLiga" value="<%= rs.getString("descripcion_liga")%>" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                             </tr>
                         </tbody>
                     </table>
