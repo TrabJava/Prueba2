@@ -108,8 +108,8 @@ public class ServletAcceso extends HttpServlet {
                 SuperUsuario su = new SuperUsuario(user, pass, ti, es);
                 request.getSession().setAttribute("usuario", su.getUser());
                 request.getSession().setAttribute("contrasenia", su.getPass());
-                request.getSession().setAttribute("tipo", su.getTipo());
-                request.getSession().setAttribute("estado", su.getEstado());
+                request.getSession().setAttribute("tipo", su.getTipo().getId());
+                request.getSession().setAttribute("estado", su.getEstado().getId());
                 if (tipo==1) {
                     
                     response.sendRedirect("SuperUsuario/index_super.jsp"); 
@@ -139,8 +139,8 @@ public class ServletAcceso extends HttpServlet {
                 Jugador ju = new Jugador(user, pass, tj, ej);
                 request.getSession().setAttribute("usuario", ju.getUser());
                 request.getSession().setAttribute("contrasenia", ju.getPass());
-                request.getSession().setAttribute("tipo", ju.getTipo());
-                request.getSession().setAttribute("estado", ju.getEstado());
+                request.getSession().setAttribute("tipo", ju.getTipo().getId());
+                request.getSession().setAttribute("estado", ju.getEstado().getId());
                 if (tipo==1) {
                     response.sendRedirect("SuperUsuario/index_super.jsp"); 
                 }else if(tipo==2){
