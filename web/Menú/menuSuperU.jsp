@@ -56,6 +56,7 @@
         <a class="dropdown-item" href="OctavoDetalle.jsp">Main Octavos</a>
         <a class="dropdown-item" href="CuartoDetalle.jsp">Main Cuartos</a>
         <a class="dropdown-item" href="SegundoDetalle.jsp">Main Semifinal</a>
+        <a class="dropdown-item" href="FinalDetalle.jsp">Main Semifinal</a>
         <a class="dropdown-item" href="FinalDetalle.jsp">Main Final</a>
       </div>
     </li>
