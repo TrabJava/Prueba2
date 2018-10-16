@@ -37,13 +37,6 @@
         <sql:query dataSource = "${snapshot}" var = "equipo">
             SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=5
         </sql:query>
-
-        <sql:query dataSource = "${snapshot}" var = "clasificatoria">
-            SELECT id,descripcion_tipoclas FROM tipo_clasificatoria
-        </sql:query>
-
-
-
         <div class="container" style="margin-top:30px">
             <div class="row">
                 <div class="col-sm-3" >
