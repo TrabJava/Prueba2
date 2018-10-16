@@ -42,7 +42,7 @@
                 
             </div>
             </c:when>
-                <c:when test="${tipoSU != 1 || tipo ==1 || tipo ==2}">
+                <c:when test="${tipoSU != 1 }">
                 <h1>Tu usuario es incorrecto</h1>
                 <h3><a href="../login1.jsp"></a></h3>
             </c:when>
