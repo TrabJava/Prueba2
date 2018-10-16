@@ -14,7 +14,24 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
+        <script>
+            function soloLetras(e) {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "qwertyuiopasdfghjklñzxcvbnm-_123456789/";
+                especiales = "8-37-39-46";
+                tecla_especial = false
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+                if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                    return false;
+                }
+            }
+        </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -69,23 +86,23 @@
                     </tr>
                     <tr>
                         <td>Nombre:</td>
-                        <td><input type="text" name="txtNombre" readonly="" value="<%= rs.getString("nombre")%>"></td>
+                        <td><input type="text" name="txtNombre" readonly="" value="<%= rs.getString("nombre")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>Apellido Paterno:</td>
-                        <td><input type="text" name="txtApellido" readonly="" value="<%= rs.getString("ap_paterno")%>"></td>
+                        <td><input type="text" name="txtApellido" readonly="" value="<%= rs.getString("ap_paterno")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>Rut:</td>
-                        <td><input type="text" name="txtRut" readonly="" value="<%= rs.getString("rut")%>"></td>
+                        <td><input type="text" name="txtRut" readonly="" value="<%= rs.getString("rut")%>" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>Usuario:</td>
-                        <td><input type="text" name="txtUser" readonly="" value="<%= rs.getString("user")%>"></td>
+                        <td><input type="text" name="txtUser" readonly="" value="<%= rs.getString("user")%>" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>contraseña:</td>
-                        <td><input type="text" name="txtPass" readonly="" value="<%= rs.getString("pass")%>"></td>
+                        <td><input type="text" name="txtPass" readonly="" value="<%= rs.getString("pass")%>" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td><input hidden="" type="text" name="txtTipo" value="1"/></td>

@@ -27,6 +27,24 @@
                 background-size: cover;
             }
         </style>
+        <script>
+            function soloLetras(e) {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "qwertyuiopasdfghjklñzxcvbnm-_123456789/";
+                especiales = "8-37-39-46";
+                tecla_especial = false
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+                if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                    return false;
+                }
+            }
+        </script>
         <title>Modificar Jugador</title>
     </head>
     <body>
@@ -79,27 +97,27 @@
                 <tbody>
                     <tr>
                         <td>ID:</td>
-                        <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
+                        <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>Nombre:</td>
-                        <td><input type="text" name="txtNombre" value="<%= rs.getString("nombre")%>"></td>
+                        <td><input type="text" name="txtNombre" value="<%= rs.getString("nombre")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>Apellido Paterno:</td>
-                        <td><input type="text" name="txtApellido" value="<%= rs.getString("ap_paterno")%>"></td>
+                        <td><input type="text" name="txtApellido" value="<%= rs.getString("ap_paterno")%> "required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>Rut:</td>
-                        <td><input type="text" name="txtRut" value="<%= rs.getString("rut")%>"></td>
+                        <td><input type="text" name="txtRut" value="<%= rs.getString("rut")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>Usuario:</td>
-                        <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>"></td>
+                        <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>contraseña:</td>
-                        <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>"></td>
+                        <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
                     </tr>
                     <tr>
                         <td>Tipo de Usuario:</td>

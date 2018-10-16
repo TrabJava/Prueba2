@@ -33,30 +33,49 @@
             SELECT id, nombre_equipo FROM equipo
         </sql:query> 
 
+        <script>
+            function soloLetras(e) {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "qwertyuiopasdfghjklñzxcvbnm-_123456789/";
+                especiales = "8-37-39-46";
+                tecla_especial = false
+                for (var i in especiales) {
+                    if (key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+                if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                    return false;
+                }
+            }
+        </script>
+
 
         <h1>Agregar Jugador</h1>
         <form  action="../procesoJugador" method="POST">
-        <table border="1">
+            <table border="1">
                 <tbody>
                     <tr>
                         <td><label>Nombre: </label></td>
-                        <td><input type="text" name="txtNombreJugador" value="" placeholder="ingresar nombre jugador"/></td>
+                        <td><input type="text" name="txtNombreJugador" value="" placeholder="ingresar nombre jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
                     </tr>
                     <tr>
                         <td><label>Apellido Paterno: </label></td>
-                        <td><input type="text" name="txtApellidoPaterno" value="" placeholder="ingresar apellido jugador"/></td>
+                        <td><input type="text" name="txtApellidoPaterno" value="" placeholder="ingresar apellido jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
                     </tr>
                     <tr>
                         <td><label>Rut: </label></td>
-                        <td><input type="text" name="txtRutJugador" value="" placeholder="ingresar rut jugador"/></td>
+                        <td><input type="text" name="txtRutJugador" value="" placeholder="ingresar rut jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
                     </tr>
                     <tr>
                         <td><label>Usuario: </label></td>
-                        <td><input type="text" name="txtUser" value="" placeholder="ingresar nombre usuario"/></td>
+                        <td><input type="text" name="txtUser" value="" placeholder="ingresar nombre usuario" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
                     </tr>
                     <tr>
                         <td><label>Contraseña: </label></td>
-                        <td><input type="text" name="txtContrasenia" value="" placeholder="ingresar nombre jugador"/></td>
+                        <td><input type="text" name="txtContrasenia" value="" placeholder="ingresar nombre jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
                     </tr>
                     <tr>
                         <td><label>Tipo: </label></td>
@@ -104,8 +123,8 @@
 
                 </tbody>
 
-        </table>
-    </form>
+            </table>
+        </form>
         ${mensaje}
-</body>
+    </body>
 </html>
