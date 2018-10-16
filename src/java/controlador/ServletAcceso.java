@@ -108,8 +108,8 @@ public class ServletAcceso extends HttpServlet {
                 SuperUsuario su = new SuperUsuario(user, pass, ti, es);
                 request.getSession().setAttribute("usuario", su.getUser());
                 request.getSession().setAttribute("contrasenia", su.getPass());
-                request.getSession().setAttribute("tipo", su.getTipo().getId());
-                request.getSession().setAttribute("estado", su.getEstado().getId());
+                request.getSession().setAttribute("tipoSU", su.getTipo().getId());
+                request.getSession().setAttribute("estadoSU", su.getEstado().getId());
                 if (tipoSU==1) {
                     
                     response.sendRedirect("SuperUsuario/index_super.jsp"); 
