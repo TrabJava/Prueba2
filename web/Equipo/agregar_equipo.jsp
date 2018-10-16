@@ -17,7 +17,16 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Agregar Jugador</title>
+        <style>
+            body{
+                background: url(../img/1.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
     </head>
     <body>
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
@@ -36,12 +45,13 @@
         <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
 
 
-            <h1>Agregar Equipo</h1>
+        <img src="../img/AGREGAR.png" alt="" style="margin-left: 400px"/>
+        <br> <br> <br> 
             <form  action="../procesoEquipo" method="POST">
-                <table border="1">
+                <table border="1" class="table table-dark" style="width: 800px;margin-left: 330px">
                     <tbody>
                         <tr>
-                            <td><label>Nombre: </label></td>
+                            <td><label>Nombre </label></td>
                             <td><input type="text" name="txtNombreEquipo" value="" placeholder="ingresar nombre Equipo"/></td>
                         </tr>
                         <tr>
@@ -55,7 +65,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label>Seleccion: </label></td>
+                        <td><label>Seleccion </label></td>
                         <td>
                             <div class="form-group">
                             </div>
@@ -72,6 +82,9 @@
 
             </table>
         </form>
-        ${mensaje}
+        </div>
+            <div class="alert alert-dark" style="max-width: 800px;margin-left: 330px" >
+                    <strong>Felicidades!</strong> ${mensaje}
+                </div>
     </body>
 </html
