@@ -33,7 +33,7 @@
 <body>
      <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
-        <sql:query dataSource="${dataSource}" var="tipo">
+        <sql:query dataSource="${dataSource}" var="tipoj">
             SELECT id, descripcion_tipoj FROM tipo_jugador
         </sql:query> 
             <sql:query dataSource="${dataSource}" var="tipo">
@@ -77,6 +77,7 @@
 		</div>
 		<div class="clear"></div>
 	</form>	
+       ${mensaje}
 </div>
 <div class="clear"></div>
 </div>
@@ -102,7 +103,7 @@
 				<div class="w3-psw">
 					<span><i class="fa fa-key" aria-hidden="true"></i></span>
 					 <select name="cboTipo" >
-                                    <c:forEach var="tipos" items="${tipo.rows}">
+                                    <c:forEach var="tipos" items="${tipoj.rows}">
                                         <option value="${tipos.id}">${tipos.descripcion_tipoj}</option>
                                     </c:forEach>
                                 </select>
@@ -118,7 +119,7 @@
 				</div>
 				<div class="clear"></div>
 			</form>
-                    ${mensaje}
+                    
 		</div>
 	</div>
 </div>
@@ -162,7 +163,7 @@
 				</div>
 				<div class="clear"></div>
 			</form>
-                    ${mensaje}
+                    
 		</div>
 	</div>
 </div>
