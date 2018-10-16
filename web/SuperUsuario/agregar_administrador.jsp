@@ -46,41 +46,64 @@
             SELECT id, descripcion_tiposu FROM tipo_super
         </sql:query> 
 
-        <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+        <c:choose>
+            <c:when test="${usuario == null }">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+            <c:when test="${estado != 1 }">
 
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado==1}">
+                <h1>Tu usuario no es valido</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado==1}">
+                    <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                    <div class="panel-body" style="margin-left:40%;">
+                        <form action="../procesoSuperUsuario" method="POST">
+                            <table border="1">
+                                <tbody>
+                                    <tr>
+                                        <td>USER :</td>
+                                        <td><input type="text" name="txtUser" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>PASS :</td>
+                                        <td><input type="password" name="txtPass" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TIPO :</td>
+                                        <td>
+                                            <select name="cboTipo" >
+                                            <c:forEach var="tipos" items="${tipo.rows}">
+                                                <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
+                                            </c:forEach>
+                                        </select></td>
+                                </tr>
 
-            <div class="panel-body" style="margin-left:40%;">
-                <form action="../procesoSuperUsuario" method="POST">
-                    <table border="1">
-                        <tbody>
-                            <tr>
-                                <td>USER :</td>
-                                <td><input type="text" name="txtUser" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
-                            </tr>
-                            <tr>
-                                <td>PASS :</td>
-                                <td><input type="password" name="txtPass" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
-                            </tr>
-                            <tr>
-                                <td>TIPO :</td>
-                                <td>
-                                    <select name="cboTipo" >
-                                    <c:forEach var="tipos" items="${tipo.rows}">
-                                        <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
-                                    </c:forEach>
-                                </select></td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="5">
-                                <input type="submit" name="btnAccion" value="Agregar" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form> 
-            <button type="button"> ${mensaje}</button>
-        </div>
+                                <tr>
+                                    <td colspan="5">
+                                        <input type="submit" name="btnAccion" value="Agregar" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form> 
+                    <button type="button"> ${mensaje}</button>
+                </div>
+            </c:when>
+        </c:choose>
     </body>
 </html>
 

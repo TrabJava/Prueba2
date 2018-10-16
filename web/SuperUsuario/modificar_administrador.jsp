@@ -71,70 +71,98 @@
         %>
         <%--Query para mostrar los datos en la lista--%>
 
-        <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-            <div class="row centered-form" >
-                <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
-                    <div class="panel panel-default">
 
-                        <div class="panel-body" style="margin-left: 100%;">
+        <c:choose>
+            <c:when test="${usuario == null }">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+            <c:when test="${estado != 1 }">
 
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado==1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
 
-                            <table>
-                                <form action="../procesoSuperUsuario" method="POST">
-                                    <tbody>
-                                        <tr>
-                                            <td>ID </td>
-                                            <td><input  readonly="" type="text" name="txtId" value="<%= rs.getInt("id")%>"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Usuario</td>
-                                        <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>"  minlength="3" maxlength="50" required=""  onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Contraseña</td>
-                                        <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>"  minlength="3" maxlength="50" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tipo de Usuario</td>
-                                        <td>
-                                            <select name="cboTipo" id="cboTipo" class="form-control">
-                                                <%
-                                                while (rset.next()) {%>
-                                                <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tiposu")%></option>
-                                                <%}
-                                                %>
-                                            </select>
+            </c:when>
+            <c:when test="${tipo == 1 && estado==1}">
+                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                    <div class="row centered-form" >
+                        <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
+                            <div class="panel panel-default">
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Estado del Usuario</td>
-                                        <td>
-                                            <select name="cboEstado" id="cboEstado" class="form-control">
-                                                <%
-                                                while (rseet.next()) {%>
-                                                <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion_super")%></option>
-                                                <%}
-                                                %>
-                                            </select>
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="submit" name="btnAccion" value="Modificar" class="boton"></td> 
-                                    </tr>
-                                </tbody>
-                            </form>
-
-                        </table>
+                                <div class="panel-body" style="margin-left: 100%;">
 
 
-                        <%}%>
+                                    <table>
+                                        <form action="../procesoSuperUsuario" method="POST">
+                                            <tbody>
+                                                <tr>
+                                                    <td>ID </td>
+                                                    <td><input  readonly="" type="text" name="txtId" value="<%= rs.getInt("id")%>"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Usuario</td>
+                                                <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>"  minlength="3" maxlength="50" required=""  onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Contraseña</td>
+                                                <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>"  minlength="3" maxlength="50" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tipo de Usuario</td>
+                                                <td>
+                                                    <select name="cboTipo" id="cboTipo" class="form-control">
+                                                        <%
+                                                    while (rset.next()) {%>
+                                                        <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tiposu")%></option>
+                                                        <%}
+                                                        %>
+                                                    </select>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Estado del Usuario</td>
+                                                <td>
+                                                    <select name="cboEstado" id="cboEstado" class="form-control">
+                                                        <%
+                                                    while (rseet.next()) {%>
+                                                        <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion_super")%></option>
+                                                        <%}
+                                                        %>
+                                                    </select>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="submit" name="btnAccion" value="Modificar" class="boton"></td> 
+                                            </tr>
+                                        </tbody>
+                                    </form>
+
+                                </table>
+
+
+                                <%}%>
+                            </div>
+
+
+                        </div>
                     </div>
-
-
                 </div>
-            </div>
-        </div>
+            </c:when>
+        </c:choose>
+
     </body>
 </html>
