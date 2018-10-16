@@ -96,7 +96,8 @@ public class ServletAcceso extends HttpServlet {
             String user = request.getParameter("txtNombreUsuario");
             String pass = request.getParameter("txtPassword");
             int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-            if (superUsuarioFacade.ingresar1(user, pass, tipo)) {
+            int estado = 1;
+            if (superUsuarioFacade.ingresar1(user, pass, tipo, estado)) {
                 if (tipo==1) {
                     response.sendRedirect("SuperUsuario/index_super.jsp"); 
                 }else if(tipo==2){
@@ -104,11 +105,11 @@ public class ServletAcceso extends HttpServlet {
                 }
             }  else {
                 request.getSession().setAttribute("mensaje", "Credenciales incorrectas");
-                response.sendRedirect("login.jsp");  
+                response.sendRedirect("login1.jsp");  
             }
         }
          catch (Exception e) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login1.jsp");
         }
 
     }
@@ -118,7 +119,8 @@ public class ServletAcceso extends HttpServlet {
             String user = request.getParameter("txtNombreUsuario");
             String pass = request.getParameter("txtPassword");
             int tipo = Integer.parseInt(request.getParameter("cboTipo"));
-            if (jugadorFacade.ingresar(user, pass, tipo)) {
+            int estado = 1;
+            if (jugadorFacade.ingresar(user, pass, tipo, estado)){
                 if (tipo==1) {
                     response.sendRedirect("SuperUsuario/index_super.jsp"); 
                 }else if(tipo==2){
@@ -126,11 +128,11 @@ public class ServletAcceso extends HttpServlet {
                 }
             }  else {
                 request.getSession().setAttribute("mensaje", "Credenciales incorrectas");
-                response.sendRedirect("login.jsp");  
+                response.sendRedirect("login1.jsp");  
             }
         }
          catch (Exception e) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login1.jsp");
         } 
     }
 
