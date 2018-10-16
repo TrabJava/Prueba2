@@ -42,5 +42,13 @@ public class JugadorFacade extends AbstractFacade<Jugador> {
         query.setParameter("id", id);
         return query.getResultList().size() > 0;
     }
+    
+     public boolean ingresar(String user, String pass, int tipo){
+        Query query = em.createQuery("SELECT j.user, j.pass, t.id FROM Jugador j JOIN j.tipo t WHERE j.user = :user AND j.pass = :pass AND j.tipo.id=:tipo");
+        query.setParameter("user", user);
+        query.setParameter("pass", pass);
+        query.setParameter("tipo", tipo);
+        return query.getResultList().size() > 0;
+    }
 
 }
