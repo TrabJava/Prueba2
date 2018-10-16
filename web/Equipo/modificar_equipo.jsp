@@ -79,19 +79,14 @@
 
         <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
          
-        <img src="../img/MODIFICAR.png" alt="" style="margin-left: 390px"/>
+        <img src="../img/MODIFICAR.png" alt="" style="margin-left: 350px"/>
         <br>
           <br>
           <br>
           <br>
-            <div class="row centered-form" >
-                <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
-                    <div class="panel panel-default">
-
-                        <div class="panel-body" >
 
 
-                            <table class="table table-dark" style="width: 500px;margin-left: 500px">
+                            <table class="table table-dark" style="width: 500px;margin-left: 450px">
                                 <form action="../procesoEquipo" method="POST">
                                     <tbody>
                                         <tr>
@@ -148,14 +143,8 @@
 
 
                         <%}%>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
 </div>
-            <div class="alert alert-dark" style="max-width: 500px;margin-left: 500px" >
+            <div class="alert alert-dark" style="max-width: 500px;margin-left: 450px" >
                     <strong>Felicidades!</strong> ${mensaje}
                 </div>
     </body>
