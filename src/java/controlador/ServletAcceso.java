@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.JugadorFacade;
 import modelo.dao.SuperUsuarioFacade;
 import modelo.dto.SuperUsuario;
 
@@ -22,7 +23,11 @@ import modelo.dto.SuperUsuario;
 public class ServletAcceso extends HttpServlet {
 
     @EJB
+    private JugadorFacade jugadorFacade;
+
+    @EJB
     private SuperUsuarioFacade superUsuarioFacade;
+    
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,6 +45,10 @@ public class ServletAcceso extends HttpServlet {
         if (opcion.equals("Ingresar")) {
             ingresar(request, response);
         }
+        if (opcion.equals("Entrar")) {
+            entrar(request, response);
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -103,5 +112,28 @@ public class ServletAcceso extends HttpServlet {
         }
 
     }
+
+    private void entrar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+       try {
+            String user = request.getParameter("txtNombreUsuario");
+            String pass = request.getParameter("txtPassword");
+            int tipo = Integer.parseInt(request.getParameter("cboTipo"));
+            if (jugadorFacade.ingresar(user, pass, tipo)) {
+                if (tipo==1) {
+                    response.sendRedirect("SuperUsuario/index_super.jsp"); 
+                }else if(tipo==2){
+                   response.sendRedirect("Equipo/index_equipo.jsp"); 
+                }
+            }  else {
+                request.getSession().setAttribute("mensaje", "Credenciales incorrectas");
+                response.sendRedirect("login.jsp");  
+            }
+        }
+         catch (Exception e) {
+            response.sendRedirect("login.jsp");
+        } 
+    }
+
+    
 
 }
