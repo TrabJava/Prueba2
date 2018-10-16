@@ -34,7 +34,7 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=2
+            SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=3
         </sql:query>
 
         <c:choose>
@@ -130,7 +130,6 @@
                 </div>
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
-                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
                     <div class="container" style="margin-top:30px">
                         <div class="row">
