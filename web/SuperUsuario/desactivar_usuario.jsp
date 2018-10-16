@@ -62,30 +62,40 @@
         %>
         <%--Query para mostrar los datos en la lista--%>
 
-       <c:choose>
-        <c:when test="${usuario == null }">
-                <h1>Tiene que iniciar sesión primero</h1>
-                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+        <c:choose>
+            <c:when test="${usuario == null }">
+                <div class="jumbotron" heigth="8000" style="text-align: center">
+                    <h1 class="display-4">Tiene que iniciar sesión primero</h1>
+                    <h1 class="lead">Creiste que podías entrar por url Rufián?</h1>
+                    <h3 class="lead">Querías que el profe Juilliet nos Humillara??</h3>
+                    <hr class="my-4">
+                    <h3>Pues BERNAL valido Urls Prueba con : <a class="btn btn-primary btn-lg" href="../login1.jsp" role="button">Iniciar sesión</a></h3>
+
+                    <img src="../img/519.gif" alt="" width="300" height="250" />
+                    <br><br><br><br><br><br>
+
+
+                </div>
             </c:when>
-               <c:when test="${tipoSU != 1 || tipo ==1 || tipo ==2}">
+            <c:when test="${tipoSU != 1 || tipo ==1 || tipo ==2}">
                 <h1>Tu usuario es incorrecto</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
+                </c:when>
                 <c:when test="${tipoSU == 2 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
+                </c:when>
                 <c:when test="${tipoSU == 1 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
-            <c:when test="${tipoSU == 2 && estadoSU==1}">
-                 <h1>Tu usuario esta desactivado</h1>
+                </c:when>
+                <c:when test="${tipoSU == 2 && estadoSU==1}">
+                <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
-            <c:when test="${tipoSU == 1 && estadoSU==1}">
-                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-            <div class="row centered-form" >
+                </c:when>
+                <c:when test="${tipoSU == 1 && estadoSU==1}">
+                    <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                    <div class="row centered-form" >
                         <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-4">
                             <div class="panel panel-default">
 
@@ -143,7 +153,7 @@
                     </div>
                 </div>
             </c:when>
-   </c:choose>
+        </c:choose>
         <%}%>
     </body>
 </html>
