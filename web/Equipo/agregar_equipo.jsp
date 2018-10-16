@@ -42,11 +42,118 @@
         <sql:query dataSource="${dataSource}" var="estado">
             SELECT id, descripcion_estadoe FROM estado_equipo
         </sql:query> 
-        <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
 
 
-        <img src="../img/AGREGAR.png" alt="" style="margin-left: 400px"/>
-        <br> <br> <br> 
+
+        <c:choose>
+            <c:when test="${usuario == null }">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+            <c:when test="${tipo ==1 || tipo ==2 && estado!=1}">
+                <h1>Tiene que iniciar sesión primero</h1>
+                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
+            </c:when>
+            <c:when test="${tipo ==1 || tipo ==2 && estado==1}">
+                <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
+                    <img src="../img/AGREGAR.png" alt="" style="margin-left: 400px"/>
+                    <br> <br> <br> 
+                    <form  action="../procesoEquipo" method="POST">
+                        <table border="1" class="table table-dark" style="width: 800px;margin-left: 330px">
+                            <tbody>
+                                <tr>
+                                    <td><label>Nombre </label></td>
+                                    <td><input type="text" name="txtNombreEquipo" value="" placeholder="ingresar nombre Equipo"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Liga </label></td>
+                                    <td>
+                                        <select name="cboLiga">
+                                        <c:forEach var="liga" items="${liga.rows}">
+                                            <option value="${liga.id}">${liga.descripcion_liga}</option>
+                                        </c:forEach>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Seleccion </label></td>
+                                <td>
+                                    <div class="form-group">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file border" name="file">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="submit" name="btnAccion" value="Agregar"/></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </form>
+            </div>
+            <div class="alert alert-dark" style="max-width: 800px;margin-left: 330px" >
+                <strong>Felicidades!</strong> ${mensaje}
+            </div>
+        </c:when>
+        <c:when test="${tipoSU == 2 && estadoSU!=1}">
+            <h1>Tu usuario esta desactivado</h1>
+            <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipoSU == 1 && estadoSU!=1}">
+            <h1>Tu usuario esta desactivado</h1>
+            <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipoSU == 2 && estadoSU==1}">
+                <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                <img src="../img/AGREGAR.png" alt="" style="margin-left: 400px"/>
+                <br> <br> <br> 
+                <form  action="../procesoEquipo" method="POST">
+                    <table border="1" class="table table-dark" style="width: 800px;margin-left: 330px">
+                        <tbody>
+                            <tr>
+                                <td><label>Nombre </label></td>
+                                <td><input type="text" name="txtNombreEquipo" value="" placeholder="ingresar nombre Equipo"/></td>
+                            </tr>
+                            <tr>
+                                <td><label>Liga </label></td>
+                                <td>
+                                    <select name="cboLiga">
+                                    <c:forEach var="liga" items="${liga.rows}">
+                                        <option value="${liga.id}">${liga.descripcion_liga}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Seleccion </label></td>
+                            <td>
+                                <div class="form-group">
+                                </div>
+                                <div class="form-group">
+                                    <input type="file" class="form-control-file border" name="file">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" name="btnAccion" value="Agregar"/></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </form>
+        </div>
+        <div class="alert alert-dark" style="max-width: 800px;margin-left: 330px" >
+            <strong>Felicidades!</strong> ${mensaje}
+        </div>
+    </c:when>
+    <c:when test="${tipoSU == 1 && estadoSU==1}">
+        <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+            <img src="../img/AGREGAR.png" alt="" style="margin-left: 400px"/>
+            <br> <br> <br> 
             <form  action="../procesoEquipo" method="POST">
                 <table border="1" class="table table-dark" style="width: 800px;margin-left: 330px">
                     <tbody>
@@ -82,9 +189,14 @@
 
             </table>
         </form>
-        </div>
-            <div class="alert alert-dark" style="max-width: 800px;margin-left: 330px" >
-                    <strong>Felicidades!</strong> ${mensaje}
-                </div>
-    </body>
+    </div>
+    <div class="alert alert-dark" style="max-width: 800px;margin-left: 330px" >
+        <strong>Felicidades!</strong> ${mensaje}
+    </div>
+</c:when>
+</c:choose>
+
+
+
+</body>
 </html
