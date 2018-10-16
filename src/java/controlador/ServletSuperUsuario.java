@@ -101,7 +101,7 @@ public class ServletSuperUsuario extends HttpServlet {
             String user = request.getParameter("txtUser");
             String pass = request.getParameter("txtPass");
             int estado = 2;
-            int tipo = Integer.parseInt(request.getParameter("cboEstado"));
+            int tipo = 2;
 
             if (superUsuarioFacade.existeId(id)) {
                 TipoSuper tipoSuper = new TipoSuper(tipo);
