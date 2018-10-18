@@ -30,8 +30,9 @@ public class ServletSession extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         HttpSession session = request.getSession();
-        session.removeAttribute("usuario");
+        request.getSession().removeAttribute("usuario");
         request.getRequestDispatcher("../index.jsp").forward(request, response);
     }
 
