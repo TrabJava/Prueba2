@@ -20,6 +20,10 @@
         <servlet-name>ServletDetalle</servlet-name>
         <servlet-class>controlador.ServletDetalle</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletSession</servlet-name>
+        <servlet-class>controlador.ServletSession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletAcceso</servlet-name>
         <url-pattern>/procesoAcceso</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>ServletDetalle</servlet-name>
         <url-pattern>/procesoDetalle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletSession</servlet-name>
+        <url-pattern>/procesoSession</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
