@@ -33,7 +33,7 @@ public class ServletSession extends HttpServlet {
         
         HttpSession session = request.getSession();
         request.getSession().removeAttribute("usuario");
-        request.getRequestDispatcher("../index.jsp").forward(request, response);
+        request.getRequestDispatcher("index1.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
