@@ -3,9 +3,9 @@
     Created on : 14-10-2018, 0:47:42
     Author     : Berni
 --%>
-
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import = "java.io.*,java.util.*,java.sql.*"%>
 <%@ page import = "javax.servlet.http.*,javax.servlet.*" %>
 
@@ -78,160 +78,6 @@
         %>
 
 
-        <c:choose>
-            <c:when test="${usuario == null }">
-                <h1>Tiene que iniciar sesión primero</h1>
-                <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
-            </c:when>
-            <c:when test="${tipo ==1 || tipo ==2}">
-                <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
-                    <img src="../img/MODIFICAR.png" alt="" style="margin-left: 350px"/>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-
-
-                    <table class="table table-dark" style="width: 500px;margin-left: 450px">
-                        <form action="../procesoEquipo" method="POST">
-                            <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td><input  type="text" readonly="" name="txtId" value="<%= rs.getInt("id")%>"></td>
-                            </tr>
-                            <tr>
-                                <td>Nombre Equipo</td>
-                                <td><input type="text" name="txtEquipo" value="<%= rs.getString("nombre_equipo")%>" minlength="5" maxlength="30" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
-                            </tr>
-                            <tr>
-                                <td>Estado de equipo</td>
-                                <td>
-                                    <select name="cboEstado" id="cboEstado" class="form-control">
-                                        <%
-                                            while (rset.next()) {%>
-                                        <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_estadoe")%></option>
-                                        <%}
-                                        %>
-                                    </select>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Estado del Usuario</td>
-                                <td>
-                                    <select name="cboLiga" id="cboLiga" class="form-control">
-                                        <%
-                                            while (rseet.next()) {%>
-                                        <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion_liga")%></option>
-                                        <%}
-                                        %>
-                                    </select>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Seleccion: </label></td>
-                                <td>
-                                    <div class="form-group">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="file" class="form-control-file border" name="file">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="submit" name="btnAccion" value="Modificar" class="boton"></td> 
-                            </tr>
-                        </tbody>
-                    </form>
-
-                </table>
-
-
-                <%}%>
-            </div>
-            <div class="alert alert-dark" style="max-width: 500px;margin-left: 450px" >
-                <strong>Felicidades!</strong> ${mensaje}
-            </div>
-        </c:when>
-        <c:when test="${tipoSU == 2 && estadoSU!=1}">
-            <h1>Tu usuario esta desactivado</h1>
-            <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
-            <c:when test="${tipoSU == 1 && estadoSU!=1}">
-            <h1>Tu usuario esta desactivado</h1>
-            <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
-            <c:when test="${tipoSU == 2 && estadoSU==1}">
-                <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
-                <img src="../img/MODIFICAR.png" alt="" style="margin-left: 350px"/>
-                <br>
-                <br>
-                <br>
-                <br>
-
-
-                <table class="table table-dark" style="width: 500px;margin-left: 450px">
-                    <form action="../procesoEquipo" method="POST">
-                        <tbody>
-                            <tr>
-                                <td>ID</td>
-                                <td><input  type="text" readonly="" name="txtId" value="<%= rs.getInt("id")%>"></td>
-                        </tr>
-                        <tr>
-                            <td>Nombre Equipo</td>
-                            <td><input type="text" name="txtEquipo" value="<%= rs.getString("nombre_equipo")%>" minlength="5" maxlength="30" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
-                        </tr>
-                        <tr>
-                            <td>Estado de equipo</td>
-                            <td>
-                                <select name="cboEstado" id="cboEstado" class="form-control">
-                                    <%
-                                        while (rset.next()) {%>
-                                    <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_estadoe")%></option>
-                                    <%}
-                                    %>
-                                </select>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Estado del Usuario</td>
-                            <td>
-                                <select name="cboLiga" id="cboLiga" class="form-control">
-                                    <%
-                                        while (rseet.next()) {%>
-                                    <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion_liga")%></option>
-                                    <%}
-                                    %>
-                                </select>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label>Seleccion: </label></td>
-                            <td>
-                                <div class="form-group">
-                                </div>
-                                <div class="form-group">
-                                    <input type="file" class="form-control-file border" name="file">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="submit" name="btnAccion" value="Modificar" class="boton"></td> 
-                        </tr>
-                    </tbody>
-                </form>
-
-            </table>
-
-        </div>
-        <div class="alert alert-dark" style="max-width: 500px;margin-left: 450px" >
-            <strong>Felicidades!</strong> ${mensaje}
-        </div>
-    </c:when>
-    <c:when test="${tipoSU == 1 && estadoSU==1}">
         <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
             <img src="../img/MODIFICAR.png" alt="" style="margin-left: 350px"/>
             <br>
@@ -297,13 +143,12 @@
         </table>
 
 
-
+        <%}%>
     </div>
     <div class="alert alert-dark" style="max-width: 500px;margin-left: 450px" >
         <strong>Felicidades!</strong> ${mensaje}
     </div>
-</c:when>
-</c:choose>
-<%}%>
+
+
 </body>
 </html>

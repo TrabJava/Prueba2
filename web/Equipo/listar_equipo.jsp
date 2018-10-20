@@ -53,7 +53,7 @@
                 <h1>Tu usuario es incorrecto</h1>
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
-                <c:when test="${tipo ==1 || tipo ==2 && estado==1}">
+                <c:when test="${tipo ==1 && estado==1}">
                     <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
                     <img src="../img/laPrieta.png" alt="" width="1350" height="100" style="margin-left: 80px"/>
                     <br>
