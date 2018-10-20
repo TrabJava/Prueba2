@@ -123,7 +123,7 @@
                     </div>
                 </div>
                 <br><br>
-                <jsp:include page="../Menú/footer.jsp"></jsp:include>
+               <%-- <jsp:include page="../Menú/footer.jsp"></jsp:include>--%>
             </c:when>
         </c:choose>
     </body>
