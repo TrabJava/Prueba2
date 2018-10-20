@@ -55,25 +55,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <span class="icon-bar"></span>
                         </button>
                         <div class="w3_navigation_pos">
-                            <h1><a href="index.html"><span>Vamos</span> League</a></h1>
+                            <h1><a href="index1.jsp"><span>Vamos</span> League</a></h1>
                         </div>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                         <nav class="cl-effect-5" id="cl-effect-5">
                             <ul class="nav navbar-nav">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"><span data-hover="Login">Login</span></a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="login1.jsp">Ingresar</a>
-                                    </div>
-                                </li>
-
+                                
+                                <li><a href="login1.jsp" ><span data-hover="Login">Login</span></a></li>
                                 <li><a href="#about" class="scroll"><span data-hover="About">About</span></a></li>
                                 <li><a href="#services" class="scroll"><span data-hover="Services">Services</span></a></li>
-                                <li><a href="#work" class="scroll"><span data-hover="Gallery">Gallery</span></a></li>
                                 <li><a href="#projects" class="scroll"><span data-hover="News">News</span></a></li>
-                                <li><a href="registroJugador.jsp" class="scroll"><span data-hover="Contact">Registrarse</span></a></li>
+                                <li><a href="registroJugador.jsp" ><span data-hover="Registrarse">Registrarse</span></a></li>
                             </ul>
                         </nav>
                     </div>
@@ -156,7 +150,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
                 <div class="agileits_banner_bottom_grids">
                     <div class="col-md-6 agileits_banner_bottom_grid_l">
-                        <h4>Aliquam a nunc non erat lobortis</h4>
+                       
                         <p><i>Estudiantes Ing. en Informática
                                 Buscamos realizar un Interesante y suculento Match.</i>Aquí podrás apostar y comentar con tus amigos
                             los estados de los distintos equipos, ver las posiciones actuales
@@ -178,7 +172,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <!-- //about-bottom -->
         <!-- services -->
-         <div class="services" id="services">
+        <div class="services" id="services">
             <h3 class="w3l_head w3l_head1">Servicios</h3>
             <p class="w3ls_head_para w3ls_head_para1">Ve nuestros servicios</p>
             <div class="services-agile-w3l">
@@ -215,8 +209,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         </div>
         <!-- //services -->
-<br><br>
-        
+        <br><br>
+
         <!-- projects -->
         <div class="projects" id="projects">
             <div class="container">
@@ -235,7 +229,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Counter Strike</h4>
-                                    
+
                                 </div>
                             </div>	
                         </div>
@@ -245,7 +239,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Counter Strike</h4>
-                                    
+
                                 </div>
                             </div>	
                         </div>
@@ -265,7 +259,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <div class="projects-grid-caption"> 
 
                                     <h4>Counter Strike</h4>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -295,7 +289,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <div class="projects-grid-caption"> 
 
                                     <h4>League of Legends</h4>
-                                    
+
                                 </div>
                             </div>	
                         </div>
@@ -312,9 +306,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         </div>
         <!-- //projects -->
-      <br><br>  
+        <br><br>  
 
-       
+
         <!-- footer -->
         <div class="w3l_footer">
             <div class="container">
@@ -389,46 +383,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- start-smoth-scrolling -->
         <script src="index/js/lightGallery.js"></script>
         <script>
-                                                            $(document).ready(function () {
-                                                                $("#lightGallery").lightGallery({
-                                                                    mode: "fade",
-                                                                    speed: 800,
-                                                                    caption: true,
-                                                                    desc: true,
-                                                                    mobileSrc: true
-                                                                });
-                                                            });
+            $(document).ready(function () {
+                $("#lightGallery").lightGallery({
+                    mode: "fade",
+                    speed: 800,
+                    caption: true,
+                    desc: true,
+                    mobileSrc: true
+                });
+            });
         </script>
 
         <script src="index/js/owl.carousel.js"></script> 
         <link href="index/css/owl.theme.css" rel="stylesheet">
         <link rel="stylesheet" href="index/css/owl.carousel.css" type="text/css" media="all">
         <script>
-                                                                    $(document).ready(function () {
-                                                                        $("#owl-demo").owlCarousel({
+            $(document).ready(function () {
+                $("#owl-demo").owlCarousel({
 
-                                                                            autoPlay: 3000, //Set AutoPlay to 3 seconds
-                                                                            autoPlay: true,
-                                                                            navigation: true,
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+                    autoPlay: true,
+                    navigation: true,
 
-                                                                            items: 4,
-                                                                            itemsDesktop: [640, 5],
-                                                                            itemsDesktopSmall: [414, 4]
+                    items: 4,
+                    itemsDesktop: [640, 5],
+                    itemsDesktopSmall: [414, 4]
 
-                                                                        });
+                });
 
-                                                                    });
+            });
         </script>
         <!-- start-smoth-scrolling -->
         <script type="text/javascript" src="index/js/move-top.js"></script>
         <script type="text/javascript" src="index/js/easing.js"></script>
         <script type="text/javascript">
-                                                                    jQuery(document).ready(function ($) {
-                                                                        $(".scroll").click(function (event) {
-                                                                            event.preventDefault();
-                                                                            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
-                                                                        });
-                                                                    });
+            jQuery(document).ready(function ($) {
+                $(".scroll").click(function (event) {
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+                });
+            });
         </script>
         <!-- start-smoth-scrolling -->
         <!-- //js -->
@@ -436,19 +430,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- //for bootstrap working -->
         <!-- here stars scrolling icon -->
         <script type="text/javascript">
-                                                            $(document).ready(function () {
-                                                                /*
-                                                                 var defaults = {
-                                                                 containerID: 'toTop', // fading element id
-                                                                 containerHoverID: 'toTopHover', // fading element hover id
-                                                                 scrollSpeed: 1200,
-                                                                 easingType: 'linear' 
-                                                                 };
-                                                                 */
+            $(document).ready(function () {
+                /*
+                 var defaults = {
+                 containerID: 'toTop', // fading element id
+                 containerHoverID: 'toTopHover', // fading element hover id
+                 scrollSpeed: 1200,
+                 easingType: 'linear' 
+                 };
+                 */
 
-                                                                $().UItoTop({easingType: 'easeOutQuart'});
+                $().UItoTop({easingType: 'easeOutQuart'});
 
-                                                            });
+            });
         </script>
         <!-- //here ends scrolling icon -->
     </body>
