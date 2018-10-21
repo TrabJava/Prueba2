@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index_equipo
-    Created on : 14-10-2018, 0:47:09
+    Document   : indexJugador
+    Created on : 21-10-2018, 20:08:32
     Author     : Berni
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,42 +19,41 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
         <c:choose>
-        <c:when test="${usuario == null }">
+            <c:when test="${usuario == null }">
                 <h1>Tiene que iniciar sesión primero</h1>
                 <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
             </c:when>
-                <c:when test="${tipo ==1 && estado!=1}">
-                <h1>Tu usuario es incorrecto</h1>
+            <c:when test="${tipo ==1 && estado!=1}">
+                <h1>Tu usuario esta  inactivo</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
+                </c:when>
                 <c:when test="${tipo ==2 && estado!=1}">
-                <h1>Tu usuario es incorrecto</h1>
+                <h1>Tu usuario esta inactivo</h1>
                 <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo ==1 && estado==1}">
+                    <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
+
             </c:when>
-               <c:when test="${tipo ==1 && estado==1}">
-                <h1>Tu usuario es incorrecto</h1>
-                <h3><a href="../login1.jsp"></a></h3>     
-            </c:when>
-                 <c:when test="${tipo ==2 && estado==1}">
+            <c:when test="${tipo ==2 && estado==1}">
                 <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
-                
+
             </c:when>
-                <c:when test="${tipoSU == 2 && estadoSU!=1}">
+            <c:when test="${tipoSU == 2 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
-              <c:when test="${tipoSU == 1 && estadoSU!=1}">
+                </c:when>
+                <c:when test="${tipoSU == 1 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
-            </c:when>
-            <c:when test="${tipoSU == 2 && estadoSU==1}">
-                <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
-            </c:when>
-            <c:when test="${tipoSU == 1 && estadoSU==1}">
+                </c:when>
+                <c:when test="${tipoSU == 2 && estadoSU==1}">
+                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                </c:when>
+                <c:when test="${tipoSU == 1 && estadoSU==1}">
                     <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-            </c:when>
-   </c:choose> 
+                </c:when>
+            </c:choose> 
     </body>
 </html>
