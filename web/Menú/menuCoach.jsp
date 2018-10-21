@@ -22,7 +22,7 @@
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../menuCoach/index_equipo.jsp">Inicio</a>
+                    <a class="nav-link" href="../Equipo/index_equipo.jsp">Inicio</a>
                 </li>
 
                 <!-- Dropdown -->
@@ -31,8 +31,8 @@
                         Gestion de Equipos
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../menuCoach/agregar_equipo.jsp">Agregar Equipo</a>
-                        <a class="dropdown-item" href="../menuCoach/listar_equipo.jsp">Listar Equipos</a>
+                        <a class="dropdown-item" href="../Equipo/agregar_equipo.jsp">Agregar Equipo</a>
+                        <a class="dropdown-item" href="../Equipo/listar_equipo.jsp">Listar Equipos</a>
                     </div>
                 </li>  
                 <li class="nav-item dropdown">
@@ -40,8 +40,9 @@
                         Gestion de Jugadores
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../menuCoach/agregar_Jugador.jsp">Agregar Jugador</a>
-                        <a class="dropdown-item" href="../menuCoach/listar_Jugador.jsp">Listar Jugadores</a>
+                        <a class="dropdown-item" href="../Jugador/agregar_Jugador.jsp">Agregar Jugador</a>
+                        <a class="dropdown-item" href="../Jugador/listar_Jugador.jsp">Listar Jugadores</a>
+                        <a class="dropdown-item" href="../Jugador/listar_JugadorSinEquipo.jsp">Fichajes</a>
                     </div>
                 </li> 
                 <li class="nav-item dropdown">
@@ -49,15 +50,16 @@
                         Ligas
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../menuCoach/octavos.jsp">Octavos</a>
-                        <a class="dropdown-item" href="../menuCoach/Cuartos.jsp">Cuartos</a>
-                        <a class="dropdown-item" href="../menuCoach/SemiFinal.jsp">Semifinal</a>
-                        <a class="dropdown-item" href="../menuCoach/Finale.jsp">Final</a>
-                        <a class="dropdown-item" href="../menuCoach/Ganador.jsp">Ganador</a>
-                        <a class="dropdown-item" href="../menuCoach/Clasificatoria.jsp">Esquema</a>
+                        <a class="dropdown-item" href="../SuperUsuario/octavos.jsp">Octavos</a>
+                        <a class="dropdown-item" href="../SuperUsuario/Cuartos.jsp">Cuartos</a>
+                        <a class="dropdown-item" href="../SuperUsuario/SemiFinal.jsp">Semifinal</a>
+                        <a class="dropdown-item" href="../SuperUsuario/Finale.jsp">Final</a>
+                        <a class="dropdown-item" href="../SuperUsuario/Ganador.jsp">Ganador</a>
+                        <a class="dropdown-item" href="../SuperUsuario/Clasificatoria.jsp">Esquema</a>
                     </div>
                 </li>
-                <li><a href="../procesoSession">Cerrar Sesion</a></li>
+               <li><a href="../procesoSession">Cerrar Sesion</a></li>
+                 <li>BIENVENIDO: ${usuario}</li>
             </ul>
         </nav>
         <br>

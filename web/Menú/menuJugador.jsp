@@ -25,12 +25,22 @@
                 </li>
 
                 <!-- Dropdown -->
-                <li class="nav-item dropdown">
+                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        Menu de Administracion de Equipo
+                        Gestion de Equipos
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="agregar_equipo.jsp">Agregar Equipo</a>
+                        <a class="dropdown-item" href="../Equipo/agregar_equipo.jsp">Agregar Equipo</a>
+                        <a class="dropdown-item" href="#">Listar Jugadores de Equipos</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Gestion de Jugadores
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../Jugador/agregar_Jugador.jsp">Agregar Jugador</a>
+                        <a class="dropdown-item" href="../Jugador/listar_JugadorSinEquipo.jsp">Jugadores Sin equipo</a>
                     </div>
                 </li>
                 <li><a href="../procesoSession">Cerrar Sesion</a></li>
