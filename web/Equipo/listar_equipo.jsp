@@ -153,14 +153,15 @@
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-                    <img src="../img/laPrieta.png" alt="" width="1350" height="100" style="margin-left: 80px"/>
+                
+                    <img src="../img/laPrieta.png" alt="" width="1150" height="100" style="margin-left: 80px"/>
                     <br>
                     <br>
                     <div class="col-sm-6">
 
                         <div class="container">    
                             <form  action="../procesoEquipo" method="GET">
-                                <table class="table table-dark" style="width: 800px;margin-left: 300px">
+                                <table class="table table-dark" style="width: 800px;margin-left: 220px">
                                     <thead>
                                         <tr>
 
@@ -192,7 +193,7 @@
 
                     </div>
                 </div>
-                <div class="alert alert-dark" style="max-width: 800px;margin-left: 330px" >
+                <div class="alert alert-dark" style="max-width: 800px;margin-left: 250px" >
                     <strong>Felicidades!</strong> ${mensaje}
                 </div>
             </c:when>

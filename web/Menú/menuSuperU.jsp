@@ -57,7 +57,6 @@
                         <a class="dropdown-item" href="../SuperUsuario/OctavoDetalle.jsp">Main Campeonato</a>
                         <a class="dropdown-item" href="../SuperUsuario/CuartoDetalle.jsp">Main Octavos</a>
                         <a class="dropdown-item" href="../SuperUsuario/SemiFinalDetalle.jsp">Main Cuartos</a>
-                        <a class="dropdown-item" href="../SuperUsuario/SegundoDetalle.jsp">Main SemiFinal</a>
                         <a class="dropdown-item" href="../SuperUsuario/FinalDetalle.jsp">Main Final</a>
                     </div>
                 </li>

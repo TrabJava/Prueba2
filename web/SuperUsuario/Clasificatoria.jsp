@@ -72,7 +72,7 @@
                 <h1 class="lead">Creiste que podías entrar por url Rufián?</h1>
                 <h3 class="lead">Querías que el profe Juilliet nos Humillara??</h3>
                 <hr class="my-4">
-                <h3>Pues BERNAL valido Urls Prueba con : <a class="btn btn-primary btn-lg" href="../login1.jsp" role="button">Iniciar sesión</a></h3>
+                <h3>Pues Jamesito valido Urls Prueba con : <a class="btn btn-primary btn-lg" href="../login1.jsp" role="button">Iniciar sesión</a></h3>
                 
                 <img src="../img/519.gif" alt="" width="300" height="250" />
                 <br><br><br><br><br><br>
