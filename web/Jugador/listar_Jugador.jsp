@@ -48,7 +48,7 @@
 
 
 
-        <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
+            <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
             <br>
             <img src="../img/laPrieta.png" alt="" width="1000" height="100" style="margin-left: 170px"/>
             <br>

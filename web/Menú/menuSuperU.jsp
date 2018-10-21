@@ -69,7 +69,6 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../Equipo/agregar_equipo.jsp">Agregar Equipo</a>
                         <a class="dropdown-item" href="../Equipo/listar_equipo.jsp">Listar Equipos</a>
-                        <a class="dropdown-item" href="../Equipo/modificar_equipo.jsp">Modificar Equipos</a>
                         <a class="dropdown-item" href="#">Listar Jugadores de Equipos</a>
                     </div>
                 </li>
@@ -78,16 +77,13 @@
                         Gestion de Jugadores
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../Jugador/Agregar_a_equipo.jsp">Agregar Equipo</a>
                         <a class="dropdown-item" href="../Jugador/agregar_Jugador.jsp">Agregar Jugador</a>
                         <a class="dropdown-item" href="../Jugador/listar_Jugador.jsp">Listar Jugadores</a>
-                        <a class="dropdown-item" href="../Jugador/desactivar_jugador.jsp">desactivar Jugadores</a>
                         <a class="dropdown-item" href="../Jugador/listar_JugadorSinEquipo.jsp">Jugadores Sin equipo</a>
-                        <a class="dropdown-item" href="../Jugador/modificar_jugador.jsp">Modificar Jugadores</a>
                     </div>
                 </li>
                  <li><a href="../procesoSession">Cerrar Sesion</a></li>
-
+                 <li>BIENVENIDO: ${usuario}</li>
             </ul>
         </nav>
         <br>

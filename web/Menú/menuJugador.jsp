@@ -31,11 +31,10 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="agregar_equipo.jsp">Agregar Equipo</a>
-                        <a class="dropdown-item" href="listar_equipo.jsp">Listar Equipo</a>
-                        <a class="dropdown-item" href="#">Agregar Jugador</a>
                     </div>
                 </li>
                 <li><a href="../procesoSession">Cerrar Sesion</a></li>
+                 <li>BIENVENIDO: ${usuario}</li>
             </ul>
         </nav>
         <br>
