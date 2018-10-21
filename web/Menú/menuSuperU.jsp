@@ -54,10 +54,12 @@
                         Asignar Ganadores
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="../SuperUsuario/OctavoDetalle.jsp">Main Campeonato</a>
-                        <a class="dropdown-item" href="../SuperUsuario/CuartoDetalle.jsp">Main Octavos</a>
-                        <a class="dropdown-item" href="../SuperUsuario/SemiFinalDetalle.jsp">Main Cuartos</a>
+                        <a class="dropdown-item" href="../SuperUsuario/ClasificacionDetalle.jsp">Main Agregar a Campeonato</a>
+                        <a class="dropdown-item" href="../SuperUsuario/OctavoDetalle.jsp">Main Octavos</a>
+                        <a class="dropdown-item" href="../SuperUsuario/CuartoDetalle.jsp">Main Cuartos</a>
+                        <a class="dropdown-item" href="../SuperUsuario/SemiFinalDetalle.jsp">Main SemiFinal</a>
                         <a class="dropdown-item" href="../SuperUsuario/FinalDetalle.jsp">Main Final</a>
+                        <a class="dropdown-item" href="../SuperUsuario/Ganador.jsp">Main Ganador</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

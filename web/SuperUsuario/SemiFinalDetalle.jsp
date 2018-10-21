@@ -112,7 +112,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarSemi" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                            <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -170,7 +170,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarSemi" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                            <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
                                         </tr>
 
                                     </tbody>

@@ -35,7 +35,7 @@
 
         <%--Query para mostrar los datos en la lista--%>
         <sql:query dataSource = "${snapshot}" var = "equipo">
-            SELECT e.id,e.nombre_equipo FROM equipo e JOIN detalle d ON e.id = d.equipo WHERE d.clasificatoria=5
+            SELECT e.id,e.nombre_equipo FROM equipo e
         </sql:query>
 
         <sql:query dataSource = "${snapshot}" var = "clasificatoria">
@@ -105,7 +105,7 @@
                                     <table border="1" class="table table-dark" style="width: 400px;margin-left: 350px">
                                         <tbody>
                                             <tr>
-                                                <td><label>EQUIPO </label></td>
+                                                <td><label>TODOS LOS EQUIPOS </label></td>
                                                 <td><select name="cboEquipoclas">
                                                     <c:forEach var="equipo" items="${equipo.rows}">
                                                         <option value="${equipo.id}">${equipo.nombre_equipo}</option>
@@ -113,13 +113,13 @@
                                                 </select></td>
                                         </tr>
                                         <tr>
-                                            <td><label>CLASIFICATORIA </label></td>
+                                            <td><label>SELECCIONADOS </label></td>
                                             <td>
-                                                FINAL
+                                                PARA CAMPEONATO
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                            <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarOctavos" style="margin-left: 150px" class="btn btn-secondary"/></td>
                                         </tr>
 
                                     </tbody>
@@ -135,7 +135,7 @@
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-                    <div class="container" style="margin-top:30px">
+                   <div class="container" style="margin-top:30px">
                         <div class="row">
                             <div class="col-sm-3" >
                                 <img src="../img/jinxita.png" alt="" />
@@ -169,7 +169,7 @@
                                     <table border="1" class="table table-dark" style="width: 400px;margin-left: 350px">
                                         <tbody>
                                             <tr>
-                                                <td><label>EQUIPO </label></td>
+                                                <td><label>TODOS LOS EQUIPOS </label></td>
                                                 <td><select name="cboEquipoclas">
                                                     <c:forEach var="equipo" items="${equipo.rows}">
                                                         <option value="${equipo.id}">${equipo.nombre_equipo}</option>
@@ -177,13 +177,13 @@
                                                 </select></td>
                                         </tr>
                                         <tr>
-                                            <td><label>CLASIFICATORIA </label></td>
+                                            <td><label>SELECCIONADOS </label></td>
                                             <td>
-                                                FINAL
+                                                PARA CAMPEONATO
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarFinal" style="margin-left: 150px" class="btn btn-secondary"/></td>
+                                            <td colspan="2" ><input type="submit" name="btnAccion" value="AgregarOctavos" style="margin-left: 150px" class="btn btn-secondary"/></td>
                                         </tr>
 
                                     </tbody>
