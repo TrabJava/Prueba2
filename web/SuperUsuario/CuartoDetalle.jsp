@@ -67,7 +67,6 @@
                 </c:when>
                 <c:when test="${tipoSU == 2 && estadoSU==1}">
                     <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
-                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
                     <div class="container" style="margin-top:30px">
                         <div class="row">
                             <div class="col-sm-3" >
