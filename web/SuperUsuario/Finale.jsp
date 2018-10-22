@@ -57,8 +57,8 @@
 
             </div>
         </c:when>
-        <c:when test="${tipoSU != 1 || tipo ==1 || tipo ==2}">
-            <h1>Tu usuario es incorrecto</h1>
+        <c:when test="${tipoSU == 1 && estadoSU!=1}">
+            <h1>Tu usuario esta desactivado</h1>
             <h3><a href="../login1.jsp"></a></h3>
             </c:when>
             <c:when test="${tipoSU == 2 && estadoSU!=1}">
@@ -90,14 +90,14 @@
                                             <tr height="150">
 
 
-                                            
-                                            <td><img src="../img/${row.foto_link}" alt="" width="70" height="70" style="margin-left: 110px"/><p style="margin-left: 100px">${row.nombre_equipo}</p></td>
-                                            
+
+                                                <td><img src="../img/${row.foto_link}" alt="" width="70" height="70" style="margin-left: 110px"/><p style="margin-left: 100px">${row.nombre_equipo}</p></td>
+
                                             </tr>
 
 
                                         </c:forEach>
-                                            
+
                                         <img src="../img/smur.png" alt="" style="position: absolute;width: 80px;margin-left: 230px;margin-top: 80px"/>
                                 </table>
 
