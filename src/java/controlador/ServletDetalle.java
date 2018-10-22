@@ -67,7 +67,7 @@ public class ServletDetalle extends HttpServlet {
         Detalle detall = new Detalle(team, tipoClasif);
         detalleFacade.create(detall);
         request.getSession().setAttribute("mensaje", "El Equipo se agregó");
-        response.sendRedirect("SuperUsuario/OctavoDetalle.jsp");
+        response.sendRedirect("SuperUsuario/ClasificacionDetalle.jsp");
     }
      private void agregarCuartos(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
@@ -77,7 +77,7 @@ public class ServletDetalle extends HttpServlet {
         Detalle detall = new Detalle(team, tipoClasif);
         detalleFacade.create(detall);
         request.getSession().setAttribute("mensaje", "El Equipo se agregó");
-        response.sendRedirect("SuperUsuario/CuartoDetalle.jsp");
+        response.sendRedirect("SuperUsuario/OctavoDetalle.jsp");
 
     }
 
@@ -89,7 +89,7 @@ public class ServletDetalle extends HttpServlet {
         Detalle detall = new Detalle(team, tipoClasif);
         detalleFacade.create(detall);
         request.getSession().setAttribute("mensaje", "El Equipo se agregó");
-        response.sendRedirect("SuperUsuario/SemiFinalDetalle.jsp");
+        response.sendRedirect("SuperUsuario/CuartoDetalle.jsp");
 
     }
      private void agregarFinal(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -100,7 +100,7 @@ public class ServletDetalle extends HttpServlet {
         Detalle detall = new Detalle(team, tipoClasif);
         detalleFacade.create(detall);
         request.getSession().setAttribute("mensaje", "El Equipo se agregó");
-        response.sendRedirect("SuperUsuario/SegundoDetalle.jsp");
+        response.sendRedirect("SuperUsuario/SemiFinalDetalle.jsp");
     }
      private void agregarGanador(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int equipillo = Integer.parseInt(request.getParameter("cboEquipoclas"));
