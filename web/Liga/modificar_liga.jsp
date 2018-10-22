@@ -86,7 +86,7 @@
                             <tbody>
                                 <tr>
                                     <td>ID:</td>
-                                    <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
+                                    <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>" ></td>
                             </tr>
                             <tr>
                                 <td>Nombre De la liga:</td>
@@ -110,7 +110,7 @@
                             </tr>
                             <tr>
                                 <td>Nombre De la liga:</td>
-                                <td><input type="text" name="txtNombreLiga" value="<%= rs.getString("descripcion_liga")%>"></td>
+                                <td><input type="text" name="txtNombreLiga" value="<%= rs.getString("descripcion_liga")%>" onblur="limpia()" style="color: #000" onkeypress="return soloLetras(event)"></td>
                             </tr>
                         </tbody>
                     </table>
