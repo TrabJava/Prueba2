@@ -51,6 +51,7 @@
 
     </head>
     <body>
+         <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
         <%
             //CONECTANDO A LA BASE DE DATOS:
             Connection con;
@@ -66,18 +67,11 @@
             String id = request.getParameter("id");
             ps = con.prepareStatement("SELECT j.id, j.nombre, j.ap_paterno, j.rut, j.user, j.pass, t.descripcion_tipoj, e.descripcion_estadoj, s.descripcion_seleccion, eq.nombre_equipo FROM jugador j JOIN tipo_jugador t ON t.id=j.tipo JOIN estado_jugador e ON e.id=j.estado JOIN seleccion_jugador s ON s.id=j.seleccion JOIN equipo eq ON eq.id WHERE eq.id =" + id);
             rs = ps.executeQuery();
+            %>
+            
 
-            while (rs.next()) {
-        %>
 
-
-        <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-            <img src="../img/MODIFICAR.png" alt="" style="margin-left: 350px"/>
-            <br>
-            <br>
-            <br>
-            <br>
-            <table border="1">
+            <table class="table table-dark">
                 
                 <tbody>
                     <tr>
@@ -92,25 +86,26 @@
                         <td>Seleccion</td>
                         <td>Equipo</td>
                     </tr>
+                              <%  while (rs.next()) {
+        %>
                     <tr>
-                        <td><input type="text" name="txtId" value="<%= rs.getInt("j.id")%>" /></td>
-                        <td><input type="text" name="txtNombre" value="<%= rs.getString("j.nombre")%>" /></td>
-                        <td><input type="text" name="txtApellido" value="<%= rs.getString("j.ap_paterno")%>" /></td>
-                        <td><input type="text" name="txtRut" value="<%= rs.getString("j.rut")%>" /></td>
-                        <td><input type="text" name="txtUsuario" value="<%= rs.getString("j.user")%>" /></td>
-                        <td><input type="text" name="txtContrasenia" value="<%= rs.getString("j.pass")%>" /></td>
-                        <td><input type="text" name="txtTipo" value="<%= rs.getString("t.descripcion_tipoj")%>" /></td>
-                        <td><input type="text" name="txtEstado" value="<%= rs.getString("e.descripcion_estadoj")%>" /></td>
-                        <td><input type="text" name="txtSeleccion" value="<%= rs.getString("s.descripcion_seleccion")%>" /></td>
-                        <td><input type="text" name="txtEquipo" value="<%= rs.getString("eq.nombre_equipo")%>" /></td>
+                        <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("j.id")%>" /></td>
+                        <td><input type="text" name="txtNombre" readonly="" value="<%= rs.getString("j.nombre")%>" /></td>
+                        <td><input type="text" name="txtApellido" readonly="" value="<%= rs.getString("j.ap_paterno")%>" /></td>
+                        <td><input type="text" name="txtRut" readonly="" value="<%= rs.getString("j.rut")%>" /></td>
+                        <td><input type="text" name="txtUsuario" readonly="" value="<%= rs.getString("j.user")%>" /></td>
+                        <td><input type="password" name="txtContrasenia" readonly="" value="<%= rs.getString("j.pass")%>" /></td>
+                        <td><input type="text" name="txtTipo" readonly="" value="<%= rs.getString("t.descripcion_tipoj")%>" /></td>
+                        <td><input type="text" name="txtEstado" readonly="" value="<%= rs.getString("e.descripcion_estadoj")%>" /></td>
+                        <td><input type="text" name="txtSeleccion" readonly="" value="<%= rs.getString("s.descripcion_seleccion")%>" /></td>
+                        <td><input type="text" name="txtEquipo" readonly="" value="<%= rs.getString("eq.nombre_equipo")%>" /></td>
                     </tr>
+                    <%}%>
                 </tbody>
             </table>
-        <%}%>
+        
     </div>
-    <div class="alert alert-dark" style="max-width: 500px;margin-left: 450px" >
-        <strong>Felicidades!</strong> ${mensaje}
-    </div>
+    
 
 
 </body>
