@@ -77,6 +77,15 @@
                         <a class="dropdown-item" href="../Jugador/modificar_jugador.jsp">Modificar Jugadores</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Gestion de Ligas
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../Liga/agregar_liga.jsp">Agregar Liga</a>
+                        <a class="dropdown-item" href="../Liga/listar_Liga.jsp">Listar Liga</a>
+                    </div>
+                </li>
                  <li><a href="../procesoSession">Cerrar Sesion</a></li>
                  <li>BIENVENIDO: ${usuario}</li>
             </ul>
