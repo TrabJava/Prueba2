@@ -63,7 +63,7 @@
 
                         <div class="container">    
                             <form  action="../procesoEquipo" method="GET">
-                                <table class="table table-dark" style="width: 800px;margin-left: 300px">
+                                <table class="table table-dark" style="width: 1000px;margin-left: 300px">
                                     <thead>
                                         <tr>
 
@@ -72,6 +72,7 @@
                                             <th>ESTADO</th>
                                             <th>LIGA</th>
                                             <th>ICONO</th>
+                                            <th>MODIFICAR</th>
                                             <th>MODIFICAR</th>
 
                                         </tr>
