@@ -90,6 +90,7 @@
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
                 <c:when test="${tipoSU == 2 && estadoSU==1}">
+                    <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
                 <h1>Modificar Datos del Jugador</h1>
                 <form action="../procesoJugador" method="POST">
                     <table border="1">
@@ -156,6 +157,7 @@
                 </form>
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
+                <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
                 <h1>Modificar Datos del Jugador</h1>
                 <form action="../procesoJugador" method="POST">
                     <table border="1">
