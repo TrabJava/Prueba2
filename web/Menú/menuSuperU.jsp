@@ -22,7 +22,7 @@
             <!-- Links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="../SuperUsuario/index_super.jsp">Inicio</a>
                 </li>
 
                 <!-- Dropdown -->
