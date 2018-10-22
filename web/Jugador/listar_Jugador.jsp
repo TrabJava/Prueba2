@@ -65,13 +65,11 @@
             PreparedStatement ps;
             ResultSet rs;
             String id = request.getParameter("id");
-            ps = con.prepareStatement("SELECT j.id, j.nombre, j.ap_paterno, j.rut, j.user, j.pass, t.descripcion_tipoj, e.descripcion_estadoj, s.descripcion_seleccion, eq.nombre_equipo FROM jugador j JOIN tipo_jugador t ON t.id=j.tipo JOIN estado_jugador e ON e.id=j.estado JOIN seleccion_jugador s ON s.id=j.seleccion JOIN equipo eq ON eq.id WHERE eq.id =" + id);
+            ps = con.prepareStatement("SELECT j.id, j.nombre, j.ap_paterno, j.rut, j.user, j.pass, t.descripcion_tipoj, e.descripcion_estadoj, s.descripcion_seleccion, eq.nombre_equipo FROM jugador j JOIN tipo_jugador t ON t.id=j.tipo JOIN estado_jugador e ON e.id=j.estado JOIN seleccion_jugador s ON s.id=j.seleccion JOIN equipo eq ON eq.id=j.equipo WHERE eq.id =" + id);
             rs = ps.executeQuery();
-            %>
             
-
-
-            <table class="table table-dark">
+           %>
+                 <table class="table table-dark">
                 
                 <tbody>
                     <tr>
@@ -85,10 +83,12 @@
                         <td>Estado</td>
                         <td>Seleccion</td>
                         <td>Equipo</td>
-                    </tr>
-                              <%  while (rs.next()) {
-        %>
+                    </tr>     
                     <tr>
+                        <% while (rs.next()) {%>                             
+                                
+                            
+                       
                         <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("j.id")%>" /></td>
                         <td><input type="text" name="txtNombre" readonly="" value="<%= rs.getString("j.nombre")%>" /></td>
                         <td><input type="text" name="txtApellido" readonly="" value="<%= rs.getString("j.ap_paterno")%>" /></td>
@@ -100,13 +100,9 @@
                         <td><input type="text" name="txtSeleccion" readonly="" value="<%= rs.getString("s.descripcion_seleccion")%>" /></td>
                         <td><input type="text" name="txtEquipo" readonly="" value="<%= rs.getString("eq.nombre_equipo")%>" /></td>
                     </tr>
-                    <%}%>
+                    <%} %>
                 </tbody>
             </table>
-        
-    </div>
-    
-
-
+               
 </body>
 </html>
