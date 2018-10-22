@@ -5,6 +5,10 @@
         <servlet-class>controlador.ServletAcceso</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ServletLiga</servlet-name>
+        <servlet-class>controlador.ServletLiga</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ServletSuperUsuario</servlet-name>
         <servlet-class>controlador.ServletSuperUsuario</servlet-class>
     </servlet>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ServletSession</servlet-name>
         <url-pattern>/procesoSession</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletLiga</servlet-name>
+        <url-pattern>/procesoLiga</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
