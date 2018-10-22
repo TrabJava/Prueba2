@@ -46,62 +46,6 @@
                 <h1>Tiene que iniciar sesión primero</h1>
                 <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
             </c:when>
-            <c:when test="${tipo ==1 && estado!=1}">
-                <h1>Tu usuario es incorrecto</h1>
-                <h3><a href="../login1.jsp"></a></h3>
-                </c:when>
-                <c:when test="${tipo ==2 && estado!=1}">
-                <h1>Tu usuario es incorrecto</h1>
-                <h3><a href="../login1.jsp"></a></h3>
-                </c:when>
-                <c:when test="${tipo ==1 && estado==1}">
-                    <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
-                    <img src="../img/laPrieta.png" alt="" width="1350" height="100" style="margin-left: 80px"/>
-                    <br>
-                    <br>
-                    <div class="col-sm-6">
-
-                        <div class="container">    
-                            <form  action="../procesoEquipo" method="GET">
-                                <table class="table table-dark" style="width: 1000px;margin-left: 300px">
-                                    <thead>
-                                        <tr>
-
-                                            <th>ID</th>
-                                            <th>NOMBRE EQUIPO</th>
-                                            <th>ESTADO</th>
-                                            <th>LIGA</th>
-                                            <th>ICONO</th>
-                                            <th>MODIFICAR</th>
-                                            <th>MODIFICAR</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach var = "row" items ="${equipo.rows}">
-                                        <tr>
-                                            <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 40px;text-align: left;border: 0px" type="text" name="txtId" readonly="" value="${row.id}" /></td>
-                                            <td>${row.nombre_equipo}</td>
-                                            <td>${row.descripcion_estadoe}</td>
-                                            <td>${row.descripcion_liga}</td>
-                                            <td><img src="../img/${row.foto_link}" alt="" width="50" height="50"/></td>
-
-                                            <td><a href="modificar_equipo.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
-                                            <td><a href="../Jugador/listar_Jugador.jsp?id=${row.id}" id="url" style="color: white"/>Ver jugadores</td>
-                                            
-                                        </tr>
-                                    </c:forEach>
-
-                            </table>
-                        </form>
-
-
-                    </div>
-                </div>
-                <div class="alert alert-dark" style="max-width: 800px;margin-left: 330px" >
-                    <strong>Felicidades!</strong> ${mensaje}
-                </div>
-            </c:when>
             <c:when test="${tipoSU == 2 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
@@ -153,13 +97,14 @@
 
                     </div>
                 </div>
-                <div class="alert alert-dark" style="max-width: 800px;margin-left: 330px" >
-                    <strong>Felicidades!</strong> ${mensaje}
+                <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>${mensaje}</strong>
                 </div>
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-                
+
                     <img src="../img/laPrieta.png" alt="" width="1150" height="100" style="margin-left: 80px"/>
                     <br>
                     <br>
@@ -201,8 +146,9 @@
 
                     </div>
                 </div>
-                <div class="alert alert-dark" style="max-width: 800px;margin-left: 250px" >
-                    <strong>Felicidades!</strong> ${mensaje}
+                <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>${mensaje}</strong>
                 </div>
             </c:when>
         </c:choose>
