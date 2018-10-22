@@ -86,6 +86,7 @@
                                             <td><img src="../img/${row.foto_link}" alt="" width="50" height="50"/></td>
 
                                             <td><a href="modificar_equipo.jsp?id=${row.id}" id="url" style="color: white"/>Modificar</td>
+                                            <td><a href="Jugador/listar_jugador.jsp?id=${row.id}" id="url" style="color: white"/>Ver jugadores</td>
                                         </tr>
                                     </c:forEach>
 
