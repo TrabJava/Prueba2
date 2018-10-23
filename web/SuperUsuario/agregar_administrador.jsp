@@ -43,7 +43,7 @@
 
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
-        <sql:query dataSource="${dataSource}" var="tipo">
+        <sql:query dataSource="${dataSource}" var="tipoSSU">
             SELECT id, descripcion_tiposu FROM tipo_super
         </sql:query> 
 
@@ -61,6 +61,22 @@
 
 
                 </div>
+            </c:when>
+            <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipo == 2 && estado==1}">
+               <h1>Tu usuario es incorrecto </h1>
+                <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipo == 1 && estado==1}">
+                <h1>Tu usuario es incorrecto </h1>
+                <h3><a href="../login1.jsp"></a></h3>
             </c:when>
             <c:when test="${tipoSU == 2 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
@@ -92,7 +108,7 @@
                                         <td>TIPO :</td>
                                         <td>
                                             <select name="cboTipo" >
-                                            <c:forEach var="tipos" items="${tipo.rows}">
+                                            <c:forEach var="tipos" items="${tipoSSU.rows}">
                                                 <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
                                             </c:forEach>
                                         </select></td>

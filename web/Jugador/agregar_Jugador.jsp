@@ -22,11 +22,11 @@
     <body>
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
-        <sql:query dataSource="${dataSource}" var="tipo">
+        <sql:query dataSource="${dataSource}" var="tipoSJ">
             SELECT id, descripcion_tipoj FROM tipo_jugador
         </sql:query> 
 
-        <sql:query dataSource="${dataSource}" var="estado">
+        <sql:query dataSource="${dataSource}" var="estadoJ">
             SELECT id, descripcion_estadoj FROM estado_jugador
         </sql:query> 
 
@@ -111,7 +111,7 @@
                                     <td><label>Tipo: </label></td>
                                     <td>
                                         <select name="cboTipo">
-                                        <c:forEach var="tipos" items="${tipo.rows}">
+                                        <c:forEach var="tipos" items="${tipoSJ.rows}">
                                             <option value="${tipos.id}">${tipos.descripcion_tipoj}</option>
                                         </c:forEach>
                                     </select>
@@ -121,7 +121,7 @@
                                 <td><label>Estado: </label></td>
                                 <td>
                                     <select name="cboEstado">
-                                        <c:forEach var="estados" items="${estado.rows}">
+                                        <c:forEach var="estados" items="${estadoJ.rows}">
                                             <option value="${estados.id}">${estados.descripcion_estadoj}</option>
                                         </c:forEach>
                                     </select>
@@ -163,7 +163,7 @@
 
             <c:when test="${tipoSU == 2 && estadoSU==1}">
                 <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
-                    <h1>Agregar Jugador</h1>
+                   <h1>Agregar Jugador</h1>
                     <form  action="../procesoJugador" method="POST">
                         <table border="1">
                             <tbody>
@@ -191,7 +191,7 @@
                                     <td><label>Tipo: </label></td>
                                     <td>
                                         <select name="cboTipo">
-                                        <c:forEach var="tipos" items="${tipo.rows}">
+                                        <c:forEach var="tipos" items="${tipoSJ.rows}">
                                             <option value="${tipos.id}">${tipos.descripcion_tipoj}</option>
                                         </c:forEach>
                                     </select>
@@ -201,7 +201,7 @@
                                 <td><label>Estado: </label></td>
                                 <td>
                                     <select name="cboEstado">
-                                        <c:forEach var="estados" items="${estado.rows}">
+                                        <c:forEach var="estados" items="${estadoJ.rows}">
                                             <option value="${estados.id}">${estados.descripcion_estadoj}</option>
                                         </c:forEach>
                                     </select>
@@ -270,7 +270,7 @@
                                     <td><label>Tipo: </label></td>
                                     <td>
                                         <select name="cboTipo">
-                                        <c:forEach var="tipos" items="${tipo.rows}">
+                                        <c:forEach var="tipos" items="${tipoSJ.rows}">
                                             <option value="${tipos.id}">${tipos.descripcion_tipoj}</option>
                                         </c:forEach>
                                     </select>
@@ -280,7 +280,7 @@
                                 <td><label>Estado: </label></td>
                                 <td>
                                     <select name="cboEstado">
-                                        <c:forEach var="estados" items="${estado.rows}">
+                                        <c:forEach var="estados" items="${estadoJ.rows}">
                                             <option value="${estados.id}">${estados.descripcion_estadoj}</option>
                                         </c:forEach>
                                     </select>
@@ -349,7 +349,7 @@
                                     <td><label>Tipo: </label></td>
                                     <td>
                                         <select name="cboTipo">
-                                        <c:forEach var="tipos" items="${tipo.rows}">
+                                        <c:forEach var="tipos" items="${tipoSJ.rows}">
                                             <option value="${tipos.id}">${tipos.descripcion_tipoj}</option>
                                         </c:forEach>
                                     </select>
@@ -359,7 +359,7 @@
                                 <td><label>Estado: </label></td>
                                 <td>
                                     <select name="cboEstado">
-                                        <c:forEach var="estados" items="${estado.rows}">
+                                        <c:forEach var="estados" items="${estadoJ.rows}">
                                             <option value="${estados.id}">${estados.descripcion_estadoj}</option>
                                         </c:forEach>
                                     </select>
