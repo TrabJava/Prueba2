@@ -48,6 +48,18 @@
 
                 </div>
             </c:when>
+             <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado==1}">
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>  
             <c:when test="${tipoSU == 1 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
@@ -142,6 +154,49 @@
                     </div>
                 </div>   
             </c:when> 
+                <c:when test="${tipo == 2 && estado==1}">
+                    <jsp:include page="../Menú/menuCoach.jsp"></jsp:include>
+                    <div class="col-sm-8">
+                        <div class="container" style="margin-top: 30px">    
+                            <form action="../procesoJugador" method="GET">
+                                <table class="table table-dark" style="width: 1000px" >
+                                    <tr>
+                                        <td>ID </td>
+                                        <td>Nombre </td>
+                                        <td>Apellido </td>
+                                        <td>Rut </td>
+                                        <td>Usuario </td>
+                                        <td>Contraseña </td>
+                                        <td>Tipo Usuario </td>
+                                        <td>Estado Usuario </td>
+                                        <td>Agregar a Equipo </td>
+
+                                    </tr>
+
+
+                                <c:forEach var = "row" items = "${jugador.rows}">
+                                    <tr>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtId" value="${row.id}"/></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtNombre" value="${row.nombre}"/></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtApellido" value="${row.ap_paterno}"/></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtRut" value="${row.rut}" ></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtUser" value="${row.user}"/></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 80px;text-align: left;border: 0px" type="text" name="txtPass" value="${row.pass}"/></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtTipo" value="${row.descripcion_tipoj}"/></td>
+                                        <td><input style="background-color:rgba(0, 0, 0, 0);color: white;width: 60px;text-align: left;border: 0px" type="text" name="txtEstado" value="${row.descripcion_estadoj}"/></td>
+                                        <td><a href="Agregar_a_equipo.jsp?id=${row.id}" id="url" class="btn btn-info" style="color: white"/>Agregar a Equipo</a></td>
+                                    </tr>
+                                </c:forEach>
+
+                            </table>
+                        </form>
+                        <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                            <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>${mensaje}</strong>
+                        </div>
+                    </div>
+                </div>   
+                </c:when>  
         </c:choose>
     </body>
 </html>

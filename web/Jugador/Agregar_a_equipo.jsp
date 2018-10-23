@@ -81,7 +81,19 @@
                 <h1>Tiene que iniciar sesión primero</h1>
                 <h3><a href="../login1.jsp">(Iniciar Sesión)</a></h3>
             </c:when>
-            <c:when test="${tipoSU == 2 && estadoSU!=1}">
+            <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado==1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipoSU == 2 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
@@ -91,13 +103,13 @@
                 </c:when>
                 <c:when test="${tipoSU == 2 && estadoSU==1}">
                     <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
-                <h1>Modificar Datos del Jugador</h1>
-                <form action="../procesoJugador" method="POST">
-                    <table border="1">
-                        <tbody>
-                            <tr>
-                                <td>ID:</td>
-                                <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
+                    <h1>Modificar Datos del Jugador</h1>
+                    <form action="../procesoJugador" method="POST">
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
                             </tr>
                             <tr>
                                 <td>Nombre:</td>
@@ -158,13 +170,13 @@
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-                <h1>Modificar Datos del Jugador</h1>
-                <form action="../procesoJugador" method="POST">
-                    <table border="1">
-                        <tbody>
-                            <tr>
-                                <td>ID:</td>
-                                <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
+                    <h1>Modificar Datos del Jugador</h1>
+                    <form action="../procesoJugador" method="POST">
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
                             </tr>
                             <tr>
                                 <td>Nombre:</td>
@@ -222,7 +234,73 @@
                     <br>
                     <input type="submit" value="Agregar_a_Equipo" name="btnAccion" class="btn btn-info"/>      
                 </c:when>
-            </c:choose>
-            <%}%>
-    </body>
-</html>
+                <c:when test="${tipo == 2 && estado==1}">
+                    <jsp:include page="../Menú/menuCoach.jsp"></jsp:include>
+                        <h1>Modificar Datos del Jugador</h1>
+                        <form action="../procesoJugador" method="POST">
+                            <table border="1">
+                                <tbody>
+                                    <tr>
+                                        <td>ID:</td>
+                                        <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>"></td>
+                                </tr>
+                                <tr>
+                                    <td>Nombre:</td>
+                                    <td><input type="text" name="txtNombre" readonly="" value="<%= rs.getString("nombre")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                                </tr>
+                                <tr>
+                                    <td>Apellido Paterno:</td>
+                                    <td><input type="text" name="txtApellido" readonly="" value="<%= rs.getString("ap_paterno")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                                </tr>
+                                <tr>
+                                    <td>Rut:</td>
+                                    <td><input type="text" name="txtRut" readonly="" value="<%= rs.getString("rut")%>" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"></td>
+                                </tr>
+                                <tr>
+                                    <td>Usuario:</td>
+                                    <td><input type="text" name="txtUser" readonly="" value="<%= rs.getString("user")%>" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"></td>
+                                </tr>
+                                <tr>
+                                    <td>contraseña:</td>
+                                    <td><input type="text" name="txtPass" readonly="" value="<%= rs.getString("pass")%>" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"></td>
+                                </tr>
+                                <tr>
+                                    <td><input hidden="" type="text" name="txtTipo" value="1"/></td>
+                                    <td><input hidden="" type="text" name="txtEstado" value="1" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Seleccion:</td>
+                                    <td>
+                                        <select name="cboSeleccion">
+                                            <%
+                                            while (reseet.next()) {%>
+                                            <option value="<%= reseet.getInt("id")%>"><%= reseet.getString("descripcion_seleccion")%></option>
+                                            <%}
+                                            %>
+                                        </select>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Equipo</td>
+                                    <td>
+                                        <select name="cboEquipo">
+                                            <%
+                                            while (resett.next()) {%>
+                                            <option value="<%= resett.getInt("id")%>"><%= resett.getString("nombre_equipo")%></option>
+                                            <%}
+                                            %>
+                                        </select>
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <br>
+                        <input type="submit" value="Agregar_a_Equipo" name="btnAccion" class="btn btn-info"/>      
+                    </c:when>
+                </c:choose>
+                <%}%>
+                </body>
+                </html>
