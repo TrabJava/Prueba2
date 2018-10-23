@@ -50,7 +50,7 @@
     <body>
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
-        <sql:query dataSource="${dataSource}" var="tipo">
+        <sql:query dataSource="${dataSource}" var="tipos">
             SELECT id, descripcion_tipoj FROM tipo_jugador
         </sql:query> 
 
@@ -58,7 +58,7 @@
             SELECT id, descripcion_liga FROM liga
         </sql:query> 
 
-        <sql:query dataSource="${dataSource}" var="estado">
+        <sql:query dataSource="${dataSource}" var="estados">
             SELECT id, descripcion_estadoe FROM estado_equipo
         </sql:query> 
 
