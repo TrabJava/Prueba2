@@ -33,11 +33,11 @@
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
                 <c:when test="${tipo ==1 && estado==1}">
-                    <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
+                    <jsp:include page="../Menú/menuJugador.jsp"></jsp:include>
 
             </c:when>
             <c:when test="${tipo ==2 && estado==1}">
-                <jsp:include page="../Menú/menuEquipo.jsp"></jsp:include>
+                <jsp:include page="../Menú/menuCoach.jsp"></jsp:include>
 
             </c:when>
             <c:when test="${tipoSU == 2 && estadoSU!=1}">
