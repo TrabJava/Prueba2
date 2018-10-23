@@ -40,8 +40,12 @@
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../Jugador/agregar_Jugador.jsp">Agregar Jugador</a>
                 </li>
-                <li><a href="../procesoSession">Cerrar Sesion</a></li>
-                 <li>BIENVENIDO: ${usuario}</li>
+               <li class="nav-item">
+                    <a class="nav-link" href="../procesoSession">Cerrar Sesion</a>
+                </li>
+               <li class="nav-item">
+                    <a class="nav-link" href="#">BIENVENIDO: ${usuario}</a>
+                </li>
             </ul>
         </nav>
         <br>

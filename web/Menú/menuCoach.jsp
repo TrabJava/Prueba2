@@ -58,8 +58,12 @@
                         <a class="dropdown-item" href="../SuperUsuario/Clasificatoria.jsp">Esquema</a>
                     </div>
                 </li>
-               <li><a href="../procesoSession">Cerrar Sesion</a></li>
-                 <li>BIENVENIDO: ${usuario}</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../procesoSession">Cerrar Sesion</a>
+                </li>
+               <li class="nav-item">
+                    <a class="nav-link" href="#">BIENVENIDO: ${usuario}</a>
+                </li>
             </ul>
         </nav>
         <br>

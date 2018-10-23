@@ -93,7 +93,7 @@
                     <a class="nav-link" href="../procesoSession">Cerrar Sesion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../procesoSession">BIENVENIDO: ${usuario}</a>
+                    <a class="nav-link" href="#">BIENVENIDO: ${usuario}</a>
                 </li>
             </ul>
         </nav>
