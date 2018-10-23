@@ -19,6 +19,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Agregar Ligas</title>
+        <link rel="shortcut icon" href="../img/LOL_Logo.ico" />
         <style>
         body{
             background: url(../img/lolo.jpg) no-repeat center center fixed;
