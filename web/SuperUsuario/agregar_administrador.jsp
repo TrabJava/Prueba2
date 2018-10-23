@@ -4,8 +4,8 @@
     Author     : Berni
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 
 
@@ -17,6 +17,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script>
@@ -61,11 +62,19 @@
 
                 </div>
             </c:when>
-            <c:when test="${tipo == 1}">
+            <c:when test="${tipo == 1 && estado !=1}">
+            <h1>Tu usuario esta desactivado</h1>
+            <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipo == 2 && estado !=1}">
+            <h1>Tu usuario esta desactivado</h1>
+            <h3><a href="../login1.jsp"></a></h3>
+            </c:when>
+            <c:when test="${tipo == 1 && estado ==1}">
             <h1>Tu usuario es incorrecto</h1>
             <h3><a href="../login1.jsp"></a></h3>
             </c:when>
-            <c:when test="${tipo == 2}">
+            <c:when test="${tipo == 2 && estado ==1}">
             <h1>Tu usuario es incorrecto</h1>
             <h3><a href="../login1.jsp"></a></h3>
             </c:when>
