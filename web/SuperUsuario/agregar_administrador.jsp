@@ -4,9 +4,9 @@
     Author     : Berni
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/sql" prefix = "sql"%>
-
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,12 +40,14 @@
         </script>
     </head>
     <body>
-
+        
+        
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="tipoSSU">
             SELECT id, descripcion_tiposu FROM tipo_super
         </sql:query> 
+
 
         <c:choose>
             <c:when test="${usuario == null }">
@@ -62,6 +64,28 @@
 
                 </div>
             </c:when>
+
+            <c:when test="${tipo == 1 && estado !=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado !=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado ==1}">
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado ==1}">
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipoSU == 2 && estadoSU!=1}">
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+
             <c:when test="${tipo == 2 && estado!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
@@ -79,6 +103,7 @@
                 <h3><a href="../login1.jsp"></a></h3>
             </c:when>
             <c:when test="${tipoSU == 2 && estadoSU!=1}">
+
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
@@ -106,12 +131,23 @@
                                     </tr>
                                     <tr>
                                         <td>TIPO :</td>
+
+                                    
+                                     <td>
+                                    <select name="cboTipo">
+                                        <c:forEach var="tipo" items="${tipo.rows}">
+                                            <option value="${tipo.id}">${estados.descripcion_tiposu}</option>
+                                        </c:forEach>
+                                    </select>
+                                </td>
+
                                         <td>
                                             <select name="cboTipo" >
                                             <c:forEach var="tipos" items="${tipoSSU.rows}">
                                                 <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
                                             </c:forEach>
                                         </select></td>
+
                                 </tr>
 
                                 <tr>
