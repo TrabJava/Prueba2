@@ -104,10 +104,17 @@
 
                             </table>
                         </form>
-                        <div class="alert alert-light alert-dismissible"  style="width: 200px">
-                            <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>${mensaje}</strong>
-                        </div>
+                            <div>
+                        <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregar_A_Equipo")!=null) {
+                            out.println(request.getAttribute("msjAgregar_A_Equipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregar_A_Equipo}</strong>
+                </div>
                     </div>
                 </div>   
             </c:when> 
@@ -147,10 +154,17 @@
 
                             </table>
                         </form>
-                        <div class="alert alert-light alert-dismissible"  style="width: 200px">
-                            <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>${mensaje}</strong>
-                        </div>
+                            <div>
+                        <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregar_A_Equipo")!=null) {
+                            out.println(request.getAttribute("msjAgregar_A_Equipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregar_A_Equipo}</strong>
+                </div>
                     </div>
                 </div>   
             </c:when> 
