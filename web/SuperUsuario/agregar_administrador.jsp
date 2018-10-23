@@ -19,7 +19,16 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Agregar a un Wn</title>
+        <style>
+        body{
+            background: url(../img/lolcito.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
         <script>
             function soloLetras(e) {
                 key = e.keyCode || e.which;
@@ -40,6 +49,7 @@
         </script>
     </head>
     <body>
+    
         
         
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
@@ -117,42 +127,39 @@
                 </c:when>
                 <c:when test="${tipoSU == 1 && estadoSU==1}">
                     <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-                    <div class="panel-body" style="margin-left:40%;">
+                    <div class="panel-body">
+                        <center>
+        <img src="../img/llll.png" alt=""/>
+    </center>
+                        <center>
                         <form action="../procesoSuperUsuario" method="POST">
-                            <table border="1">
+                            <table border="1" class="table table-dark" style="max-width: 300px">
                                 <tbody>
                                     <tr>
                                         <td>USER :</td>
-                                        <td><input type="text" name="txtUser" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
+                                        <td><input type="text" name="txtUser" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)" style="background-color:rgba(0, 0, 0, 0)"/></td>
                                     </tr>
                                     <tr>
                                         <td>PASS :</td>
-                                        <td><input type="password" name="txtPass" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
+                                        <td><input type="password" name="txtPass" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)" style="background-color:rgba(0, 0, 0, 0)"/></td>
                                     </tr>
                                     <tr>
                                         <td>TIPO :</td>
 
                                     
                                      <td>
-                                    <select name="cboTipo">
-                                        <c:forEach var="tipo" items="${tipo.rows}">
-                                            <option value="${tipo.id}">${estados.descripcion_tiposu}</option>
-                                        </c:forEach>
-                                    </select>
-                                </td>
-
-                                        <td>
-                                            <select name="cboTipo" >
+                                         <select name="cboTipo" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white">
                                             <c:forEach var="tipos" items="${tipoSSU.rows}">
-                                                <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
+                                                <option value="${tipos.id}" style="color: black">${tipos.descripcion_tiposu}</option>
                                             </c:forEach>
                                         </select></td>
+                                        
 
                                 </tr>
 
                                 <tr>
-                                    <td colspan="5">
-                                        <input type="submit" name="btnAccion" value="Agregar" />
+                                    <td colspan="2">
+                                        <input type="submit" name="btnAccion" value="Agregar" style="width: 260px"/>
                                     </td>
                                 </tr>
                             </tbody>
@@ -162,6 +169,10 @@
                         <button  type="button" class="close" data-dismiss="alert">&times;</button>
                         <strong>${mensaje}</strong>
                     </div>
+                    
+                    
+                        
+                    </center>
                 </div>
             </c:when>
         </c:choose>              
