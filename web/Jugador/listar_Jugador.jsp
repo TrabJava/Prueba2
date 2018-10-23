@@ -141,10 +141,36 @@
                             <td><input type="text" name="txtSeleccion" readonly="" value="<%= rs.getString("s.descripcion_seleccion")%>" /></td>
                             <td><input type="text" name="txtEquipo" readonly="" value="<%= rs.getString("eq.nombre_equipo")%>" /></td>
                             <td><a href="modificar_jugador.jsp?id=<%= rs.getInt("j.id")%>" id="url" style="color: white">Modificar Jugador</a></td>
+                            <td><a href="desactivar_jugador.jsp?id=<%= rs.getInt("j.id")%>" id="url" style="color: white">Desactivar Jugador</a></td>
                         </tr>
                         <%}%>
                     </tbody>
                 </table>
+                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjDesactivarJugador")!=null) {
+                            out.println(request.getAttribute("msjDesactivarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarJugador}</strong>
+                </div>
+                
+                
+                <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjModificarJugador")!=null) {
+                            out.println(request.getAttribute("msjModificarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjModificarJugador}</strong>
+                </div>
+                
             </c:when>
             <c:when test="${tipoSU == 2 && estadoSU==1}">
                 <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
@@ -180,10 +206,12 @@
                             <td><input type="text" name="txtSeleccion" readonly="" value="<%= rs.getString("s.descripcion_seleccion")%>" /></td>
                             <td><input type="text" name="txtEquipo" readonly="" value="<%= rs.getString("eq.nombre_equipo")%>" /></td>
                             <td><a href="modificar_jugador.jsp?id=<%= rs.getInt("j.id")%>" id="url" style="color: white">Modificar Jugador</a></td>
+                            <td><a href="desactivar_jugador.jsp?id=<%= rs.getInt("j.id")%>" id="url" style="color: white">Desactivar Jugador</a></td>
                         </tr>
                         <%}%>
                     </tbody>
                 </table>
+                
             </c:when>
             <c:when test="${tipo == 2 && estado==1}">
                 <jsp:include page="../Menú/menuCoach.jsp"></jsp:include>
