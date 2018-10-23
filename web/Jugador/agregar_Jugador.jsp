@@ -157,7 +157,14 @@
                 </form>
                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
                     <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>${mensaje}</strong>
+                      <%
+                        if (request.getAttribute("msjAgregarJugador")!=null) {
+                            out.println(request.getAttribute("msjAgregarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarJugador}</strong>
                 </div>
             </c:when>
 
@@ -395,7 +402,14 @@
                 </form>
                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
                     <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>${mensaje}</strong>
+                    <%
+                        if (request.getAttribute("msjAgregarJugador")!=null) {
+                            out.println(request.getAttribute("msjAgregarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarJugador}</strong>
                 </div>
             </c:when>
         </c:choose>
