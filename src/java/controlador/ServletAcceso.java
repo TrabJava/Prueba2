@@ -117,7 +117,7 @@ public class ServletAcceso extends HttpServlet {
                    response.sendRedirect("SuperUsuario/index_admin.jsp"); 
                 }
             }  else {
-                request.getSession().setAttribute("mensaje", "Credenciales incorrectas");
+                request.getSession().setAttribute("mensajeLogin", "Credenciales incorrectas");
                 response.sendRedirect("login1.jsp");  
             }
         }
@@ -142,12 +142,12 @@ public class ServletAcceso extends HttpServlet {
                 request.getSession().setAttribute("tipo", ju.getTipo().getId());
                 request.getSession().setAttribute("estado", ju.getEstado().getId());
                 if (tipo==1) {
-                    response.sendRedirect("SuperUsuario/index_super.jsp"); 
+                    response.sendRedirect("Jugador/indexJugador.jsp"); 
                 }else if(tipo==2){
-                   response.sendRedirect("Equipo/index_equipo.jsp"); 
+                   response.sendRedirect("menuCoach/index_equipo.jsp"); 
                 }
             }  else {
-                request.getSession().setAttribute("mensaje", "Credenciales incorrectas");
+                request.getSession().setAttribute("mensajeLogin", "Credenciales incorrectas");
                 response.sendRedirect("login1.jsp");  
             }
         }
