@@ -78,12 +78,12 @@ public class ServletJugador extends HttpServlet {
             SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
             Equipo equipJug = new Equipo(equipo);
             if (jugadorFacade.existeUsuario(user)) {
-                request.getSession().setAttribute("mensaje", "El jugador ya existe");
+                request.getSession().setAttribute("msjAgregarJugador", "El jugador ya existe");
                 response.sendRedirect("Jugador/agregar_Jugador.jsp");
 
             } else {
                 jugadorFacade.create(new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
-                request.getSession().setAttribute("mensaje", "El jugador se ha creado");
+                request.getSession().setAttribute("msjAgregarJugador", "El jugador se ha creado");
                 response.sendRedirect("Jugador/agregar_Jugador.jsp");
             }
         } catch (Exception e) {
@@ -112,15 +112,15 @@ public class ServletJugador extends HttpServlet {
                 Equipo equipJug = new Equipo(equipo);
                 Jugador jug = new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug);
                 jugadorFacade.edit(jug);
-                request.getSession().setAttribute("mensaje", "El Usuario se ha deshabilitado");
-                response.sendRedirect("Jugador/listar_Jugador.jsp");
+                request.getSession().setAttribute("msjDesactivarJugador", "El Usuario se ha deshabilitado");
+                response.sendRedirect("Equipo/listar_equipo.jsp");
 
             } else {
-                request.getSession().setAttribute("mensaje", "El usuario no existe");
-                response.sendRedirect("Jugador/listar_Jugador.jsp");
+                request.getSession().setAttribute("msjDesactivarJugador", "El usuario no existe");
+                response.sendRedirect("Equipo/listar_equipo.jsp");
             }
         } catch (Exception e) {
-            response.sendRedirect("Jugador/listar_Jugador.jsp");
+            response.sendRedirect("Equipo/listar_equipo.jsp");
         }
 
     }
@@ -144,15 +144,15 @@ public class ServletJugador extends HttpServlet {
                 SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
                 Equipo equipJug = new Equipo(equipo);
                 jugadorFacade.edit(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
-                request.getSession().setAttribute("mensaje", "El jugador se ha Modificado");
-                response.sendRedirect("Jugador/listar_Jugador.jsp");
+                request.getSession().setAttribute("msjModificarJugador", "El jugador se ha Modificado");
+                response.sendRedirect("Equipo/listar_equipo.jsp");
 
             } else {
-                request.getSession().setAttribute("mensaje", "El jugador no se ha Modificado");
-                response.sendRedirect("Jugador/listar_Jugador.jsp");
+                request.getSession().setAttribute("msjModificarJugador", "El jugador no se ha Modificado");
+                response.sendRedirect("Equipo/listar_equipo.jsp");
             }
         } catch (Exception e) {
-          response.sendRedirect("Jugador/listar_Jugador.jsp");
+          response.sendRedirect("Equipo/listar_equipo.jsp");
         }
 
     }
@@ -169,12 +169,12 @@ public class ServletJugador extends HttpServlet {
             TipoJugador tipoJug = new TipoJugador(tipo);
             EstadoJugador estadoJug = new EstadoJugador(estado);
             if (jugadorFacade.existeUsuario(user)) {
-                request.getSession().setAttribute("mensaje", "El jugador ya existe");
+                request.getSession().setAttribute("mensajeAgregarJugador", "El jugador ya existe");
                 response.sendRedirect("registroJugador.jsp");
 
             } else {
                 jugadorFacade.create(new Jugador(nombre, apellido, rut, user, pass, tipoJug, estadoJug));
-                request.getSession().setAttribute("mensaje", "El jugador se ha creado");
+                request.getSession().setAttribute("mensajeAgregarJugador", "El jugador se ha creado");
                 response.sendRedirect("registroJugador.jsp");
             }
         } catch (Exception e) {
@@ -201,11 +201,11 @@ public class ServletJugador extends HttpServlet {
                 SeleccionJugador seleccionJug = new SeleccionJugador(seleccion);
                 Equipo equipJug = new Equipo(equipo);
                 jugadorFacade.edit(new Jugador(id, nombre, apellido, rut, user, pass, tipoJug, estadoJug, seleccionJug, equipJug));
-                request.getSession().setAttribute("mensaje", "El jugador se ha Agregado al equipo");
+                request.getSession().setAttribute("msjAgregar_A_Equipo", "El jugador se ha Agregado al equipo");
                 response.sendRedirect("Jugador/listar_JugadorSinEquipo.jsp");
 
             } else {
-                request.getSession().setAttribute("mensaje", "El jugador no se ha Modificado");
+                request.getSession().setAttribute("msjAgregar_A_Equipo", "El jugador no se ha Modificado");
                 response.sendRedirect("Jugador/listar_JugadorSinEquipo.jsp");
             }
         } catch (Exception e) {
