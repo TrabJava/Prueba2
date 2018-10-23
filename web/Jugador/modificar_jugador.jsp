@@ -104,7 +104,19 @@
 
                 </div>
             </c:when>
-            <c:when test="${tipoSU == 1 && estadoSU!=1}">
+            <c:when test="${tipo == 1 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 2 && estado!=1}">
+                <h1>Tu usuario esta desactivado</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipo == 1 && estado==1}">
+                <h1>Tu usuario es incorrecto</h1>
+                <h3><a href="../login1.jsp"></a></h3>
+                </c:when>
+                <c:when test="${tipoSU == 1 && estadoSU!=1}">
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
@@ -299,8 +311,100 @@
                     <input type="submit" value="Modificar" name="btnAccion" class="btn btn-info" style="margin-left: 650px"/>    
                 </form>
             </c:when>
+            <c:when test="${tipo == 2 && estado==1}">
+                <jsp:include page="../Menú/menuCoach.jsp"></jsp:include>
+                    <br>
+                    <img src="../img/MODIFICAR HU.png" alt="" style="margin-left: 250px"/>
+                    <br><br><br>
+                    <form action="../procesoJugador" method="POST">
+                        <table border="1" class="table table-dark" style="max-width: 400px;margin-left: 450px">
+                            <tbody>
+                                <tr>
+                                    <td>ID:</td>
+                                    <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("id")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                            </tr>
+                            <tr>
+                                <td>Nombre:</td>
+                                <td><input type="text" name="txtNombre" value="<%= rs.getString("nombre")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                            </tr>
+                            <tr>
+                                <td>Apellido Paterno:</td>
+                                <td><input type="text" name="txtApellido" value="<%= rs.getString("ap_paterno")%> "required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                            </tr>
+                            <tr>
+                                <td>Rut:</td>
+                                <td><input type="text" name="txtRut" value="<%= rs.getString("rut")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                            </tr>
+                            <tr>
+                                <td>Usuario:</td>
+                                <td><input type="text" name="txtUser" value="<%= rs.getString("user")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                            </tr>
+                            <tr>
+                                <td>contraseña:</td>
+                                <td><input type="text" name="txtPass" value="<%= rs.getString("pass")%>" required="" onblur="limpia()"  onkeypress="return soloLetras(event)"></td>
+                            </tr>
+                            <tr>
+                                <td>Tipo de Usuario:</td>
+                                <td>
+                                    <select name="cboTipo">
+                                        <%
+                                            while (rset.next()) {%>
+                                        <option value="<%= rset.getInt("id")%>"><%= rset.getString("descripcion_tipoj")%></option>
+                                        <%}
+                                        %>
+                                    </select>
 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Estado:</td>
+                                <td>
+                                    <select name="cboEstado">
+                                        <%
+                                            while (rseet.next()) {%>
+                                        <option value="<%= rseet.getInt("id")%>"><%= rseet.getString("descripcion_estadoj")%></option>
+                                        <%}
+                                        %>
+                                    </select>
 
-            <%}%>
-        </body>
-    </html>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Seleccion:</td>
+                                <td>
+                                    <select name="cboSeleccion">
+                                        <%
+                                            while (reseet.next()) {%>
+                                        <option value="<%= reseet.getInt("id")%>"><%= reseet.getString("descripcion_seleccion")%></option>
+                                        <%}
+                                        %>
+                                    </select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Equipo</td>
+                                <td>
+                                    <select name="cboEquipo">
+                                        <%
+                                            while (resett.next()) {%>
+                                        <option value="<%= resett.getInt("id")%>"><%= resett.getString("nombre_equipo")%></option>
+                                        <%}
+                                        %>
+                                    </select>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <br>
+                    <input type="submit" value="Modificar" name="btnAccion" class="btn btn-info" style="margin-left: 650px"/>    
+                </form>
+            </c:when>
+
+            
+        </c:choose>
+<%}%>
+    </body>
+</html>
