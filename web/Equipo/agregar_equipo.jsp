@@ -170,9 +170,16 @@
             </form>
         </div>
         <div class="alert alert-light alert-dismissible"  style="width: 200px">
-            <button  type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>${mensaje}</strong>
-        </div>
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregarEquipo")!=null) {
+                            out.println(request.getAttribute("msjAgregarEquipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarEquipo}</strong>
+                </div>
     </c:when>
     <c:when test="${tipo == 1 && estado ==1}">
         <jsp:include page="../Menú/menuJugador.jsp"></jsp:include>
@@ -214,10 +221,17 @@
             </table>
         </form>
     </div>
-    <div class="alert alert-light alert-dismissible"  style="width: 200px">
-        <button  type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>${mensaje}</strong>
-    </div>
+     <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregarEquipo")!=null) {
+                            out.println(request.getAttribute("msjAgregarEquipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarEquipo}</strong>
+                </div>
 </c:when>
 <c:when test="${tipo == 2 && estado ==1}">
     <jsp:include page="../Menú/menuCoach.jsp"></jsp:include>
@@ -259,10 +273,17 @@
         </table>
     </form>
 </div>
-<div class="alert alert-light alert-dismissible"  style="width: 200px">
-    <button  type="button" class="close" data-dismiss="alert">&times;</button>
-    <strong>${mensaje}</strong>
-</div>
+ <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregarEquipo")!=null) {
+                            out.println(request.getAttribute("msjAgregarEquipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarEquipo}</strong>
+                </div>
 </c:when>
 </c:choose>
 </body>
