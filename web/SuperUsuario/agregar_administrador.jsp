@@ -174,7 +174,7 @@
                             }
                         %>
                         
-                    <strong>${msjAgregarLiga}</strong>
+                    <strong>${msjAgregarAdministrador}</strong>
                 </div>
                     
                     
