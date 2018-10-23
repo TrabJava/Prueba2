@@ -89,11 +89,11 @@ public class ServletLiga extends HttpServlet {
         try {
             String nombre = request.getParameter("txtNombreLiga");
         if (ligaFacade.existeLiga(nombre)) {
-            request.getSession().setAttribute("mensaje", "La liga ya existe");
+            request.getSession().setAttribute("msjAgregarLiga", "La liga ya existe");
             response.sendRedirect("Liga/agregar_liga.jsp");
         } else {
             ligaFacade.create(new Liga(nombre));
-            request.getSession().setAttribute("mensaje", "La Liga se ha creado");
+            request.getSession().setAttribute("msjAgregarLiga", "La Liga se ha creado");
             response.sendRedirect("Liga/agregar_liga.jsp");
         }
         } catch (Exception e) {
@@ -107,11 +107,11 @@ public class ServletLiga extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("txtId"));
             String nombre = request.getParameter("txtNombreLiga");
             if (ligaFacade.existeLiga(nombre)) {
-                request.getSession().setAttribute("mensaje", "La liga no se ha Modificado");
+                request.getSession().setAttribute("msjModificarLiga", "La liga no se ha Modificado");
                 response.sendRedirect("Liga/listar_Liga.jsp");
             } else {
                 ligaFacade.edit(new Liga(id, nombre));
-                request.getSession().setAttribute("mensaje", "La liga se ha Modificado");
+                request.getSession().setAttribute("msjModificarLiga", "La liga se ha Modificado");
                 response.sendRedirect("Liga/listar_Liga.jsp");
             }
         } catch (Exception e) {
