@@ -59,14 +59,14 @@ public class ServletEquipo extends HttpServlet {
         int liga =Integer.parseInt(request.getParameter("cboLiga"));
         int estado =1;
         if (equipoFacade.existeUsuario(equipo)) {
-            request.getSession().setAttribute("mensaje", "El equipo ya existe");
+            request.getSession().setAttribute("msjAgregarEquipo", "El equipo ya existe");
             response.sendRedirect("Equipo/agregar_equipo.jsp");
         } else {
             Liga liguilla = new Liga(liga);
             EstadoEquipo estadoEQ = new EstadoEquipo(estado);
             Equipo equipillo = new Equipo(equipo, archivo, liguilla, estadoEQ);
             equipoFacade.create(equipillo);
-            request.getSession().setAttribute("mensaje", "El equipo se ha creado");
+            request.getSession().setAttribute("msjAgregarEquipo", "El equipo se ha creado");
             response.sendRedirect("Equipo/agregar_equipo.jsp");
         }
     }
@@ -87,11 +87,11 @@ public class ServletEquipo extends HttpServlet {
             EstadoEquipo estadoEQ = new EstadoEquipo(estado);
             Equipo equipillo = new Equipo(id, equipo, archivo, liguilla, estadoEQ);
             equipoFacade.edit(equipillo);
-            request.getSession().setAttribute("mensaje", "El equipo se ha modificado");
+            request.getSession().setAttribute("msjModificarEquipo", "El equipo se ha modificado");
             response.sendRedirect("Equipo/listar_equipo.jsp");
             
         } else {
-            request.getSession().setAttribute("mensaje", "El nombre del equipo ya existe");
+            request.getSession().setAttribute("msjModificarEquipo", "El nombre del equipo ya existe");
             response.sendRedirect("Equipo/listar_equipo.jsp");
         }
     }
