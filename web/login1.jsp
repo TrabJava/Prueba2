@@ -8,6 +8,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
+
 <html>
     <head>
         <title>Ingresar al Match</title>
@@ -35,6 +36,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
+           
+        
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
 
         <sql:query dataSource="${dataSource}" var="tipoj">
@@ -81,7 +84,20 @@
                     </div>
                     <div class="clear"></div>
                 </form>	
-               <button type="button"   data-target="#demo"> ${mensaje}</button>
+                     <div>
+                        <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("mensajeLogin")!=null) {
+                            out.println(request.getAttribute("mensajeLogin"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${mensajeLogin}</strong>
+                </div>
+                 
+                    
+               
             </div>
             <div class="clear"></div>
         </div>
