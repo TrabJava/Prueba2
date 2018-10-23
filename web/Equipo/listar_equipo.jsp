@@ -109,9 +109,42 @@
 
                     </div>
                 </div>
+                    
+                     <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjModificarEquipo")!=null) {
+                            out.println(request.getAttribute("msjModificarEquipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjModificarEquipo}</strong>
+                </div>
+                
+                    
+                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjDesactivarJugador")!=null) {
+                            out.println(request.getAttribute("msjDesactivarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjDesactivarJugador}</strong>
+                </div>
+                
                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
                     <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>${mensaje}</strong>
+                      <%
+                        if (request.getAttribute("msjModificarJugador")!=null) {
+                            out.println(request.getAttribute("msjModificarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjModificarJugador}</strong>
                 </div>
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
@@ -158,9 +191,41 @@
 
                     </div>
                 </div>
+                    
+                     <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjModificarEquipo")!=null) {
+                            out.println(request.getAttribute("msjModificarEquipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjModificarEquipo}</strong>
+                </div>
+                    
+                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjDesactivarJugador")!=null) {
+                            out.println(request.getAttribute("msjDesactivarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjDesactivarJugador}</strong>
+                </div>
+                
                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
                     <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>${mensaje}</strong>
+                      <%
+                        if (request.getAttribute("msjModificarJugador")!=null) {
+                            out.println(request.getAttribute("msjModificarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjModificarJugador}</strong>
                 </div>
             </c:when>
                     <c:when test="${tipo == 2 && estado==1}">
@@ -207,9 +272,41 @@
 
                     </div>
                 </div>
+                    
+                     <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjModificarEquipo")!=null) {
+                            out.println(request.getAttribute("msjModificarEquipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjModificarEquipo}</strong>
+                </div>
+                    
+                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjDesactivarJugador")!=null) {
+                            out.println(request.getAttribute("msjDesactivarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjDesactivarJugador}</strong>
+                </div>
+                
                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
                     <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>${mensaje}</strong>
+                      <%
+                        if (request.getAttribute("msjModificarJugador")!=null) {
+                            out.println(request.getAttribute("msjModificarJugador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjModificarJugador}</strong>
                 </div>
                     </c:when>
                     
