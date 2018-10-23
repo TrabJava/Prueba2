@@ -41,8 +41,8 @@
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="../Jugador/agregar_Jugador.jsp">Agregar Jugador</a>
-                        <a class="dropdown-item" href="../Jugador/listar_Jugador.jsp">Listar Jugadores</a>
                         <a class="dropdown-item" href="../Jugador/listar_JugadorSinEquipo.jsp">Fichajes</a>
+                       
                     </div>
                 </li> 
                 <li class="nav-item dropdown">
