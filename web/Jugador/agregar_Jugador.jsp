@@ -17,7 +17,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JSP Page</title>
+        <title>Agregar Jugador</title>
+        <style>
+            body{
+                background: url(../img/2.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
+        <link rel="shortcut icon" href="../img/LOL_Logo.ico" />
     </head>
     <body>
         <sql:setDataSource var="dataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/liga_nos_vamos?zeroDateTimeBehavior=convertToNull" user="mojaber_ali" password="12345"></sql:setDataSource>
@@ -83,36 +93,37 @@
 
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-                    <h1>Agregar Jugador</h1>
+                <center>
+                    <img src="../img/agjug.png" alt=""/>
                     <form  action="../procesoJugador" method="POST">
-                        <table border="1">
+                        <table border="1" class="table table-dark" style="width: 400px">
                             <tbody>
                                 <tr>
-                                    <td><label>Nombre: </label></td>
-                                    <td><input type="text" name="txtNombreJugador" value="" placeholder="ingresar nombre jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
+                                    <td ><label>Nombre: </label></td>
+                                    <td><input type="text" name="txtNombreJugador" value="" placeholder="ingresar nombre jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white"/></td>
                                 </tr>
                                 <tr>
                                     <td><label>Apellido Paterno: </label></td>
-                                    <td><input type="text" name="txtApellidoPaterno" value="" placeholder="ingresar apellido jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
+                                    <td><input type="text" name="txtApellidoPaterno" value="" placeholder="ingresar apellido jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white"/></td>
                                 </tr>
                                 <tr>
                                     <td><label>Rut: </label></td>
-                                    <td><input type="text" name="txtRutJugador" value="" placeholder="ingresar rut jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
+                                    <td><input type="text" name="txtRutJugador" value="" placeholder="ingresar rut jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white"></td>
                                 </tr>
                                 <tr>
                                     <td><label>Usuario: </label></td>
-                                    <td><input type="text" name="txtUser" value="" placeholder="ingresar nombre usuario" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
+                                    <td><input type="text" name="txtUser" value="" placeholder="ingresar nombre usuario" onblur="limpia()" required=""  onkeypress="return soloLetras(event)" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white"/></td>
                                 </tr>
                                 <tr>
                                     <td><label>Contraseña: </label></td>
-                                    <td><input type="text" name="txtContrasenia" value="" placeholder="ingresar nombre jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)"/></td>
+                                    <td><input type="text" name="txtContrasenia" value="" placeholder="ingresar nombre jugador" onblur="limpia()" required=""  onkeypress="return soloLetras(event)" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white"/></td>
                                 </tr>
                                 <tr>
                                     <td><label>Tipo: </label></td>
                                     <td>
-                                        <select name="cboTipo">
+                                        <select name="cboTipo" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white">
                                         <c:forEach var="tipos" items="${tipoSJ.rows}">
-                                            <option value="${tipos.id}">${tipos.descripcion_tipoj}</option>
+                                            <option value="${tipos.id}" style="color: black">${tipos.descripcion_tipoj}</option>
                                         </c:forEach>
                                     </select>
                                 </td>
@@ -120,9 +131,9 @@
                             <tr>
                                 <td><label>Estado: </label></td>
                                 <td>
-                                    <select name="cboEstado">
+                                    <select name="cboEstado" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white">
                                         <c:forEach var="estados" items="${estadoJ.rows}">
-                                            <option value="${estados.id}">${estados.descripcion_estadoj}</option>
+                                            <option value="${estados.id}" style="color: black">${estados.descripcion_estadoj}</option>
                                         </c:forEach>
                                     </select>
                                 </td>
@@ -130,9 +141,9 @@
                             <tr>
                                 <td><label>Seleccion: </label></td>
                                 <td>
-                                    <select name="cboSeleccion">
+                                    <select name="cboSeleccion" style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white">
                                         <c:forEach var="seleccionados" items="${seleccion.rows}">
-                                            <option value="${seleccionados.id}">${seleccionados.descripcion_seleccion}</option>
+                                            <option value="${seleccionados.id}" style="color: black">${seleccionados.descripcion_seleccion}</option>
                                         </c:forEach>
                                     </select>
                                 </td>
@@ -140,15 +151,15 @@
                             <tr>
                                 <td><label>Equipo: </label></td>
                                 <td>
-                                    <select name="cboEquipo">
+                                    <select name="cboEquipo"style="width: 181px;background-color:rgba(0, 0, 0, 0);color: white">
                                         <c:forEach var="equipos" items="${equipo.rows}">
-                                            <option value="${equipos.id}">${equipos.nombre_equipo}</option>
+                                            <option value="${equipos.id}" style="color: black">${equipos.nombre_equipo}</option>
                                         </c:forEach>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <td><input type="submit" name="btnAccion" value="Agregar"/></td>
+                                <td colspan="2"><input type="submit" name="btnAccion" value="Agregar" class="btn btn-group" style="width: 350px"/></td>
                             </tr>
 
                         </tbody>
@@ -166,6 +177,7 @@
                         
                     <strong>${msjAgregarJugador}</strong>
                 </div>
+            </center>
             </c:when>
 
             <c:when test="${tipoSU == 2 && estadoSU==1}">

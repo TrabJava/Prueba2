@@ -16,7 +16,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Jugador</title>
+        <link rel="shortcut icon" href="../img/LOL_Logo.ico" />
     </head>
     <body>
         <c:choose>

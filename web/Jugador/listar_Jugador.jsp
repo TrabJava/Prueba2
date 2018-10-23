@@ -14,6 +14,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="shortcut icon" href="../img/LOL_Logo.ico" />
         <style>
             body{
                 background: url(../img/2.jpg) no-repeat center center fixed;
@@ -109,6 +110,9 @@
                 </c:when>
                 <c:when test="${tipoSU == 1 && estadoSU==1}">
                     <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                <center>
+                    <img src="../img/ljug.png" alt=""/>
+                </center>
                     <table class="table table-dark">
 
                         <tbody>
@@ -130,16 +134,16 @@
 
 
 
-                            <td><input type="text" name="txtId" readonly="" value="<%= rs.getInt("j.id")%>" /></td>
-                            <td><input type="text" name="txtNombre" readonly="" value="<%= rs.getString("j.nombre")%>" /></td>
-                            <td><input type="text" name="txtApellido" readonly="" value="<%= rs.getString("j.ap_paterno")%>" /></td>
-                            <td><input type="text" name="txtRut" readonly="" value="<%= rs.getString("j.rut")%>" /></td>
-                            <td><input type="text" name="txtUsuario" readonly="" value="<%= rs.getString("j.user")%>" /></td>
-                            <td><input type="password" name="txtContrasenia" readonly="" value="<%= rs.getString("j.pass")%>" /></td>
-                            <td><input type="text" name="txtTipo" readonly="" value="<%= rs.getString("t.descripcion_tipoj")%>" /></td>
-                            <td><input type="text" name="txtEstado" readonly="" value="<%= rs.getString("e.descripcion_estadoj")%>" /></td>
-                            <td><input type="text" name="txtSeleccion" readonly="" value="<%= rs.getString("s.descripcion_seleccion")%>" /></td>
-                            <td><input type="text" name="txtEquipo" readonly="" value="<%= rs.getString("eq.nombre_equipo")%>" /></td>
+                            <td><%= rs.getInt("j.id")%></td>
+                            <td><%= rs.getString("j.nombre")%></td>
+                            <td><%= rs.getString("j.ap_paterno")%></td>
+                            <td><%= rs.getString("j.rut")%></td>
+                            <td><%= rs.getString("j.user")%></td>
+                            <td><%= rs.getString("j.pass")%></td>
+                            <td><%= rs.getString("t.descripcion_tipoj")%></td>
+                            <td><%= rs.getString("e.descripcion_estadoj")%></td>
+                            <td><%= rs.getString("s.descripcion_seleccion")%></td>
+                            <td><%= rs.getString("eq.nombre_equipo")%></td>
                             <td><a href="modificar_jugador.jsp?id=<%= rs.getInt("j.id")%>" id="url" style="color: white">Modificar Jugador</a></td>
                             <td><a href="desactivar_jugador.jsp?id=<%= rs.getInt("j.id")%>" id="url" style="color: white">Desactivar Jugador</a></td>
                         </tr>

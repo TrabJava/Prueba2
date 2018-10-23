@@ -17,7 +17,17 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Mancos sin equipos</title>
+        <link rel="shortcut icon" href="../img/LOL_Logo.ico" />
+        <style>
+            body{
+                background: url(../img/2.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
     </head>
     <body>
         <sql:setDataSource var="dataSource" 
@@ -120,6 +130,8 @@
             </c:when> 
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                <center>
+                    <img src="../img/jseqp.png" alt=""/>
                     <div class="col-sm-8">
                         <div class="container" style="margin-top: 30px">    
                             <form action="../procesoJugador" method="GET">
@@ -167,6 +179,7 @@
                 </div>
                     </div>
                 </div>   
+                        </center>
             </c:when> 
                 <c:when test="${tipo == 2 && estado==1}">
                     <jsp:include page="../Menú/menuCoach.jsp"></jsp:include>

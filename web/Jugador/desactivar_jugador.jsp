@@ -19,7 +19,8 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>JSP Page</title>
+        <title>Desactivar Jugador</title>
+        <link rel="shortcut icon" href="../img/LOL_Logo.ico" />
     </head>
     <body>
 
