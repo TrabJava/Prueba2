@@ -18,7 +18,7 @@
             function soloLetras(e) {
                 key = e.keyCode || e.which;
                 tecla = String.fromCharCode(key).toLowerCase();
-                letras = "qwertyuiopasdfghjklñzxcvbnm-_123456789/";
+                letras = "qwertyuiopasdfghjklñzxcvbnm-_1234567890/";
                 especiales = "8-37-39-46";
                 tecla_especial = false
                 for (var i in especiales) {
@@ -167,6 +167,17 @@
                     <br>
                     <input type="submit" value="Agregar_a_Equipo" name="btnAccion" class="btn btn-info"/>    
                 </form>
+                     <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregar_A_Equipo")!=null) {
+                            out.println(request.getAttribute("msjAgregar_A_Equipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregar_A_Equipo}</strong>
+                </div>
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
@@ -232,8 +243,23 @@
                         </tbody>
                     </table>
                     <br>
-                    <input type="submit" value="Agregar_a_Equipo" name="btnAccion" class="btn btn-info"/>      
+                    <input type="submit" value="Agregar_a_Equipo" name="btnAccion" class="btn btn-info"/>  
+                </form>
+                        <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregar_A_Equipo")!=null) {
+                            out.println(request.getAttribute("msjAgregar_A_Equipo"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregar_A_Equipo}</strong>
+                </div>
                 </c:when>
+
+  
+
                 <c:when test="${tipo == 2 && estado==1}">
                     <jsp:include page="../Menú/menuCoach.jsp"></jsp:include>
                         <h1>Modificar Datos del Jugador</h1>
@@ -304,3 +330,4 @@
                 <%}%>
                 </body>
                 </html>
+
