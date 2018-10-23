@@ -137,10 +137,29 @@
                                             </c:forEach>
                                     </table>
                                 </form>
-                                <div class="alert alert-light alert-dismissible"  style="width: 200px">
-                                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                                    <strong>${mensaje}</strong>
-                                </div>
+                                 <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjModificarSuper")!=null) {
+                            out.println(request.getAttribute("msjModificarSuper"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjModificarSuper}</strong>
+                </div>
+                
+                  <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjDesactivarUsuario")!=null) {
+                            out.println(request.getAttribute("msjDesactivarUsuario"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjDesactivarUsuario}</strong>
+                </div>
                             </div>
                         </div>
                     </div>
