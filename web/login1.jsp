@@ -106,7 +106,7 @@
                         <div class="clear"></div>
                         <div class="w3-psw">
                             <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                            <select name="cboTipo" style="width: 340px;height: 44px" >
+                            <select name="cboTipo" style="width: 220px;height: 44px" >
                                 <c:forEach var="tipos" items="${tipoj.rows}">
                                     <option value="${tipos.id}" >${tipos.descripcion_tipoj}</option>
                                 </c:forEach>
@@ -147,7 +147,7 @@
                         <div class="clear"></div>
                         <div class="w3-psw">
                             <span><i class="fa fa-key" aria-hidden="true"></i></span>
-                            <select name="cboTipo" style="width: 340px;height: 44px">
+                            <select name="cboTipo" style="width: 220px;height: 44px">
                                 <c:forEach var="tipos" items="${tipo.rows}">
                                     <option value="${tipos.id}">${tipos.descripcion_tiposu}</option>
                                 </c:forEach>
