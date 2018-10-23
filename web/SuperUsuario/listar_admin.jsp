@@ -46,6 +46,10 @@
                     <br><br><br><br><br><br>
 
 
+                            </table>
+                        </form>
+
+
                 </div>
             </c:when>
             <c:when test="${tipo == 1 && estado!=1}">
@@ -141,9 +145,18 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div>
+
+        <br><br>
+
+
+
                 <br><br>
                 <%-- <jsp:include page="../Menú/footer.jsp"></jsp:include>--%>
             </c:when>
         </c:choose>
+
     </body>
 </html>
