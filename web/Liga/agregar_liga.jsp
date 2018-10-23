@@ -88,10 +88,17 @@
                                 </tbody>
                             </table>
                         </form> 
-                        <div class="alert alert-light alert-dismissible"  style="width: 200px">
-                            <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>${mensaje}</strong>
-                    </div>
+                         <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregarLiga")!=null) {
+                            out.println(request.getAttribute("msjAgregarLiga"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarLiga}</strong>
+                </div>
                 </div>
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
@@ -112,10 +119,17 @@
                                 </tbody>
                             </table>
                         </form> 
-                        <div class="alert alert-light alert-dismissible"  style="width: 200px">
-                            <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                            <strong>${mensaje}</strong>
-                    </div>
+                       <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregarLiga")!=null) {
+                            out.println(request.getAttribute("msjAgregarLiga"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarLiga}</strong>
+                </div>
                 </div>
             </c:when>
         </c:choose>
