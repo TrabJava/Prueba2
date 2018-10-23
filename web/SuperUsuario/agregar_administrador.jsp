@@ -165,10 +165,17 @@
                             </tbody>
                         </table>
                     </form> 
-                    <div class="alert alert-light alert-dismissible"  style="width: 200px">
-                        <button  type="button" class="close" data-dismiss="alert">&times;</button>
-                        <strong>${mensaje}</strong>
-                    </div>
+                     <div class="alert alert-light alert-dismissible"  style="width: 200px">
+                    <button  type="button" class="close" data-dismiss="alert">&times;</button>
+                      <%
+                        if (request.getAttribute("msjAgregarAdministrador")!=null) {
+                            out.println(request.getAttribute("msjAgregarAdministrador"));
+                                
+                            }
+                        %>
+                        
+                    <strong>${msjAgregarLiga}</strong>
+                </div>
                     
                     
                         
