@@ -115,7 +115,16 @@
         </form>
         <div class="alert alert-light alert-dismissible"  style="width: 200px">
             <button  type="button" class="close" data-dismiss="alert">&times;</button>
-             <strong>${mensaje}</strong>
+              
+                            <%
+                        if (request.getAttribute("mensajeAgregarJugador")!=null) {
+                            out.println(request.getAttribute("mensajeAgregarJugador"));
+                                
+                            }
+                        %>
+                        
+                        <strong>${mensajeAgregarJugador}</strong>
+                        
         </div>
     </body>
 </html>
