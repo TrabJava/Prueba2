@@ -18,7 +18,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Agregar Ligas</title>
+        <style>
+        body{
+            background: url(../img/lolo.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
         <script>
             function soloLetras(e) {
                 key = e.keyCode || e.which;
@@ -74,7 +83,7 @@
                     <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
                     <div class="panel-body" style="margin-left:40%;">
                         <form action="../procesoLiga" method="POST">
-                            <table border="1">
+                            <table border="1" style="" class="table table-dark">
                                 <tbody>
                                     <tr>
                                         <td>Ingrese el nombre de la liga :</td>
@@ -103,12 +112,15 @@
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
-                    <div class="panel-body" style="margin-left:40%;">
+                    <div class="panel-body" >
+                        <center>
+                            
+                        
                         <form action="../procesoLiga" method="POST">
-                            <table border="1">
+                            <table border="1" style="width: 500px;margin-top: 100px" class="table table-dark">
                                 <tbody>
                                     <tr>
-                                        <td>Ingrese el nombre de la liga :</td>
+                                        <td>Nombre de la liga :</td>
                                         <td><input type="text" name="txtNombreLiga" value="" required="" minlength="3" maxlength="50" onblur="limpia()"  onkeypress="return soloLetras(event)"/></td>
                                     </tr>
                                     <tr>
@@ -130,6 +142,7 @@
                         
                     <strong>${msjAgregarLiga}</strong>
                 </div>
+                    </center>
                 </div>
             </c:when>
         </c:choose>

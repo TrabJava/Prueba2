@@ -18,7 +18,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-        <title>JSP Page</title>
+        <title>Listar Ligas</title>
+        <style>
+            body{
+                background: url(../img/ashe.jpg) no-repeat center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                background-position-y: 50px;
+            }
+        </style>
     </head>
     <body>
         <sql:setDataSource var="dataSource" 
@@ -61,6 +71,9 @@
                 </c:when>
                 <c:when test="${tipoSU == 2 && estadoSU==1}">
                     <jsp:include page="../Menú/menuAdmin.jsp"></jsp:include>
+                <center>
+                    
+                
                     <div class="col-sm-8">
                         <div class="container" style="margin-top: 30px">    
                             <form action="../procesoLiga" method="GET">
@@ -95,13 +108,15 @@
                 </div>
                     </div>
                 </div>
+                        </center>
             </c:when>
             <c:when test="${tipoSU == 1 && estadoSU==1}">
                 <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
+                <center>
                     <div class="col-sm-8">
                         <div class="container" style="margin-top: 30px">    
                             <form action="../procesoLiga" method="GET">
-                                <table class="table table-dark" style="width: 800px" >
+                                <table class="table table-dark" style="width: 800px;margin-top: 200px" >
                                     <tr>
                                         <td>ID </td>
                                         <td>Nombre de la liga </td>
@@ -132,6 +147,7 @@
                 </div>
                     </div>
                 </div>
+                        </center>
             </c:when>
         </c:choose>
 
