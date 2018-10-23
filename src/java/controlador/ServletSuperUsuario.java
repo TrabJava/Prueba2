@@ -59,14 +59,14 @@ public class ServletSuperUsuario extends HttpServlet {
         int estado = 1;
 
         if (superUsuarioFacade.existeUsuario(user)) {
-            request.getSession().setAttribute("mensaje", "El usuario ya existe");
+            request.getSession().setAttribute("msjAgregarAdministrador", "El usuario ya existe");
             response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
         } else {
             TipoSuper tipoSuper = new TipoSuper(tipo);
             EstadoSuper estadoSu = new EstadoSuper(estado);
             SuperUsuario superU = new SuperUsuario(user, pass, tipoSuper, estadoSu);
             superUsuarioFacade.create(superU);
-            request.getSession().setAttribute("mensaje", "El usuaro se ha creado");
+            request.getSession().setAttribute("msjAgregarAdministrador", "El usuaro se ha creado");
             response.sendRedirect("SuperUsuario/agregar_administrador.jsp");
         }
 
@@ -85,11 +85,11 @@ public class ServletSuperUsuario extends HttpServlet {
             EstadoSuper estadoSu = new EstadoSuper(estado);
             SuperUsuario su = new SuperUsuario(id, user, pass, tipoSuper, estadoSu);
             superUsuarioFacade.edit(su);
-            request.getSession().setAttribute("mensaje", "El Usuario se Modificó");
+            request.getSession().setAttribute("msjModificarSuper", "El Usuario se Modificó");
             response.sendRedirect("SuperUsuario/listar_admin.jsp");
             
         } else {
-            request.getSession().setAttribute("mensaje", "El usuario no se ha modificado");
+            request.getSession().setAttribute("msjModificarSuper", "El usuario no se ha modificado");
             response.sendRedirect("SuperUsuario/listar_admin.jsp");
         }
 
@@ -108,10 +108,10 @@ public class ServletSuperUsuario extends HttpServlet {
                 EstadoSuper estadoSu = new EstadoSuper(estado);
                 SuperUsuario su = new SuperUsuario(id, user, pass, tipoSuper, estadoSu);
                 superUsuarioFacade.edit(su);
-                request.getSession().setAttribute("mensaje", "El Usuario se desactivo");
+                request.getSession().setAttribute("msjDesactivarUsuario", "El Usuario se desactivo");
                 response.sendRedirect("SuperUsuario/listar_admin.jsp");
             } else {
-                request.getSession().setAttribute("mensaje", "El usuario no se desactivo");
+                request.getSession().setAttribute("msjDesactivarUsuario", "El usuario no se desactivo");
                 response.sendRedirect("SuperUsuario/listar_admin.jsp");
             }
         } catch (Exception e) {
