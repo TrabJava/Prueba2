@@ -73,7 +73,7 @@
                                             <th>LIGA</th>
                                             <th>ICONO</th>
                                             <th>MODIFICAR</th>
-                                            <th>MODIFICAR</th>
+                                            <th>VER JUGADORES</th>
 
                                         </tr>
                                     </thead>
@@ -122,7 +122,7 @@
                                             <th>LIGA</th>
                                             <th>ICONO</th>
                                             <th>MODIFICAR</th>
-                                            <th>MODIFICAR</th>
+                                            <th>VER JUGADORES</th>
 
                                         </tr>
                                     </thead>
