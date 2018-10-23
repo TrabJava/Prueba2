@@ -124,11 +124,8 @@
                 <h1>Tu usuario esta desactivado</h1>
                 <h3><a href="../login1.jsp"></a></h3>
                 </c:when>
+                
                 <c:when test="${tipoSU == 2 && estadoSU==1}">
-                <h1>Tu usuario es incorrecto</h1>
-                <h3><a href="../login1.jsp"></a></h3>
-                </c:when>
-                <c:when test="${tipoSU == 1 && estadoSU==1}">
                     <jsp:include page="../Menú/menuSuperU.jsp"></jsp:include>
                     <br>
                     <img src="../img/MODIFICAR HU.png" alt="" style="margin-left: 250px"/>
@@ -353,6 +350,7 @@
                                         <%}
                                         %>
                                     </select>
+       
 
                                 </td>
                             </tr>
@@ -402,6 +400,7 @@
                     <input type="submit" value="Modificar" name="btnAccion" class="btn btn-info" style="margin-left: 650px"/>    
                 </form>
             </c:when>
+
 
             
         </c:choose>
