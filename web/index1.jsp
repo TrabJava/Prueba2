@@ -34,6 +34,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </head>
 
     <body>
+        
+        <%
+                        if (request.getSession().getAttribute("mensajeLogin")!=null) {
+                            request.getSession().removeAttribute("mensajeLogin");
+                                
+                            }
+                        %>
         <!-- header -->
         <div class="header">
             <div class="w3layouts_header_left">
